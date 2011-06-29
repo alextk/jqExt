@@ -51,7 +51,7 @@ Finally, you can remove all the built files using the command:
 Building to a different directory
 ---------------------------------
 If you want to build jqExt to a directory that is different from the default location, you can specify the PREFIX
-directory: `make PREFIX=/home/craig/qtip/ [command]`
+directory: `make PREFIX=/home/alex/jqext/ [command]`
 
 With this example, the output files would end up in `/home/craig/qtip/dist/`.
 
