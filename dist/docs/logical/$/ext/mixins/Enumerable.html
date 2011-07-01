@@ -1,0 +1,857 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <title>jqExt</title>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">        
+        <script>
+
+			(function()
+			{
+			    var loc = window.location.protocol + '//' + window.location.hostname + window.location.pathname;
+                loc = loc.split('\\');
+                loc = loc.join('/');					    
+			    loc = loc.split('/');
+			    loc.pop();
+			    loc = loc.join('/');
+			    loc += '/' + '../../../../';
+			
+			    document.write("<base href='" + loc + "'></base>");
+			})();
+         
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="jgdoc.css">
+        <link rel="stylesheet" type="text/css" href="theme.css">
+        	    <script type="text/javascript" src="navTree.js"></script>
+	    <script type="text/javascript" src="jgdoc.js"></script>
+	</head>
+    <body>
+        <div class="startup" id="startup">
+            <div class="banner" id="banner">
+                <h1 class="projectName">
+	               <a href="./index.html">jqExt</a>   
+                </h1>
+                <div class="bar">
+	                 version 0.0.1
+	            </div>
+	         </div>
+             <div class="content" id="docContent">
+                  <div class="block">
+                        <div id="searchBlock">
+			                <div class="search" >
+			                    <div class="searchLabel">Search:</div>
+			                    <div class="searchBlock" style="height:100%">
+					                <input id="jgsSearchString" type="text" size="60" class="jgdSearchString"/>
+					                <div id="jgsSearchPanel" class="jgsSearchPanel" style="display:none">
+						                <div  class="jgdSearchRect" >
+						                    <div id="jgsSearchResults">
+						                        Loading....
+						                    </div>
+						                </div>
+					                   <div id="jgsInfo" class="jgsInfo" >No selection</div>
+                                    </div>
+                                 </div>
+			                </div>
+		                </div>
+		                <div id="docScroll" class="docScroll">
+		                    <div>
+			                    <hr/>
+						        <div>
+						        						        		<H2>
+        <span class="objType">Namespace</span> $.ext.mixins.Enumerable
+    </H2>
+    
+
+    <hr/>
+    <!-- description -->
+    <div>
+       <code>
+            <span class="modifiers"></span>
+            <span class="objType">namespace</span> 
+            <b>$.ext.mixins.Enumerable</b>
+       </code>
+    </div>
+                <div class="comment">Enumerable provides a large set of useful methods for enumerations ג€” objects that act as collections of values.
+ Enumerable is a mixin: a set of methods intended not for standaone use, but for incorporation into other objects.
+ jqExt mixes Enumerable into Array class (making all methods of Enumerable available on array instances).
+
+ </div>
+                                        <hr/> 
+    <p />
+    
+            	
+                                
+                    
+    
+                    
+            
+                <div class="summaryTable function">
+            <div class="summaryTableHeader">
+                <span class="objType">Function</span> Summary
+            </div>
+                    <div class="summaryItem">
+                                                                    <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type"><a href="logical/Array.html">Array</a></span>
+                <a href="logical/$/ext/mixins/Enumerable.html#___collect"><span class="elementName">collect</span></a>
+                (<span class="type"><a href="logical/Function.html">Function</a></span>
+ iterator, [<span class="type">Object</span>
+ context])
+            </div>          
+                <div class="summaryItemDesc">
+        Returns the result of applying `iterator` to each element. If no `iterator` is provided, the elements are simply copied to the returned array.    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                                    <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type"><a href="logical/$/ext/mixins/Enumerable.html">Enumerable</a></span>
+                <a href="logical/$/ext/mixins/Enumerable.html#___each"><span class="elementName">each</span></a>
+                (<span class="type"><a href="logical/Function.html">Function</a></span>
+ iterator, [<span class="type">Object</span>
+ context])
+            </div>          
+                <div class="summaryItemDesc">
+        Calls <tt>iterator</tt> for each item in the collection.    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                                    <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">int</span>
+                <a href="logical/$/ext/mixins/Enumerable.html#___findIndex"><span class="elementName">findIndex</span></a>
+                (<span class="type"><a href="logical/Function.html">Function</a></span>
+ iterator, [<span class="type">Object</span>
+ context])
+            </div>          
+                <div class="summaryItemDesc">
+        Finds index of the first element for which iterator return truthy value.    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                                    <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">boolean</span>
+                <a href="logical/$/ext/mixins/Enumerable.html#___include"><span class="elementName">include</span></a>
+                (<span class="type">Object</span>
+ item)
+            </div>          
+                <div class="summaryItemDesc">
+        Checks if given object included in this collection. Comparison is based on `==` comparison
+ operator (equality with implicit type conversion)    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                                    <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type"><a href="logical/Array.html">Array</a></span>
+                <a href="logical/$/ext/mixins/Enumerable.html#___invoke"><span class="elementName">invoke</span></a>
+                (<span class="type"><a href="logical/String.html">String</a></span>
+ method, [<span class="type">...</span>
+ args])
+            </div>          
+                <div class="summaryItemDesc">
+        Invokes the same method, with the same arguments, for all items in a collection. Returns an array of the results of the method calls.    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type"><a href="logical/Array.html">Array</a></span>
+                <a href="logical/$/ext/mixins/Enumerable.html#___map"><span class="elementName">map</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        alias for <a href="logical/$/ext/mixins/Enumerable.html#___collect">collect</a>    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                                    <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">?</span>
+                <a href="logical/$/ext/mixins/Enumerable.html#___max"><span class="elementName">max</span></a>
+                ([<span class="type"><a href="logical/Function.html">Function</a></span>
+ iterator], [<span class="type">Object</span>
+ context])
+            </div>          
+                <div class="summaryItemDesc">
+        Returns the maximum element (or element-based `iterator` result), or `undefined` if the enumeration is empty.    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                                    <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">?</span>
+                <a href="logical/$/ext/mixins/Enumerable.html#___min"><span class="elementName">min</span></a>
+                ([<span class="type"><a href="logical/Function.html">Function</a></span>
+ iterator], [<span class="type">Object</span>
+ context])
+            </div>          
+                <div class="summaryItemDesc">
+        Returns the minimum element (or element-based `iterator` result), or `undefined` if the enumeration is empty.    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                                    <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type"><a href="logical/Array.html">Array</a></span>
+                <a href="logical/$/ext/mixins/Enumerable.html#___property"><span class="elementName">property</span></a>
+                (<span class="type"><a href="logical/String.html">String</a></span>
+ property)
+            </div>          
+                <div class="summaryItemDesc">
+        Fetches the same property for all items in a collection. Returns an array of the results of the property values.    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                                    <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type"><a href="logical/Array.html">Array</a></span>
+                <a href="logical/$/ext/mixins/Enumerable.html#___select"><span class="elementName">select</span></a>
+                (<span class="type"><a href="logical/Function.html">Function</a></span>
+ iterator, [<span class="type">Object</span>
+ context])
+            </div>          
+                <div class="summaryItemDesc">
+        Returns all the elements for which the iterator returned a truthy value.    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                                    <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">int</span>
+                <a href="logical/$/ext/mixins/Enumerable.html#___sum"><span class="elementName">sum</span></a>
+                ([<span class="type"><a href="logical/Function.html">Function</a></span>
+ iterator], [<span class="type">Object</span>
+ context])
+            </div>          
+                <div class="summaryItemDesc">
+        Returns sum of all collection items (or element-based `iterator` result), or `0` if the enumeration is empty.    </div>  
+                            </div>
+                </div>
+        <p/>
+                
+                    <!-- ============== Details coming here =================== -->
+    	    	    	    	            <div class="details function">
+            <h2 class="sectionHeader">Function Details</h2>
+                                                                    <h3>
+        <a name="___collect">
+            <span class="objType">function</span>
+            <span class="objName">collect</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type"><a href="logical/Array.html">Array</a></span>
+                    collect(<span class="type"><a href="logical/Function.html">Function</a></span>
+ iterator, [<span class="type">Object</span>
+ context])
+                </code> 
+            </div>          
+                <div class="comment">
+        Returns the result of applying `iterator` to each element. If no `iterator` is provided, the elements are simply copied to the returned array.
+
+ <h6>Examples:</h6>
+ <pre>
+  ['Hitch', "Hiker's", 'Guide', 'to', 'the', 'Galaxy'].collect(function(s) {
+    return s.charAt(0).toUpperCase();
+  });
+  // -> ['H', 'H', 'G', 'T', 'T', 'G']
+
+  [1,2,3,4,5].collect(function(n) {
+    return n * n;
+  });
+  // -> [1, 4, 9, 16, 25]
+ </pre>
+
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"></div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            iterator        </code>
+         - The iterator function to apply to each element in the enumeration. The function result is what will be returned for that item.            </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            [context]        </code>
+         - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.            </div>   
+                                        </div>
+                </div>
+                    </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             the result of applying `iterator` to each element
+
+	            	        </div>
+        </div>      
+                                                <hr/>       
+                                                                                    <h3>
+        <a name="___each">
+            <span class="objType">function</span>
+            <span class="objName">each</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type"><a href="logical/$/ext/mixins/Enumerable.html">Enumerable</a></span>
+                    each(<span class="type"><a href="logical/Function.html">Function</a></span>
+ iterator, [<span class="type">Object</span>
+ context])
+                </code> 
+            </div>          
+                <div class="comment">
+        Calls <tt>iterator</tt> for each item in the collection.
+
+ <h6>Example:</h6>
+ <pre>
+  ['one', 'two', 'three'].each(alert);
+  // Alerts "one", then alerts "two", then alerts "three"
+ </pre>
+
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"></div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            iterator        </code>
+         - A <tt>Function(item, index)</tt> that expects an item in the collection as the first argument and a numerical index as the second.            </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            [context]        </code>
+         - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.            </div>   
+                                        </div>
+                </div>
+                    </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             this enumerable instance
+	            	        </div>
+        </div>      
+                                                <hr/>       
+                                                                                    <h3>
+        <a name="___findIndex">
+            <span class="objType">function</span>
+            <span class="objName">findIndex</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">int</span>
+                    findIndex(<span class="type"><a href="logical/Function.html">Function</a></span>
+ iterator, [<span class="type">Object</span>
+ context])
+                </code> 
+            </div>          
+                <div class="comment">
+        Finds index of the first element for which iterator return truthy value.
+
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"></div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            iterator        </code>
+         - The iterator function to apply to each element in the enumeration            </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            [context]        </code>
+         - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.            </div>   
+                                        </div>
+                </div>
+                    </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             index of the first element for which iterator returns true or -1
+     	            	        </div>
+        </div>      
+                                                <hr/>       
+                                                                                    <h3>
+        <a name="___include">
+            <span class="objType">function</span>
+            <span class="objName">include</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">boolean</span>
+                    include(<span class="type">Object</span>
+ item)
+                </code> 
+            </div>          
+                <div class="comment">
+        Checks if given object included in this collection. Comparison is based on `==` comparison
+ operator (equality with implicit type conversion)
+
+ <h6>Examples:</h6>
+ <pre>
+  [1,4,10,2,22].include(10);
+  // -> true
+
+  ['hello', 'world'].include('HELLO');
+  // -> false ('hello' != 'HELLO')
+
+  [1, 2, '3', '4', '5'].include(3);
+  // -> true ('3' == 3)
+ </pre>
+ 
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"></div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            item        </code>
+         - the object to check for inclusion in this collection            </div>   
+                                        </div>
+                </div>
+                    </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             true if given object is included
+	            	        </div>
+        </div>      
+                                                <hr/>       
+                                                                                    <h3>
+        <a name="___invoke">
+            <span class="objType">function</span>
+            <span class="objName">invoke</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type"><a href="logical/Array.html">Array</a></span>
+                    invoke(<span class="type"><a href="logical/String.html">String</a></span>
+ method, [<span class="type">...</span>
+ args])
+                </code> 
+            </div>          
+                <div class="comment">
+        Invokes the same method, with the same arguments, for all items in a collection. Returns an array of the results of the method calls.
+
+ <h6>Examples:</h6>
+ <pre>
+  ['hello', 'world'].invoke('toUpperCase');
+  // -> ['HELLO', 'WORLD']
+
+  ['hello', 'world'].invoke('substring', 0, 3);
+  // -> ['hel', 'wor']
+
+  [1, 2, '3', '4', '5'].include(3);
+  // -> true ('3' == 3)
+ </pre>
+ 
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"></div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            method        </code>
+         - name of the method to invoke.            </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            [args]        </code>
+         - optional arguments to pass to the method.            </div>   
+                                        </div>
+                </div>
+                    </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             array of the results of the method calls.
+	            	        </div>
+        </div>      
+                                                <hr/>       
+                                                                                    <h3>
+        <a name="___map">
+            <span class="objType">function</span>
+            <span class="objName">map</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type"><a href="logical/Array.html">Array</a></span>
+                    map()
+                </code>
+            </div>    
+        <div class="comment">
+        alias for <a href="logical/$/ext/mixins/Enumerable.html#___collect">collect</a>
+     </div>
+                                                    <hr/>       
+                                                                                    <h3>
+        <a name="___max">
+            <span class="objType">function</span>
+            <span class="objName">max</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">?</span>
+                    max([<span class="type"><a href="logical/Function.html">Function</a></span>
+ iterator], [<span class="type">Object</span>
+ context])
+                </code> 
+            </div>          
+                <div class="comment">
+        Returns the maximum element (or element-based `iterator` result), or `undefined` if the enumeration is empty.
+
+ Elements are either compared directly, or by first calling `iterator` and comparing returned values.
+ If multiple "max" elements (or results) are equivalent, the one closest
+ to the end of the enumeration is returned.
+
+ If provided, `iterator` is called with two arguments: The element being
+ evaluated, and its index in the enumeration; it should return the value
+ `max` should consider (and potentially return).
+
+ <h6>Examples:</h6>
+ <pre>
+  ['c', 'b', 'a'].max();
+  // -> 'c'
+
+  [1, 3, '3', 2].max();
+  // -> '3' (because both 3 and '3' are "max", and '3' was later)
+
+  ['zero', 'one', 'two'].max(function(item) { return item.length; });
+  // -> 4
+ </pre>
+ 
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"></div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            [iterator]        </code>
+         - An optional function to use to evaluate each element in the enumeration; the function should return the value to test. If this is not provided, the element itself is tested.            </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            [context]        </code>
+         - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.            </div>   
+                                        </div>
+                </div>
+                    </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             maxiumum element of the enumeration
+	            	        </div>
+        </div>      
+                                                <hr/>       
+                                                                                    <h3>
+        <a name="___min">
+            <span class="objType">function</span>
+            <span class="objName">min</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">?</span>
+                    min([<span class="type"><a href="logical/Function.html">Function</a></span>
+ iterator], [<span class="type">Object</span>
+ context])
+                </code> 
+            </div>          
+                <div class="comment">
+        Returns the minimum element (or element-based `iterator` result), or `undefined` if the enumeration is empty.
+
+ Elements are either compared directly, or by first calling `iterator` and comparing returned values.
+ If multiple "min" elements (or results) are equivalent, the one closest
+ to the beginning of the enumeration is returned.
+
+ If provided, `iterator` is called with two arguments: The element being
+ evaluated, and its index in the enumeration; it should return the value
+ `min` should consider (and potentially return).
+
+ <h6>Examples:</h6>
+ <pre>
+  ['c', 'b', 'a'].min();
+  // -> 'a'
+
+  [3, 1, '1', 2].min();
+  // -> 1 (because both 1 and '1' are "min", and 1 was earlier)
+
+  ['un', 'deux', 'trois'].min(function(item) { return item.length; });
+  // -> 2
+ </pre>
+
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"></div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            [iterator]        </code>
+         - An optional function to use to evaluate each element in the enumeration; the function should return the value to test. If this is not provided, the element itself is tested.            </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            [context]        </code>
+         - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.            </div>   
+                                        </div>
+                </div>
+                    </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             minimum element of the enumeration
+	            	        </div>
+        </div>      
+                                                <hr/>       
+                                                                                    <h3>
+        <a name="___property">
+            <span class="objType">function</span>
+            <span class="objName">property</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type"><a href="logical/Array.html">Array</a></span>
+                    property(<span class="type"><a href="logical/String.html">String</a></span>
+ property)
+                </code> 
+            </div>          
+                <div class="comment">
+        Fetches the same property for all items in a collection. Returns an array of the results of the property values.
+
+ <h6>Examples:</h6>
+ <pre>
+  ['hello', 'world', 'this', 'is', 'nice'].property('length');
+  // -> [5, 5, 4, 2, 4]
+
+  ['hello', 'world'].invoke('substring', 0, 3);
+  // -> ['hel', 'wor']
+
+  [1, 2, '3', '4', '5'].include(3);
+  // -> true ('3' == 3)
+ </pre>
+
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"></div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            property        </code>
+         - name of the property to return.            </div>   
+                                        </div>
+                </div>
+                    </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             array of the values of property on collection items
+	            	        </div>
+        </div>      
+                                                <hr/>       
+                                                                                    <h3>
+        <a name="___select">
+            <span class="objType">function</span>
+            <span class="objName">select</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type"><a href="logical/Array.html">Array</a></span>
+                    select(<span class="type"><a href="logical/Function.html">Function</a></span>
+ iterator, [<span class="type">Object</span>
+ context])
+                </code> 
+            </div>          
+                <div class="comment">
+        Returns all the elements for which the iterator returned a truthy value.
+
+ <h6>Example:</h6>
+ <pre>
+  [1, 'two', 3, 'four', 5].select($.isString);
+  // -> ['two', 'four']
+ </pre>
+
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"></div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            iterator        </code>
+         - An iterator function to use to test the elements.            </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            [context]        </code>
+         - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.            </div>   
+                                        </div>
+                </div>
+                    </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             array of elements for which iterater returned true
+	            	        </div>
+        </div>      
+                                                <hr/>       
+                                                                                    <h3>
+        <a name="___sum">
+            <span class="objType">function</span>
+            <span class="objName">sum</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">int</span>
+                    sum([<span class="type"><a href="logical/Function.html">Function</a></span>
+ iterator], [<span class="type">Object</span>
+ context])
+                </code> 
+            </div>          
+                <div class="comment">
+        Returns sum of all collection items (or element-based `iterator` result), or `0` if the enumeration is empty.
+
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"></div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            [iterator]        </code>
+         - An optional function to use to evaluate each element in the enumeration; the function should return the value to add to sum. If this is not provided, the element itself is added.            </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            [context]        </code>
+         - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.            </div>   
+                                        </div>
+                </div>
+                    </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             sum of all collection items
+     	            	        </div>
+        </div>      
+                                                <hr/>       
+                                    </div>
+    	    	                                    						        </div>
+        		          </div>			                    
+		                </div>
+        	       </div>
+             </div>
+             <div class="navigation" id="navigation">
+    <ul class="navContent">
+        <li>
+            <div class="navTree">
+                <h2 onclick="jgdoc.NavPanel.clicked(event)">
+                    <a href="javascript:jgdoc.NavPanel.dummy()">Navigation</a>
+                </h2>
+                <ul class="navContent2">
+                    <li>
+                        <div>
+                            <a class="openAll" href="javascript:jgdoc.NavTree.onOpenAll()">Open All</a>
+                            <a class="closeAll" href="javascript:jgdoc.NavTree.onCloseAll()">Close All</a>
+                        </div>
+                        <div>
+                            <ul id = "content" class="contents">
+                                Loading...
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <ul class="navContent closed">
+        <li>
+            <div class="fileTree">
+                <h2 onclick="jgdoc.NavPanel.clicked(event)">
+                    <a href="javascript:jgdoc.NavPanel.dummy()">Files</a>
+                </h2>
+                <ul class="navContent2">
+                    <li>
+                                                                                <div>
+                                <a href="physical/file-base.js.html">base.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/array.js.html">core/array.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/date.js.html">core/date.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/enumerable.js.html">core/enumerable.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/event.js.html">core/event.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/function.js.html">core/function.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/is.js.html">core/is.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/regexp.js.html">core/regexp.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/string.js.html">core/string.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-oop/inheritance.js.html">oop/inheritance.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-oop/observable.js.html">oop/observable.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-utils/system-info.js.html">utils/system-info.js</a>
+                            </div>                              
+                                                                        </li>
+                </ul>
+            </div>
+        </li>       
+    </ul>
+    <ul class="navContent closed">
+        <li>
+            <div class="moduleTree">
+                <h2 onclick="jgdoc.NavPanel.clicked(event)">
+                    <a href="javascript:jgdoc.NavPanel.dummy()">Modules</a>
+                </h2>
+                <ul class="navContent2">
+                    <li>
+                                            </li>
+                </ul>
+            </div>
+        </li>       
+    </ul>
+</div>  
+    
+		</div>	
+	</body>
+    <script type="text/javascript">
+        jgdoc.Searcher.start();
+        jgdoc.NavTree.initialize("$.ext.mixins.Enumerable");
+    </script>			
+	<script type="text/javascript" src="jsindex.js">
+    </script>
+</html>

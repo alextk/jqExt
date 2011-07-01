@@ -1,14 +1,16 @@
-jQuery.extend(String.prototype, {
+jQuery.extend(String.prototype, /** @scope String */{
 
   /**
-   * Replace this string {0},{1},{2},etc tokens (variables) with passed arguments.
-   * {0} corresponds to first argument, {1} to second, etc.
-   * @example
+   * <pre>
    * "This is a {0} string using the {1} method".format("formatted", "inline")
    * //will return: "This is a formatted string using the inline method"
+   * </pre>
    *
-   * @param  {String...} args variable number of arguments to act as variables into the string format
-   * @returns {String} formatted string as described above
+   * @function {public String} ?
+   * Replace this string {0},{1},{2}... tokens (variables) with passed arguments.
+   * {0} corresponds to first argument, {1} to second, etc.
+   * @param  {String...} args - variable number of arguments to act as variables into the string format
+   * @returns formatted string as described above
    */
   format: function() {
     var txt = this;
@@ -20,7 +22,7 @@ jQuery.extend(String.prototype, {
   },
 
   /**
-   * @function {public boolean} String.?
+   * @function {public boolean} ?
    * This method checks if this string starts with given string as parameter
    * @param {String} other - string to check if this string starts with
    * @returns true if this string starts with given string
@@ -30,7 +32,7 @@ jQuery.extend(String.prototype, {
   },
 
   /**
-   * @function {public boolean} String.?
+   * @function {public boolean} ?
    * This method checks if given string is included in this string
    * @param anotherString {String} - check if it is contained in this string instance
    * @returns true if given string is included in this string
@@ -40,7 +42,7 @@ jQuery.extend(String.prototype, {
   },
 
   /**
-   * @function {public boolean} String.?
+   * @function {public boolean} ?
    * This method checks if this string ends with given string as parameter
    * @param {String} other - string to check if this string ends with
    * @returns true if this string ends with given string
@@ -51,7 +53,7 @@ jQuery.extend(String.prototype, {
   },
 
   /**
-   * @function {public String} String.?
+   * @function {public String} ?
    * Removes all whitespace from start and end of this string
    * @returns new string with all whiteshapce removed from the start and end of this string
    */

@@ -8,7 +8,7 @@ body {
 
 pre
 {
-	margin: 1em 0;
+	margin: 5px 0;
 	font-size: 12px;
 	background-color: #EEE;
 	border: 1px solid #DDD;
@@ -20,6 +20,13 @@ pre
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
+}
+
+h6 {
+  margin: 0px;
+  padding: 0px;
+  font-size: 14px;
+  margin-top: 12px;
 }
 
 tt

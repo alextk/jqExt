@@ -1,7 +1,7 @@
-jQuery.extend(Date.prototype, {
+jQuery.extend(Date.prototype, /** @scope Date */{
 
   /**
-   * @function {public long} Array.?
+   * @function {public long} ?
    * Returns number of miliseconds between given date and this date. If date is not given, return number of miliseconds elapsed from now
    * @param {optional Date} from - calculate elapsed miliseconds from this date to given from date. Defaults to now date.
    * @returns number of miliseconds between given date and this date. if date is not given, return number of miliseconds elapsed from now

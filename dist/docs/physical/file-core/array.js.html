@@ -13,7 +13,7 @@
 			    loc = loc.split('/');
 			    loc.pop();
 			    loc = loc.join('/');
-			    loc += '/' + '../';
+			    loc += '/' + '../../';
 			
 			    document.write("<base href='" + loc + "'></base>");
 			})();
@@ -58,7 +58,7 @@
 			                    <hr/>
 						        <div>
 						        						        		<H2>
-        <span class="objType">Namespace</span> $
+        <span class="objType">File</span> core/array.js
     </H2>
     
 
@@ -67,30 +67,15 @@
     <div>
        <code>
             <span class="modifiers"></span>
-            <span class="objType">namespace</span> 
-            <b>$</b>
+            <span class="objType">file</span> 
+            <b>core/array.js</b>
        </code>
     </div>
                                             <hr/> 
     <p />
     
             	
-                <div class="summaryTable class">
-            <div class="summaryTableHeader">
-                <span class="objType"> Class</span> Summary
-            </div>
-                    <div class="summaryItem">
-                                        <div class="summaryItemDef">
-        <span class="elementName">
-            <a href="logical/$/Event.html">$.Event</a>
-        </span>
-    </div>
-    <div class="summaryItemDesc">
-        jQuery event object extended functionality documentation    </div>
-                            </div>
-                </div>
-        <p/>
-                            
+                                
                     
     
                     
@@ -100,64 +85,87 @@
                 <span class="objType">Function</span> Summary
             </div>
                     <div class="summaryItem">
-                                                                    <div class="summaryItemDef">
-                <span class="modifiers">public static</span>
-                <span class="type">boolean</span>
-                <a href="logical/$.html#___isBoolean"><span class="elementName">isBoolean</span></a>
-                (<span class="type"></span>
- obj)
-            </div>          
-                <div class="summaryItemDesc">
-        
-     </div>  
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type"><a href="logical/Array.html">Array</a></span>
+                <a href="logical/Array.html#___clear"><span class="elementName">clear</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        Clears the array (makes it empty) and returns the array reference.    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type"><a href="logical/Array.html">Array</a></span>
+                <a href="logical/Array.html#___clone"><span class="elementName">clone</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        Returns a duplicate of the array, leaving the original array intact.    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">?</span>
+                <a href="logical/Array.html#___first"><span class="elementName">first</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        Returns array's first item (e.g. <tt>array[0]</tt>).    </div>  
                             </div>
                     <div class="summaryItem">
                                                                     <div class="summaryItemDef">
-                <span class="modifiers">public static</span>
-                <span class="type">boolean</span>
-                <a href="logical/$.html#___isDate"><span class="elementName">isDate</span></a>
-                (<span class="type"></span>
- obj)
+                <span class="modifiers">public</span>
+                <span class="type">int</span>
+                <a href="logical/Array.html#___indexOf"><span class="elementName">indexOf</span></a>
+                (<span class="type">?</span>
+ item, [<span class="type">int</span>
+ offset])
             </div>          
                 <div class="summaryItemDesc">
-        
-     </div>  
+        Returns the index of the first occurrence of <tt>item</tt> within the array,
+ or <tt>-1</tt> if <tt>item</tt> doesn't exist in the array. Compares items using *strict equality* (===).    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">?</span>
+                <a href="logical/Array.html#___last"><span class="elementName">last</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        Returns array's last item (e.g. <tt>array[array.length - 1]</tt>).    </div>  
                             </div>
                     <div class="summaryItem">
                                                                     <div class="summaryItemDef">
-                <span class="modifiers">public static</span>
-                <span class="type">boolean</span>
-                <a href="logical/$.html#___isNumber"><span class="elementName">isNumber</span></a>
-                (<span class="type"></span>
- obj)
+                <span class="modifiers">public</span>
+                <span class="type">int</span>
+                <a href="logical/Array.html#___lastIndexOf"><span class="elementName">lastIndexOf</span></a>
+                (<span class="type">?</span>
+ item, [<span class="type">int</span>
+ offset])
             </div>          
                 <div class="summaryItemDesc">
-        
-     </div>  
+        Returns the position of the last occurrence of <tt>item</tt> within the array or <tt>-1</tt> if <tt>item</tt> doesn't exist in the array.    </div>  
                             </div>
                     <div class="summaryItem">
                                                                     <div class="summaryItemDef">
-                <span class="modifiers">public static</span>
-                <span class="type">boolean</span>
-                <a href="logical/$.html#___isString"><span class="elementName">isString</span></a>
-                (<span class="type"></span>
- obj)
+                <span class="modifiers">public</span>
+                <span class="type"><a href="logical/Array.html">Array</a></span>
+                <a href="logical/Array.html#___remove"><span class="elementName">remove</span></a>
+                (<span class="type">?</span>
+ item)
             </div>          
                 <div class="summaryItemDesc">
-        
-     </div>  
+        Remove given item from this array instance. Note if multiple occurences of this item are present, only the first one is removed.    </div>  
                             </div>
                     <div class="summaryItem">
                                                                     <div class="summaryItemDef">
-                <span class="modifiers">public static</span>
-                <span class="type">boolean</span>
-                <a href="logical/$.html#___isUndefined"><span class="elementName">isUndefined</span></a>
-                (<span class="type"></span>
- obj)
+                <span class="modifiers">public</span>
+                <span class="type"><a href="logical/Array.html">Array</a></span>
+                <a href="logical/Array.html#___removeAt"><span class="elementName">removeAt</span></a>
+                (<span class="type">int</span>
+ index)
             </div>          
                 <div class="summaryItemDesc">
-        
-     </div>  
+        Remove item at specified index. Modifies this instance of array.    </div>  
                             </div>
                 </div>
         <p/>
@@ -166,81 +174,105 @@
     	    	    	    	            <div class="details function">
             <h2 class="sectionHeader">Function Details</h2>
                                                                     <h3>
-        <a name="___isBoolean">
+        <a name="___clear">
             <span class="objType">function</span>
-            <span class="objName">isBoolean</span>            
+            <span class="objName">clear</span>            
         </a> 
     </h3>
-                        <div>
+                <div>
                 <code>
-                    <span class="modifiers">public static</span>
-                    <span class="type">boolean</span>
-                    isBoolean(<span class="type"></span>
- obj)
-                </code> 
-            </div>          
-                <div class="comment">
-        
+                    <span class="modifiers">public</span>
+                    <span class="type"><a href="logical/Array.html">Array</a></span>
+                    clear()
+                </code>
+            </div>    
+        <div class="comment">
+        Clears the array (makes it empty) and returns the array reference.
+
+ <h6>Example:</h6>
+ <pre>
+  var stuff = ['Apple', 'Orange', 'Juice', 'Blue'];
+  stuff.clear();
+  // -> []
+  stuff
+  // -> []
+ </pre>
+
      </div>
-        	<div class="parameters">
-        <span class="descSection">Parameters:</span><br/>
-                            <div>
-                    <div class="paramset"></div>
-                    <div>
-                                                <div class="param paddedDetails">
-        <code>
-            obj        </code>
-                    </div>   
-                                        </div>
-                </div>
-                    </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             new string with all whiteshapce removed from the start and end of this string
+     	            	        </div>
+        </div>      
+                                                <hr/>       
+                                                                                    <h3>
+        <a name="___clone">
+            <span class="objType">function</span>
+            <span class="objName">clone</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type"><a href="logical/Array.html">Array</a></span>
+                    clone()
+                </code>
+            </div>    
+        <div class="comment">
+        Returns a duplicate of the array, leaving the original array intact.
+
+     </div>
                                                     <hr/>       
                                                                                     <h3>
-        <a name="___isDate">
+        <a name="___first">
             <span class="objType">function</span>
-            <span class="objName">isDate</span>            
+            <span class="objName">first</span>            
         </a> 
     </h3>
-                        <div>
+                <div>
                 <code>
-                    <span class="modifiers">public static</span>
-                    <span class="type">boolean</span>
-                    isDate(<span class="type"></span>
- obj)
-                </code> 
-            </div>          
-                <div class="comment">
-        
+                    <span class="modifiers">public</span>
+                    <span class="type">?</span>
+                    first()
+                </code>
+            </div>    
+        <div class="comment">
+        Returns array's first item (e.g. <tt>array[0]</tt>).
+
      </div>
-        	<div class="parameters">
-        <span class="descSection">Parameters:</span><br/>
-                            <div>
-                    <div class="paramset"></div>
-                    <div>
-                                                <div class="param paddedDetails">
-        <code>
-            obj        </code>
-                    </div>   
-                                        </div>
-                </div>
-                    </div>
                                                     <hr/>       
                                                                                     <h3>
-        <a name="___isNumber">
+        <a name="___indexOf">
             <span class="objType">function</span>
-            <span class="objName">isNumber</span>            
+            <span class="objName">indexOf</span>            
         </a> 
     </h3>
                         <div>
                 <code>
-                    <span class="modifiers">public static</span>
-                    <span class="type">boolean</span>
-                    isNumber(<span class="type"></span>
- obj)
+                    <span class="modifiers">public</span>
+                    <span class="type">int</span>
+                    indexOf(<span class="type">?</span>
+ item, [<span class="type">int</span>
+ offset])
                 </code> 
             </div>          
                 <div class="comment">
-        
+        Returns the index of the first occurrence of <tt>item</tt> within the array,
+ or <tt>-1</tt> if <tt>item</tt> doesn't exist in the array. Compares items using *strict equality* (===).
+
+ <h6>Example:</h6>
+ <pre>
+  [3, 5, 6, 1, 20].indexOf(1)
+  // -> 3
+
+  [3, 5, 6, 1, 20].indexOf(90)
+  // -> -1 (not found)
+
+  ['1', '2', '3'].indexOf(1);
+  // -> -1 (not found, 1 !== '1')
+ </pre>
+
      </div>
         	<div class="parameters">
         <span class="descSection">Parameters:</span><br/>
@@ -249,28 +281,58 @@
                     <div>
                                                 <div class="param paddedDetails">
         <code>
-            obj        </code>
-                    </div>   
+            item        </code>
+         - value that may or may not be in the array.            </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            [offset]        </code>
+         - number of initial items to skip before beginning the search.            </div>   
                                         </div>
                 </div>
                     </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             index of first occurence of <tt>item</tt> in the array or <tt>-1</tt> if not found.
+	            	        </div>
+        </div>      
+                                                <hr/>       
+                                                                                    <h3>
+        <a name="___last">
+            <span class="objType">function</span>
+            <span class="objName">last</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">?</span>
+                    last()
+                </code>
+            </div>    
+        <div class="comment">
+        Returns array's last item (e.g. <tt>array[array.length - 1]</tt>).
+
+     </div>
                                                     <hr/>       
                                                                                     <h3>
-        <a name="___isString">
+        <a name="___lastIndexOf">
             <span class="objType">function</span>
-            <span class="objName">isString</span>            
+            <span class="objName">lastIndexOf</span>            
         </a> 
     </h3>
                         <div>
                 <code>
-                    <span class="modifiers">public static</span>
-                    <span class="type">boolean</span>
-                    isString(<span class="type"></span>
- obj)
+                    <span class="modifiers">public</span>
+                    <span class="type">int</span>
+                    lastIndexOf(<span class="type">?</span>
+ item, [<span class="type">int</span>
+ offset])
                 </code> 
             </div>          
                 <div class="comment">
-        
+        Returns the position of the last occurrence of <tt>item</tt> within the array or <tt>-1</tt> if <tt>item</tt> doesn't exist in the array.
+
      </div>
         	<div class="parameters">
         <span class="descSection">Parameters:</span><br/>
@@ -279,28 +341,43 @@
                     <div>
                                                 <div class="param paddedDetails">
         <code>
-            obj        </code>
-                    </div>   
+            item        </code>
+         - value that may or may not be in the array.            </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            [offset]        </code>
+         - number of items at the end to skip before beginning the search.            </div>   
                                         </div>
                 </div>
                     </div>
-                                                    <hr/>       
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             position of the last occurrence of <tt>item</tt> within the array or <tt>-1</tt> if not found
+ 	            	        </div>
+        </div>      
+                            <div class="seealso">
+            <span class="descSection">See also:</span>
+                            <div class="paddedDetails"><a href="logical/Array.html#___indexOf">indexOf</a></div>
+                    </div>      
+                                <hr/>       
                                                                                     <h3>
-        <a name="___isUndefined">
+        <a name="___remove">
             <span class="objType">function</span>
-            <span class="objName">isUndefined</span>            
+            <span class="objName">remove</span>            
         </a> 
     </h3>
                         <div>
                 <code>
-                    <span class="modifiers">public static</span>
-                    <span class="type">boolean</span>
-                    isUndefined(<span class="type"></span>
- obj)
+                    <span class="modifiers">public</span>
+                    <span class="type"><a href="logical/Array.html">Array</a></span>
+                    remove(<span class="type">?</span>
+ item)
                 </code> 
             </div>          
                 <div class="comment">
-        
+        Remove given item from this array instance. Note if multiple occurences of this item are present, only the first one is removed.
+
      </div>
         	<div class="parameters">
         <span class="descSection">Parameters:</span><br/>
@@ -309,12 +386,55 @@
                     <div>
                                                 <div class="param paddedDetails">
         <code>
-            obj        </code>
-                    </div>   
+            item        </code>
+         - remove this item from array            </div>   
                                         </div>
                 </div>
                     </div>
-                                                    <hr/>       
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             this array instance
+     	            	        </div>
+        </div>      
+                                                <hr/>       
+                                                                                    <h3>
+        <a name="___removeAt">
+            <span class="objType">function</span>
+            <span class="objName">removeAt</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type"><a href="logical/Array.html">Array</a></span>
+                    removeAt(<span class="type">int</span>
+ index)
+                </code> 
+            </div>          
+                <div class="comment">
+        Remove item at specified index. Modifies this instance of array.
+
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"></div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            index        </code>
+         - index to remove item at            </div>   
+                                        </div>
+                </div>
+                    </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             this array instance
+     	            	        </div>
+        </div>      
+                                                <hr/>       
                                     </div>
     	    	                                    						        </div>
         		          </div>			                    
@@ -322,7 +442,7 @@
         	       </div>
              </div>
              <div class="navigation" id="navigation">
-    <ul class="navContent">
+    <ul class="navContent closed">
         <li>
             <div class="navTree">
                 <h2 onclick="jgdoc.NavPanel.clicked(event)">
@@ -344,7 +464,7 @@
             </div>
         </li>
     </ul>
-    <ul class="navContent closed">
+    <ul class="navContent">
         <li>
             <div class="fileTree">
                 <h2 onclick="jgdoc.NavPanel.clicked(event)">
@@ -412,7 +532,7 @@
 	</body>
     <script type="text/javascript">
         jgdoc.Searcher.start();
-        jgdoc.NavTree.initialize("$");
+        jgdoc.NavTree.initialize("file-core/array.js");
     </script>			
 	<script type="text/javascript" src="jsindex.js">
     </script>

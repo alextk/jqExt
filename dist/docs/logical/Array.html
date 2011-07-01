@@ -85,15 +85,87 @@
                 <span class="objType">Function</span> Summary
             </div>
                     <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type"><a href="logical/Array.html">Array</a></span>
+                <a href="logical/Array.html#___clear"><span class="elementName">clear</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        Clears the array (makes it empty) and returns the array reference.    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type"><a href="logical/Array.html">Array</a></span>
+                <a href="logical/Array.html#___clone"><span class="elementName">clone</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        Returns a duplicate of the array, leaving the original array intact.    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">?</span>
+                <a href="logical/Array.html#___first"><span class="elementName">first</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        Returns array's first item (e.g. <tt>array[0]</tt>).    </div>  
+                            </div>
+                    <div class="summaryItem">
                                                                     <div class="summaryItemDef">
                 <span class="modifiers">public</span>
-                <span class="type">long</span>
-                <a href="logical/Array.html#___getElapsed"><span class="elementName">getElapsed</span></a>
-                ([<span class="type">Date</span>
- from])
+                <span class="type">int</span>
+                <a href="logical/Array.html#___indexOf"><span class="elementName">indexOf</span></a>
+                (<span class="type">?</span>
+ item, [<span class="type">int</span>
+ offset])
             </div>          
                 <div class="summaryItemDesc">
-        Returns number of miliseconds between given date and this date. If date is not given, return number of miliseconds elapsed from now    </div>  
+        Returns the index of the first occurrence of <tt>item</tt> within the array,
+ or <tt>-1</tt> if <tt>item</tt> doesn't exist in the array. Compares items using *strict equality* (===).    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">?</span>
+                <a href="logical/Array.html#___last"><span class="elementName">last</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        Returns array's last item (e.g. <tt>array[array.length - 1]</tt>).    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                                    <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">int</span>
+                <a href="logical/Array.html#___lastIndexOf"><span class="elementName">lastIndexOf</span></a>
+                (<span class="type">?</span>
+ item, [<span class="type">int</span>
+ offset])
+            </div>          
+                <div class="summaryItemDesc">
+        Returns the position of the last occurrence of <tt>item</tt> within the array or <tt>-1</tt> if <tt>item</tt> doesn't exist in the array.    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                                    <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type"><a href="logical/Array.html">Array</a></span>
+                <a href="logical/Array.html#___remove"><span class="elementName">remove</span></a>
+                (<span class="type">?</span>
+ item)
+            </div>          
+                <div class="summaryItemDesc">
+        Remove given item from this array instance. Note if multiple occurences of this item are present, only the first one is removed.    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                                    <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type"><a href="logical/Array.html">Array</a></span>
+                <a href="logical/Array.html#___removeAt"><span class="elementName">removeAt</span></a>
+                (<span class="type">int</span>
+ index)
+            </div>          
+                <div class="summaryItemDesc">
+        Remove item at specified index. Modifies this instance of array.    </div>  
                             </div>
                 </div>
         <p/>
@@ -102,21 +174,104 @@
     	    	    	    	            <div class="details function">
             <h2 class="sectionHeader">Function Details</h2>
                                                                     <h3>
-        <a name="___getElapsed">
+        <a name="___clear">
             <span class="objType">function</span>
-            <span class="objName">getElapsed</span>            
+            <span class="objName">clear</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type"><a href="logical/Array.html">Array</a></span>
+                    clear()
+                </code>
+            </div>    
+        <div class="comment">
+        Clears the array (makes it empty) and returns the array reference.
+
+ <h6>Example:</h6>
+ <pre>
+  var stuff = ['Apple', 'Orange', 'Juice', 'Blue'];
+  stuff.clear();
+  // -> []
+  stuff
+  // -> []
+ </pre>
+
+     </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             new string with all whiteshapce removed from the start and end of this string
+     	            	        </div>
+        </div>      
+                                                <hr/>       
+                                                                                    <h3>
+        <a name="___clone">
+            <span class="objType">function</span>
+            <span class="objName">clone</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type"><a href="logical/Array.html">Array</a></span>
+                    clone()
+                </code>
+            </div>    
+        <div class="comment">
+        Returns a duplicate of the array, leaving the original array intact.
+
+     </div>
+                                                    <hr/>       
+                                                                                    <h3>
+        <a name="___first">
+            <span class="objType">function</span>
+            <span class="objName">first</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">?</span>
+                    first()
+                </code>
+            </div>    
+        <div class="comment">
+        Returns array's first item (e.g. <tt>array[0]</tt>).
+
+     </div>
+                                                    <hr/>       
+                                                                                    <h3>
+        <a name="___indexOf">
+            <span class="objType">function</span>
+            <span class="objName">indexOf</span>            
         </a> 
     </h3>
                         <div>
                 <code>
                     <span class="modifiers">public</span>
-                    <span class="type">long</span>
-                    getElapsed([<span class="type">Date</span>
- from])
+                    <span class="type">int</span>
+                    indexOf(<span class="type">?</span>
+ item, [<span class="type">int</span>
+ offset])
                 </code> 
             </div>          
                 <div class="comment">
-        Returns number of miliseconds between given date and this date. If date is not given, return number of miliseconds elapsed from now
+        Returns the index of the first occurrence of <tt>item</tt> within the array,
+ or <tt>-1</tt> if <tt>item</tt> doesn't exist in the array. Compares items using *strict equality* (===).
+
+ <h6>Example:</h6>
+ <pre>
+  [3, 5, 6, 1, 20].indexOf(1)
+  // -> 3
+
+  [3, 5, 6, 1, 20].indexOf(90)
+  // -> -1 (not found)
+
+  ['1', '2', '3'].indexOf(1);
+  // -> -1 (not found, 1 !== '1')
+ </pre>
 
      </div>
         	<div class="parameters">
@@ -126,16 +281,158 @@
                     <div>
                                                 <div class="param paddedDetails">
         <code>
-            [from]        </code>
-         - calculate elapsed miliseconds from this date to given from date. Defaults to now date.            </div>   
+            item        </code>
+         - value that may or may not be in the array.            </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            [offset]        </code>
+         - number of initial items to skip before beginning the search.            </div>   
                                         </div>
                 </div>
                     </div>
             	<div class="returns">
 	        <span class="descSection">Returns:</span><br/>
 	        <div class="paddedDetails">
-	            	             number of miliseconds between given date and this date. if date is not given, return number of miliseconds elapsed from now
-   	            	        </div>
+	            	             index of first occurence of <tt>item</tt> in the array or <tt>-1</tt> if not found.
+	            	        </div>
+        </div>      
+                                                <hr/>       
+                                                                                    <h3>
+        <a name="___last">
+            <span class="objType">function</span>
+            <span class="objName">last</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">?</span>
+                    last()
+                </code>
+            </div>    
+        <div class="comment">
+        Returns array's last item (e.g. <tt>array[array.length - 1]</tt>).
+
+     </div>
+                                                    <hr/>       
+                                                                                    <h3>
+        <a name="___lastIndexOf">
+            <span class="objType">function</span>
+            <span class="objName">lastIndexOf</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">int</span>
+                    lastIndexOf(<span class="type">?</span>
+ item, [<span class="type">int</span>
+ offset])
+                </code> 
+            </div>          
+                <div class="comment">
+        Returns the position of the last occurrence of <tt>item</tt> within the array or <tt>-1</tt> if <tt>item</tt> doesn't exist in the array.
+
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"></div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            item        </code>
+         - value that may or may not be in the array.            </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            [offset]        </code>
+         - number of items at the end to skip before beginning the search.            </div>   
+                                        </div>
+                </div>
+                    </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             position of the last occurrence of <tt>item</tt> within the array or <tt>-1</tt> if not found
+ 	            	        </div>
+        </div>      
+                            <div class="seealso">
+            <span class="descSection">See also:</span>
+                            <div class="paddedDetails"><a href="logical/Array.html#___indexOf">indexOf</a></div>
+                    </div>      
+                                <hr/>       
+                                                                                    <h3>
+        <a name="___remove">
+            <span class="objType">function</span>
+            <span class="objName">remove</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type"><a href="logical/Array.html">Array</a></span>
+                    remove(<span class="type">?</span>
+ item)
+                </code> 
+            </div>          
+                <div class="comment">
+        Remove given item from this array instance. Note if multiple occurences of this item are present, only the first one is removed.
+
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"></div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            item        </code>
+         - remove this item from array            </div>   
+                                        </div>
+                </div>
+                    </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             this array instance
+     	            	        </div>
+        </div>      
+                                                <hr/>       
+                                                                                    <h3>
+        <a name="___removeAt">
+            <span class="objType">function</span>
+            <span class="objName">removeAt</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type"><a href="logical/Array.html">Array</a></span>
+                    removeAt(<span class="type">int</span>
+ index)
+                </code> 
+            </div>          
+                <div class="comment">
+        Remove item at specified index. Modifies this instance of array.
+
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"></div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            index        </code>
+         - index to remove item at            </div>   
+                                        </div>
+                </div>
+                    </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             this array instance
+     	            	        </div>
         </div>      
                                                 <hr/>       
                                     </div>
@@ -179,7 +476,13 @@
                                 <a href="physical/file-base.js.html">base.js</a>
                             </div>                              
                                                                                                             <div>
+                                <a href="physical/file-core/array.js.html">core/array.js</a>
+                            </div>                              
+                                                                                                            <div>
                                 <a href="physical/file-core/date.js.html">core/date.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/enumerable.js.html">core/enumerable.js</a>
                             </div>                              
                                                                                                             <div>
                                 <a href="physical/file-core/event.js.html">core/event.js</a>

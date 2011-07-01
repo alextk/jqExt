@@ -344,6 +344,114 @@
            elementType : "logical_container"
        } ,         
        {
+           localName : "Enumerable",
+           fullName : "$.ext.mixins.Enumerable",
+           summary : "namespace Enumerable",
+           ref : "logical/$/ext/mixins/Enumerable.html",
+           parent : "$.ext.mixins",
+           type : "namespace",
+           elementType : "logical_container"
+       } ,         
+       {
+           localName : "collect",
+           fullName : "$.ext.mixins.Enumerable.collect",
+           summary : "public function Array collect(Function iterator, [Object context])",
+           ref : "logical/$/ext/mixins/Enumerable.html#___collect",
+           parent : "$.ext.mixins.Enumerable",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "each",
+           fullName : "$.ext.mixins.Enumerable.each",
+           summary : "public function Enumerable each(Function iterator, [Object context])",
+           ref : "logical/$/ext/mixins/Enumerable.html#___each",
+           parent : "$.ext.mixins.Enumerable",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "findIndex",
+           fullName : "$.ext.mixins.Enumerable.findIndex",
+           summary : "public function int findIndex(Function iterator, [Object context])",
+           ref : "logical/$/ext/mixins/Enumerable.html#___findIndex",
+           parent : "$.ext.mixins.Enumerable",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "include",
+           fullName : "$.ext.mixins.Enumerable.include",
+           summary : "public function boolean include(Object item)",
+           ref : "logical/$/ext/mixins/Enumerable.html#___include",
+           parent : "$.ext.mixins.Enumerable",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "invoke",
+           fullName : "$.ext.mixins.Enumerable.invoke",
+           summary : "public function Array invoke(String method, [... args])",
+           ref : "logical/$/ext/mixins/Enumerable.html#___invoke",
+           parent : "$.ext.mixins.Enumerable",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "map",
+           fullName : "$.ext.mixins.Enumerable.map",
+           summary : "public function Array map()",
+           ref : "logical/$/ext/mixins/Enumerable.html#___map",
+           parent : "$.ext.mixins.Enumerable",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "max",
+           fullName : "$.ext.mixins.Enumerable.max",
+           summary : "public function ? max([Function iterator], [Object context])",
+           ref : "logical/$/ext/mixins/Enumerable.html#___max",
+           parent : "$.ext.mixins.Enumerable",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "min",
+           fullName : "$.ext.mixins.Enumerable.min",
+           summary : "public function ? min([Function iterator], [Object context])",
+           ref : "logical/$/ext/mixins/Enumerable.html#___min",
+           parent : "$.ext.mixins.Enumerable",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "property",
+           fullName : "$.ext.mixins.Enumerable.property",
+           summary : "public function Array property(String property)",
+           ref : "logical/$/ext/mixins/Enumerable.html#___property",
+           parent : "$.ext.mixins.Enumerable",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "select",
+           fullName : "$.ext.mixins.Enumerable.select",
+           summary : "public function Array select(Function iterator, [Object context])",
+           ref : "logical/$/ext/mixins/Enumerable.html#___select",
+           parent : "$.ext.mixins.Enumerable",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "sum",
+           fullName : "$.ext.mixins.Enumerable.sum",
+           summary : "public function int sum([Function iterator], [Object context])",
+           ref : "logical/$/ext/mixins/Enumerable.html#___sum",
+           parent : "$.ext.mixins.Enumerable",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
            localName : "Observable",
            fullName : "$.ext.mixins.Observable",
            summary : "namespace Observable",
@@ -479,11 +587,92 @@
            elementType : "logical_container"
        } ,         
        {
-           localName : "getElapsed",
-           fullName : "Array.getElapsed",
-           summary : "public function long getElapsed([Date from])",
-           ref : "logical/Array.html#___getElapsed",
+           localName : "clear",
+           fullName : "Array.clear",
+           summary : "public function Array clear()",
+           ref : "logical/Array.html#___clear",
            parent : "Array",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "clone",
+           fullName : "Array.clone",
+           summary : "public function Array clone()",
+           ref : "logical/Array.html#___clone",
+           parent : "Array",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "first",
+           fullName : "Array.first",
+           summary : "public function ? first()",
+           ref : "logical/Array.html#___first",
+           parent : "Array",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "indexOf",
+           fullName : "Array.indexOf",
+           summary : "public function int indexOf(? item, [int offset])",
+           ref : "logical/Array.html#___indexOf",
+           parent : "Array",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "last",
+           fullName : "Array.last",
+           summary : "public function ? last()",
+           ref : "logical/Array.html#___last",
+           parent : "Array",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "lastIndexOf",
+           fullName : "Array.lastIndexOf",
+           summary : "public function int lastIndexOf(? item, [int offset])",
+           ref : "logical/Array.html#___lastIndexOf",
+           parent : "Array",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "remove",
+           fullName : "Array.remove",
+           summary : "public function Array remove(? item)",
+           ref : "logical/Array.html#___remove",
+           parent : "Array",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "removeAt",
+           fullName : "Array.removeAt",
+           summary : "public function Array removeAt(int index)",
+           ref : "logical/Array.html#___removeAt",
+           parent : "Array",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "Date",
+           fullName : "Date",
+           summary : "namespace Date",
+           ref : "logical/Date.html",
+           parent : "GLOBAL",
+           type : "namespace",
+           elementType : "logical_container"
+       } ,         
+       {
+           localName : "getElapsed",
+           fullName : "Date.getElapsed",
+           summary : "public function long getElapsed([Date from])",
+           ref : "logical/Date.html#___getElapsed",
+           parent : "Date",
            type : "function",
            elementType : "function"
        } ,         
@@ -564,6 +753,15 @@
            fullName : "String.endsWith",
            summary : "public function boolean endsWith(String other)",
            ref : "logical/String.html#___endsWith",
+           parent : "String",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "format",
+           fullName : "String.format",
+           summary : "public function String format(String... args)",
+           ref : "logical/String.html#___format",
            parent : "String",
            type : "function",
            elementType : "function"

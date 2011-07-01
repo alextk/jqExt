@@ -98,6 +98,18 @@
                     <div class="summaryItem">
                                                                     <div class="summaryItemDef">
                 <span class="modifiers">public</span>
+                <span class="type"><a href="logical/String.html">String</a></span>
+                <a href="logical/String.html#___format"><span class="elementName">format</span></a>
+                (<span class="type">String...</span>
+ args)
+            </div>          
+                <div class="summaryItemDesc">
+        Replace this string {0},{1},{2}... tokens (variables) with passed arguments.
+ {0} corresponds to first argument, {1} to second, etc.    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                                    <div class="summaryItemDef">
+                <span class="modifiers">public</span>
                 <span class="type">boolean</span>
                 <a href="logical/String.html#___include"><span class="elementName">include</span></a>
                 (<span class="type"></span>
@@ -166,6 +178,49 @@
 	        <span class="descSection">Returns:</span><br/>
 	        <div class="paddedDetails">
 	            	             true if this string ends with given string
+   	            	        </div>
+        </div>      
+                                                <hr/>       
+                                                                                    <h3>
+        <a name="___format">
+            <span class="objType">function</span>
+            <span class="objName">format</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type"><a href="logical/String.html">String</a></span>
+                    format(<span class="type">String...</span>
+ args)
+                </code> 
+            </div>          
+                <div class="comment">
+        Replace this string {0},{1},{2}... tokens (variables) with passed arguments.
+ {0} corresponds to first argument, {1} to second, etc.
+
+ <pre>
+ "This is a {0} string using the {1} method".format("formatted", "inline")
+ //will return: "This is a formatted string using the inline method"
+ </pre>
+
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"></div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            args        </code>
+         - variable number of arguments to act as variables into the string format            </div>   
+                                        </div>
+                </div>
+                    </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             formatted string as described above
    	            	        </div>
         </div>      
                                                 <hr/>       
@@ -308,7 +363,13 @@
                                 <a href="physical/file-base.js.html">base.js</a>
                             </div>                              
                                                                                                             <div>
+                                <a href="physical/file-core/array.js.html">core/array.js</a>
+                            </div>                              
+                                                                                                            <div>
                                 <a href="physical/file-core/date.js.html">core/date.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/enumerable.js.html">core/enumerable.js</a>
                             </div>                              
                                                                                                             <div>
                                 <a href="physical/file-core/event.js.html">core/event.js</a>
