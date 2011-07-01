@@ -8,7 +8,7 @@ if(process.argv.length < 3){
 
 var src = require("fs").readFileSync(process.argv[2], "utf8");
 
-JSLINT(src, { evil: true, forin: true, maxerr: 100 });
+JSLINT(src, { evil: true, forin: true, maxerr: 100, 'continue': true });
 
 // All of the following are known issues that we think are 'ok'
 // (in contradiction with JSLint) more information here:

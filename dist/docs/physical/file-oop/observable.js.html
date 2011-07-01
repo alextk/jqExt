@@ -1,0 +1,722 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <title>jqExt</title>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">        
+        <script>
+
+			(function()
+			{
+			    var loc = window.location.protocol + '//' + window.location.hostname + window.location.pathname;
+                loc = loc.split('\\');
+                loc = loc.join('/');					    
+			    loc = loc.split('/');
+			    loc.pop();
+			    loc = loc.join('/');
+			    loc += '/' + '../../';
+			
+			    document.write("<base href='" + loc + "'></base>");
+			})();
+         
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="jgdoc.css">
+        <link rel="stylesheet" type="text/css" href="theme.css">
+        	    <script type="text/javascript" src="navTree.js"></script>
+	    <script type="text/javascript" src="jgdoc.js"></script>
+	</head>
+    <body>
+        <div class="startup" id="startup">
+            <div class="banner" id="banner">
+                <h1 class="projectName">
+	               <a href="./index.html">jqExt</a>   
+                </h1>
+                <div class="bar">
+	                 version 0.0.1
+	            </div>
+	         </div>
+             <div class="content" id="docContent">
+                  <div class="block">
+                        <div id="searchBlock">
+			                <div class="search" >
+			                    <div class="searchLabel">Search:</div>
+			                    <div class="searchBlock" style="height:100%">
+					                <input id="jgsSearchString" type="text" size="60" class="jgdSearchString"/>
+					                <div id="jgsSearchPanel" class="jgsSearchPanel" style="display:none">
+						                <div  class="jgdSearchRect" >
+						                    <div id="jgsSearchResults">
+						                        Loading....
+						                    </div>
+						                </div>
+					                   <div id="jgsInfo" class="jgsInfo" >No selection</div>
+                                    </div>
+                                 </div>
+			                </div>
+		                </div>
+		                <div id="docScroll" class="docScroll">
+		                    <div>
+			                    <hr/>
+						        <div>
+						        						        		<H2>
+        <span class="objType">File</span> oop/observable.js
+    </H2>
+    
+
+    <hr/>
+    <!-- description -->
+    <div>
+       <code>
+            <span class="modifiers"></span>
+            <span class="objType">file</span> 
+            <b>oop/observable.js</b>
+       </code>
+    </div>
+                                            <hr/> 
+    <p />
+    
+            	
+                                
+                    
+    
+                    
+            
+                <div class="summaryTable function">
+            <div class="summaryTableHeader">
+                <span class="objType">Function</span> Summary
+            </div>
+                    <div class="summaryItem">
+                                                                    <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">void</span>
+                <a href="logical/$/ext/mixins/Observable.html#___addListener"><span class="elementName">addListener</span></a>
+                (<span class="type"><a href="logical/String.html">String</a></span>
+ eventName, <span class="type"><a href="logical/Function.html">Function</a></span>
+ handler, [<span class="type">Object</span>
+ scope], [<span class="type">Object</span>
+ args])
+            </div>          
+                    <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">void</span>
+                <a href="logical/$/ext/mixins/Observable.html#___addListener"><span class="elementName">addListener</span></a>
+                (<span class="type">Object</span>
+ options)
+            </div>          
+                    <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">void</span>
+                <a href="logical/$/ext/mixins/Observable.html#___addListener"><span class="elementName">addListener</span></a>
+                (<span class="type">Object</span>
+ options)
+            </div>          
+                <div class="summaryItemDesc">
+        Add listener to this object.    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                                    <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">Object</span>
+                <a href="logical/$/ext/mixins/Observable.html#___findListener"><span class="elementName">findListener</span></a>
+                (<span class="type"></span>
+ eventName, <span class="type"></span>
+ fn, <span class="type"></span>
+ scope, <span class="type"></span>
+ args)
+            </div>          
+                <div class="summaryItemDesc">
+        Find listener metadata object that corresponds to given parameters    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type"><a href="logical/Array.html">Array</a></span>
+                <a href="logical/$/ext/mixins/Observable.html#___fire"><span class="elementName">fire</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        alias for <a href="logical/$/ext/mixins/Observable.html#___fireListener">fireListener</a>    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                                    <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type"><a href="logical/Array.html">Array</a></span>
+                <a href="logical/$/ext/mixins/Observable.html#___fireListener"><span class="elementName">fireListener</span></a>
+                (<span class="type"><a href="logical/String.html">String</a></span>
+ eventName, <span class="type"></span>
+ args...)
+            </div>          
+                <div class="summaryItemDesc">
+        Fire all registered listeners for given event name.    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                                    <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">boolean</span>
+                <a href="logical/$/ext/mixins/Observable.html#___hasListener"><span class="elementName">hasListener</span></a>
+                (<span class="type"></span>
+ eventName, <span class="type"></span>
+ fn, <span class="type"></span>
+ scope, <span class="type"></span>
+ args)
+            </div>          
+                <div class="summaryItemDesc">
+        Checks if this object has listener.    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">void</span>
+                <a href="logical/$/ext/mixins/Observable.html#___on"><span class="elementName">on</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        alias for <a href="logical/$/ext/mixins/Observable.html#___addListener">addListener</a>    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">Object</span>
+                <a href="logical/$/ext/mixins/Observable.html#___removeListener"><span class="elementName">removeListener</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        Remove listeners from this object.    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">void</span>
+                <a href="logical/$/ext/mixins/Observable.html#___un"><span class="elementName">un</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        alias for <a href="logical/$/ext/mixins/Observable.html#___removeListener">removeListener</a>    </div>  
+                            </div>
+                </div>
+        <p/>
+                
+                    <!-- ============== Details coming here =================== -->
+    	    	    	    	            <div class="details function">
+            <h2 class="sectionHeader">Function Details</h2>
+                                                                    <h3>
+        <a name="___addListener">
+            <span class="objType">function</span>
+            <span class="objName">addListener</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">void</span>
+                    addListener(<span class="type"><a href="logical/String.html">String</a></span>
+ eventName, <span class="type"><a href="logical/Function.html">Function</a></span>
+ handler, [<span class="type">Object</span>
+ scope], [<span class="type">Object</span>
+ args])
+                </code> 
+            </div>          
+                    <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">void</span>
+                    addListener(<span class="type">Object</span>
+ options)
+                </code> 
+            </div>          
+                    <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">void</span>
+                    addListener(<span class="type">Object</span>
+ options)
+                </code> 
+            </div>          
+                <div class="comment">
+        Add listener to this object.
+
+ There are 3 parameter forms, see below for detailed parameter information. Examples:
+ <pre>
+   //Bind single event to handler
+   obj.on('someEvent', handlerFunc, scope, [arg1, arg2, arg3]);
+
+   //Bind multiple events to the same handler
+   obj.on('event1 event2 event3', handlerFunc, scope, [arg1, arg2, arg3]);
+
+   //Bind multiple events to different handles with the same scope and bind args:
+   obj.on({
+    event1: handlerFunc1,
+    event2: handlerFunc2,
+    scope: sameScopeObj,
+    args: [1,2,3]
+   });
+
+   //Bind multiple events to different handles with various scope and bind args:
+   obj.on({
+    event1: { fn: handlerFunc1, scope: otherObj1, args: [1,2,3] },
+    event2: { fn: handlerFunc2, scope: otherObj2, args: [4,5,6] }
+   });
+ </pre>
+ 
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"> Classic
+ </div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            eventName        </code>
+         - name of the event (or multiple events names separated by space)            </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            handler        </code>
+         - function to invoke when event is fired            </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            [scope]        </code>
+         - the scope to invoke handler function in. If not specified or null, defaults to the object firing the event            </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            [args]        </code>
+         - arguments to pass to the handler function as part of the event object (bindArgs property of the event object)
+ <pre>
+   //<b>Bind single event to handler</b>: <u>someEvent</u> of <u>obj</u> will be bound to <u>handlerFunc</u> which will be
+   //invoked in scope <u>scope</u>, and event object <u>bindArgs</u> property will be <u>[arg1, arg2, arg3]</u>
+   obj.on('someEvent', handlerFunc, scope, [arg1, arg2, arg3]);
+
+   //Bind multiple events to the same handler
+   obj.on('event1 event2 event3', handlerFunc, scope, [arg1, arg2, arg3]);
+ </pre>            </div>   
+                                        </div>
+                </div>
+                            <div>
+                    <div class="paramset"> Config object - type 1
+ </div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            options        </code>
+         - configuration hash with keys being event names and values handler functions. In addition, scope and args keys can be specified.                    <ul class="paramoption">
+                                        <li>
+        <code>
+                        <span class="modifiers"></span>
+            <span class="type"><a href="logical/Function.html">Function</a></span>
+            eventName1
+                    </code> 
+         - key is the event name, value is handler function    </li>
+                                        <li>
+        <code>
+            [            <span class="modifiers"></span>
+            <span class="type">Object</span>
+            scope
+            ]        </code> 
+         - the scope to invoke all handler functions in. If not specified or null, defaults to the object firing the event    </li>
+                                        <li>
+        <code>
+            [            <span class="modifiers"></span>
+            <span class="type">Object</span>
+            args
+            ]        </code> 
+         - arguments to pass to all handler functions as part of the event object (bindArgs property of the event object)
+ <pre>
+   //Bind multiple events to different handles with the same scope and bind args:
+   obj.on({
+    event1: handlerFunc1,
+    event2: handlerFunc2,
+    scope: sameScopeObj,
+    args: [1,2,3]
+   });
+ </pre>    </li>
+                            </ul>
+            </div>   
+                                        </div>
+                </div>
+                            <div>
+                    <div class="paramset"> Config object - type 2
+ </div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            options        </code>
+         - configuration hash with keys being event names and values configuration objects. In addition, scope and args keys can be specified.                    <ul class="paramoption">
+                                        <li>
+        <code>
+                        <span class="modifiers"></span>
+            <span class="type"><a href="logical/Function.html">Function</a></span>
+            eventName1
+                    </code> 
+         - key is the event name, value is configuration object with the following keys:
+ <ul>
+   <li><code><span class="type">Function</span> fn</code> - function to invoke when event is fired</li>
+   <li><code>[ <span class="type">Object</span> scope ]</code> - scope to invoke fn in</li>
+   <li><code>[ <span class="type">Object</span> args ]</code> - bind args to pass as part of event object</li>
+ </ul>    </li>
+                                        <li>
+        <code>
+            [            <span class="modifiers"></span>
+            <span class="type">Object</span>
+            scope
+            ]        </code> 
+         - the scope to invoke all handler functions in. If not specified or null, defaults to the object firing the event    </li>
+                                        <li>
+        <code>
+            [            <span class="modifiers"></span>
+            <span class="type">Object</span>
+            args
+            ]        </code> 
+         - arguments to pass to all handler functions as part of the event object (bindArgs property of the event object)
+
+ <pre>
+   //Bind multiple events to different handles with various scope and bind args:
+   obj.on({
+    event1: { fn: handlerFunc1, scope: otherObj1, args: [1,2,3] },
+    event2: { fn: handlerFunc2, scope: otherObj2, args: [4,5,6] }
+   });
+ </pre>    </li>
+                            </ul>
+            </div>   
+                                        </div>
+                </div>
+                    </div>
+                                                    <hr/>       
+                                                                                    <h3>
+        <a name="___findListener">
+            <span class="objType">function</span>
+            <span class="objName">findListener</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">Object</span>
+                    findListener(<span class="type"></span>
+ eventName, <span class="type"></span>
+ fn, <span class="type"></span>
+ scope, <span class="type"></span>
+ args)
+                </code> 
+            </div>          
+                <div class="comment">
+        Find listener metadata object that corresponds to given parameters
+
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"></div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            eventName        </code>
+                    </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            fn        </code>
+                    </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            scope        </code>
+                    </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            args        </code>
+                    </div>   
+                                        </div>
+                </div>
+                    </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             listenerObject
+ 	            	                <ul class="paramoption">
+	                    	                            <li>
+        <code>
+                        <span class="modifiers"></span>
+            <span class="type"><a href="logical/Function.html">Function</a></span>
+            fn
+                    </code> 
+         - handler function    </li>
+	                    	                            <li>
+        <code>
+                        <span class="modifiers"></span>
+            <span class="type">Object</span>
+            scope
+                    </code> 
+         - scope in which to invoke handler function    </li>
+	                    	                            <li>
+        <code>
+                        <span class="modifiers"></span>
+            <span class="type">Object</span>
+            args
+                    </code> 
+         - arguments to pass as part of event    </li>
+	                    	                </ul>
+	            	        </div>
+        </div>      
+                                                <hr/>       
+                                                                                    <h3>
+        <a name="___fire">
+            <span class="objType">function</span>
+            <span class="objName">fire</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type"><a href="logical/Array.html">Array</a></span>
+                    fire()
+                </code>
+            </div>    
+        <div class="comment">
+        alias for <a href="logical/$/ext/mixins/Observable.html#___fireListener">fireListener</a>
+     </div>
+                                                    <hr/>       
+                                                                                    <h3>
+        <a name="___fireListener">
+            <span class="objType">function</span>
+            <span class="objName">fireListener</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type"><a href="logical/Array.html">Array</a></span>
+                    fireListener(<span class="type"><a href="logical/String.html">String</a></span>
+ eventName, <span class="type"></span>
+ args...)
+                </code> 
+            </div>          
+                <div class="comment">
+        Fire all registered listeners for given event name.
+
+ Note if one of the listeners throws an error, other listeners don't get invoked, and error is propagated. If your
+ listener can throw error, but you want to allow normal excecution, wrap your listener code in try/catch.
+ 
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"></div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            eventName        </code>
+         - event name to fire listeners for            </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            args...        </code>
+         - arguments to pass to handler functions after the event object            </div>   
+                                        </div>
+                </div>
+                    </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             array of listeners return values (in the order of invokation) or false if excecution has been terminated by returning $.ext.$break from handler function (listener)
+     	            	        </div>
+        </div>      
+                                                <hr/>       
+                                                                                    <h3>
+        <a name="___hasListener">
+            <span class="objType">function</span>
+            <span class="objName">hasListener</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">boolean</span>
+                    hasListener(<span class="type"></span>
+ eventName, <span class="type"></span>
+ fn, <span class="type"></span>
+ scope, <span class="type"></span>
+ args)
+                </code> 
+            </div>          
+                <div class="comment">
+        Checks if this object has listener.
+
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"></div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            eventName        </code>
+                    </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            fn        </code>
+                    </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            scope        </code>
+                    </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            args        </code>
+                    </div>   
+                                        </div>
+                </div>
+                    </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             true if this object has listener for given eventName, handler function scope and args
+     	            	        </div>
+        </div>      
+                                                <hr/>       
+                                                                                    <h3>
+        <a name="___on">
+            <span class="objType">function</span>
+            <span class="objName">on</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">void</span>
+                    on()
+                </code>
+            </div>    
+        <div class="comment">
+        alias for <a href="logical/$/ext/mixins/Observable.html#___addListener">addListener</a>
+     </div>
+                                                    <hr/>       
+                                                                                    <h3>
+        <a name="___removeListener">
+            <span class="objType">function</span>
+            <span class="objName">removeListener</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">Object</span>
+                    removeListener()
+                </code>
+            </div>    
+        <div class="comment">
+        Remove listeners from this object.
+
+ Usages:
+  - Remove specific listener for event: obj.removeListener('someEvent', eventListener)
+  - Remove all listeners for event: obj.removeListener('someEvent')
+  - Remove all events: myObject.un()
+  - Remove multiple listeners for events (if listener value for event is null - all listeners for this event will be unbound):
+          obj.un({event1: event1Listener, event2: event2Listener, event3: null, ...});
+  - Remove all listeners for multiple events: myObject.un('event1 event2 event3');
+     </div>
+                                                    <hr/>       
+                                                                                    <h3>
+        <a name="___un">
+            <span class="objType">function</span>
+            <span class="objName">un</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">void</span>
+                    un()
+                </code>
+            </div>    
+        <div class="comment">
+        alias for <a href="logical/$/ext/mixins/Observable.html#___removeListener">removeListener</a>
+     </div>
+                                                    <hr/>       
+                                    </div>
+    	    	                                    						        </div>
+        		          </div>			                    
+		                </div>
+        	       </div>
+             </div>
+             <div class="navigation" id="navigation">
+    <ul class="navContent closed">
+        <li>
+            <div class="navTree">
+                <h2 onclick="jgdoc.NavPanel.clicked(event)">
+                    <a href="javascript:jgdoc.NavPanel.dummy()">Navigation</a>
+                </h2>
+                <ul class="navContent2">
+                    <li>
+                        <div>
+                            <a class="openAll" href="javascript:jgdoc.NavTree.onOpenAll()">Open All</a>
+                            <a class="closeAll" href="javascript:jgdoc.NavTree.onCloseAll()">Close All</a>
+                        </div>
+                        <div>
+                            <ul id = "content" class="contents">
+                                Loading...
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <ul class="navContent">
+        <li>
+            <div class="fileTree">
+                <h2 onclick="jgdoc.NavPanel.clicked(event)">
+                    <a href="javascript:jgdoc.NavPanel.dummy()">Files</a>
+                </h2>
+                <ul class="navContent2">
+                    <li>
+                                                                                <div>
+                                <a href="physical/file-base.js.html">base.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/date.js.html">core/date.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/event.js.html">core/event.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/function.js.html">core/function.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/is.js.html">core/is.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/regexp.js.html">core/regexp.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/string.js.html">core/string.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-oop/inheritance.js.html">oop/inheritance.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-oop/observable.js.html">oop/observable.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-utils/system-info.js.html">utils/system-info.js</a>
+                            </div>                              
+                                                                        </li>
+                </ul>
+            </div>
+        </li>       
+    </ul>
+    <ul class="navContent closed">
+        <li>
+            <div class="moduleTree">
+                <h2 onclick="jgdoc.NavPanel.clicked(event)">
+                    <a href="javascript:jgdoc.NavPanel.dummy()">Modules</a>
+                </h2>
+                <ul class="navContent2">
+                    <li>
+                                            </li>
+                </ul>
+            </div>
+        </li>       
+    </ul>
+</div>  
+    
+		</div>	
+	</body>
+    <script type="text/javascript">
+        jgdoc.Searcher.start();
+        jgdoc.NavTree.initialize("file-oop/observable.js");
+    </script>			
+	<script type="text/javascript" src="jsindex.js">
+    </script>
+</html>

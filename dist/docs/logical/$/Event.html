@@ -1,0 +1,484 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <title>jqExt</title>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">        
+        <script>
+
+			(function()
+			{
+			    var loc = window.location.protocol + '//' + window.location.hostname + window.location.pathname;
+                loc = loc.split('\\');
+                loc = loc.join('/');					    
+			    loc = loc.split('/');
+			    loc.pop();
+			    loc = loc.join('/');
+			    loc += '/' + '../../';
+			
+			    document.write("<base href='" + loc + "'></base>");
+			})();
+         
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="jgdoc.css">
+        <link rel="stylesheet" type="text/css" href="theme.css">
+        	    <script type="text/javascript" src="navTree.js"></script>
+	    <script type="text/javascript" src="jgdoc.js"></script>
+	</head>
+    <body>
+        <div class="startup" id="startup">
+            <div class="banner" id="banner">
+                <h1 class="projectName">
+	               <a href="./index.html">jqExt</a>   
+                </h1>
+                <div class="bar">
+	                 version 0.0.1
+	            </div>
+	         </div>
+             <div class="content" id="docContent">
+                  <div class="block">
+                        <div id="searchBlock">
+			                <div class="search" >
+			                    <div class="searchLabel">Search:</div>
+			                    <div class="searchBlock" style="height:100%">
+					                <input id="jgsSearchString" type="text" size="60" class="jgdSearchString"/>
+					                <div id="jgsSearchPanel" class="jgsSearchPanel" style="display:none">
+						                <div  class="jgdSearchRect" >
+						                    <div id="jgsSearchResults">
+						                        Loading....
+						                    </div>
+						                </div>
+					                   <div id="jgsInfo" class="jgsInfo" >No selection</div>
+                                    </div>
+                                 </div>
+			                </div>
+		                </div>
+		                <div id="docScroll" class="docScroll">
+		                    <div>
+			                    <hr/>
+						        <div>
+						        						        		<H2>
+        <span class="objType">Class</span> $.Event
+    </H2>
+    
+
+    <hr/>
+    <!-- description -->
+    <div>
+       <code>
+            <span class="modifiers"></span>
+            <span class="objType">class</span> 
+            <b>$.Event</b>
+       </code>
+    </div>
+                <div class="comment">jQuery event object extended functionality documentation
+
+ </div>
+                                            <span class="definedIn">Defined in </span>
+        <a href="physical/file-core/event.js.html">core/event.js</a>
+        <hr/> 
+    <p />
+    
+            	
+                                <div class="summaryTable object">
+            <div class="summaryTableHeader">
+                <span class="objType">Nested Object</span> Summary
+            </div>
+                    <div class="summaryItem">
+                                        <div class="summaryItemDef">
+        <span class="elementName">
+            <a href="logical/$/Event/Keys.html">$.Event.Keys</a>
+        </span>
+    </div>
+    <div class="summaryItemDesc">
+        Defines contants for common keycode mappings    </div>
+                            </div>
+                </div>
+        <p/>
+            
+                    
+    
+                    
+            
+                <div class="summaryTable function">
+            <div class="summaryTableHeader">
+                <span class="objType">Function</span> Summary
+            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">boolean</span>
+                <a href="logical/$/Event.html#___isBackspaceKey"><span class="elementName">isBackspaceKey</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        
+     </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">boolean</span>
+                <a href="logical/$/Event.html#___isDeleteKey"><span class="elementName">isDeleteKey</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        
+     </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">boolean</span>
+                <a href="logical/$/Event.html#___isDownKey"><span class="elementName">isDownKey</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        
+     </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">boolean</span>
+                <a href="logical/$/Event.html#___isEnterKey"><span class="elementName">isEnterKey</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        
+     </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">boolean</span>
+                <a href="logical/$/Event.html#___isEscKey"><span class="elementName">isEscKey</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        
+     </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">boolean</span>
+                <a href="logical/$/Event.html#___isNavKeyPress"><span class="elementName">isNavKeyPress</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        This method checks if key that was pressed was navigation key: tab, enter, esc, arrow keys, pageup/down, home or end    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">boolean</span>
+                <a href="logical/$/Event.html#___isSpecialKey"><span class="elementName">isSpecialKey</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        
+     </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">boolean</span>
+                <a href="logical/$/Event.html#___isTabKey"><span class="elementName">isTabKey</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        
+     </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">boolean</span>
+                <a href="logical/$/Event.html#___isUpKey"><span class="elementName">isUpKey</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        
+     </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                           <div class="summaryItemDef">
+                <span class="modifiers">public</span>
+                <span class="type">void</span>
+                <a href="logical/$/Event.html#___stopEvent"><span class="elementName">stopEvent</span></a>()
+            </div>
+        <div class="summaryItemDesc">
+        Stop event propagation and prevent default action    </div>  
+                            </div>
+                </div>
+        <p/>
+                
+                    <!-- ============== Details coming here =================== -->
+    	    	    	    	            <div class="details function">
+            <h2 class="sectionHeader">Function Details</h2>
+                                                                    <h3>
+        <a name="___isBackspaceKey">
+            <span class="objType">function</span>
+            <span class="objName">isBackspaceKey</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">boolean</span>
+                    isBackspaceKey()
+                </code>
+            </div>    
+        <div class="comment">
+        
+     </div>
+                                                    <hr/>       
+                                                                                    <h3>
+        <a name="___isDeleteKey">
+            <span class="objType">function</span>
+            <span class="objName">isDeleteKey</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">boolean</span>
+                    isDeleteKey()
+                </code>
+            </div>    
+        <div class="comment">
+        
+     </div>
+                                                    <hr/>       
+                                                                                    <h3>
+        <a name="___isDownKey">
+            <span class="objType">function</span>
+            <span class="objName">isDownKey</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">boolean</span>
+                    isDownKey()
+                </code>
+            </div>    
+        <div class="comment">
+        
+     </div>
+                                                    <hr/>       
+                                                                                    <h3>
+        <a name="___isEnterKey">
+            <span class="objType">function</span>
+            <span class="objName">isEnterKey</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">boolean</span>
+                    isEnterKey()
+                </code>
+            </div>    
+        <div class="comment">
+        
+     </div>
+                                                    <hr/>       
+                                                                                    <h3>
+        <a name="___isEscKey">
+            <span class="objType">function</span>
+            <span class="objName">isEscKey</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">boolean</span>
+                    isEscKey()
+                </code>
+            </div>    
+        <div class="comment">
+        
+     </div>
+                                                    <hr/>       
+                                                                                    <h3>
+        <a name="___isNavKeyPress">
+            <span class="objType">function</span>
+            <span class="objName">isNavKeyPress</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">boolean</span>
+                    isNavKeyPress()
+                </code>
+            </div>    
+        <div class="comment">
+        This method checks if key that was pressed was navigation key: tab, enter, esc, arrow keys, pageup/down, home or end
+
+     </div>
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             true if navigation key was pressed
+     	            	        </div>
+        </div>      
+                                                <hr/>       
+                                                                                    <h3>
+        <a name="___isSpecialKey">
+            <span class="objType">function</span>
+            <span class="objName">isSpecialKey</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">boolean</span>
+                    isSpecialKey()
+                </code>
+            </div>    
+        <div class="comment">
+        
+     </div>
+                                                    <hr/>       
+                                                                                    <h3>
+        <a name="___isTabKey">
+            <span class="objType">function</span>
+            <span class="objName">isTabKey</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">boolean</span>
+                    isTabKey()
+                </code>
+            </div>    
+        <div class="comment">
+        
+     </div>
+                                                    <hr/>       
+                                                                                    <h3>
+        <a name="___isUpKey">
+            <span class="objType">function</span>
+            <span class="objName">isUpKey</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">boolean</span>
+                    isUpKey()
+                </code>
+            </div>    
+        <div class="comment">
+        
+     </div>
+                                                    <hr/>       
+                                                                                    <h3>
+        <a name="___stopEvent">
+            <span class="objType">function</span>
+            <span class="objName">stopEvent</span>            
+        </a> 
+    </h3>
+                <div>
+                <code>
+                    <span class="modifiers">public</span>
+                    <span class="type">void</span>
+                    stopEvent()
+                </code>
+            </div>    
+        <div class="comment">
+        Stop event propagation and prevent default action
+
+     </div>
+                                                    <hr/>       
+                                    </div>
+    	    	                                    						        </div>
+        		          </div>			                    
+		                </div>
+        	       </div>
+             </div>
+             <div class="navigation" id="navigation">
+    <ul class="navContent">
+        <li>
+            <div class="navTree">
+                <h2 onclick="jgdoc.NavPanel.clicked(event)">
+                    <a href="javascript:jgdoc.NavPanel.dummy()">Navigation</a>
+                </h2>
+                <ul class="navContent2">
+                    <li>
+                        <div>
+                            <a class="openAll" href="javascript:jgdoc.NavTree.onOpenAll()">Open All</a>
+                            <a class="closeAll" href="javascript:jgdoc.NavTree.onCloseAll()">Close All</a>
+                        </div>
+                        <div>
+                            <ul id = "content" class="contents">
+                                Loading...
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <ul class="navContent closed">
+        <li>
+            <div class="fileTree">
+                <h2 onclick="jgdoc.NavPanel.clicked(event)">
+                    <a href="javascript:jgdoc.NavPanel.dummy()">Files</a>
+                </h2>
+                <ul class="navContent2">
+                    <li>
+                                                                                <div>
+                                <a href="physical/file-base.js.html">base.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/date.js.html">core/date.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/event.js.html">core/event.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/function.js.html">core/function.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/is.js.html">core/is.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/regexp.js.html">core/regexp.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/string.js.html">core/string.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-oop/inheritance.js.html">oop/inheritance.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-oop/observable.js.html">oop/observable.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-utils/system-info.js.html">utils/system-info.js</a>
+                            </div>                              
+                                                                        </li>
+                </ul>
+            </div>
+        </li>       
+    </ul>
+    <ul class="navContent closed">
+        <li>
+            <div class="moduleTree">
+                <h2 onclick="jgdoc.NavPanel.clicked(event)">
+                    <a href="javascript:jgdoc.NavPanel.dummy()">Modules</a>
+                </h2>
+                <ul class="navContent2">
+                    <li>
+                                            </li>
+                </ul>
+            </div>
+        </li>       
+    </ul>
+</div>  
+    
+		</div>	
+	</body>
+    <script type="text/javascript">
+        jgdoc.Searcher.start();
+        jgdoc.NavTree.initialize("$.Event");
+    </script>			
+	<script type="text/javascript" src="jsindex.js">
+    </script>
+</html>

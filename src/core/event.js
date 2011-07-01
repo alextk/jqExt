@@ -1,68 +1,130 @@
-jQuery.Event.Keys = {
-  BACKSPACE: 8,
-  TAB: 9,
-  RETURN: 13,
-  ENTER: 13,
-  ESC: 27,
-  LEFT: 37,
-  UP: 38,
-  RIGHT: 39,
-  DOWN: 40,
-  DELETE: 46,
-  HOME: 36,
-  END: 35,
-  PAGE_UP: 33,
-  PAGE_DOWN: 34,
-  INSERT: 45
-};
+(function($) {
 
-jQuery.extend(jQuery.Event.prototype, {
+  /**
+   * @object {public static} $.Event.Keys
+   * Defines contants for common keycode mappings
+   */
+  $.Event.Keys = {
+    /** @variable ? backspace key */
+    BACKSPACE: 8,
+    /** @variable ? tab key */
+    TAB: 9,
+    /** @variable ? alias for enter key */
+    RETURN: 13,
+    /** @variable ? enter key */
+    ENTER: 13,
+    /** @variable ? esc key */
+    ESC: 27,
+    /** @variable ? left arrow key */
+    LEFT: 37,
+    /** @variable ? up arrow key */
+    UP: 38,
+    /** @variable ? right arrow key */
+    RIGHT: 39,
+    /** @variable ? down arrow key */
+    DOWN: 40,
+    /** @variable ? backspace key */
+    DELETE: 46,
+    /** @variable ? home key */
+    HOME: 36,
+    /** @variable ? end key */
+    END: 35,
+    /** @variable ? page up key */
+    PAGE_UP: 33,
+    /** @variable ? page down key */
+    PAGE_DOWN: 34,
+    /** @variable ? insert key */
+    INSERT: 45
+  };
 
-  stopEvent: function(){
-    this.preventDefault();
-    this.stopPropagation();
-  },
+  $.extend($.Event.prototype,
+    /**
+     * @class $.Event
+     * jQuery event object extended functionality documentation
+     */
+    {
 
-  isSpecialKey : function(){
-    var k = this.which;
-    return  (this.ctrlKey) || this.isNavKeyPress() ||
-            (k == jQuery.Event.Keys.BACKSPACE) || // Backspace
-            (k >= 16 && k <= 20) || // Shift, Ctrl, Alt, Pause, Caps Lock
-            (k >= 44 && k <= 46);   // Print Screen, Insert, Delete
-  },
+    /**
+     * @function {public void} ?
+     * Stop event propagation and prevent default action
+     */
+    stopEvent: function() {
+      this.preventDefault();
+      this.stopPropagation();
+    },
 
-  isNavKeyPress : function(){
-    var k = this.which;
-    return (k >= 33 && k <= 40) ||  // Page Up/Down, End, Home, Left, Up, Right, Down
-            k == jQuery.Event.Keys.RETURN || k == jQuery.Event.Keys.TAB || k == jQuery.Event.Keys.ESC;
-  },
+    /**
+     * @function {public boolean} ?
+     */
+    isSpecialKey : function() {
+      var k = this.which;
+      return  (this.ctrlKey) || this.isNavKeyPress() ||
+        (k == $.Event.Keys.BACKSPACE) || // Backspace
+        (k >= 16 && k <= 20) || // Shift, Ctrl, Alt, Pause, Caps Lock
+        (k >= 44 && k <= 46);   // Print Screen, Insert, Delete
+    },
 
-  isBackspaceKey: function(){
-    return this.which == jQuery.Event.Keys.BACKSPACE;
-  },
+    /**
+     * @function {public boolean} ?
+     * This method checks if key that was pressed was navigation key: tab, enter, esc, arrow keys, pageup/down, home or end
+     * @returns true if navigation key was pressed
+     */
+    isNavKeyPress : function() {
+      var k = this.which;
+      return (k >= 33 && k <= 40) || // Page Up/Down, End, Home, Left, Up, Right, Down
+        k == $.Event.Keys.RETURN || k == $.Event.Keys.TAB || k == $.Event.Keys.ESC;
+    },
 
-  isDeleteKey: function(){
-    return this.which == jQuery.Event.Keys.DELETE;
-  },
+    /**
+     * @function {public boolean} ?
+     */
+    isBackspaceKey: function() {
+      return this.which == $.Event.Keys.BACKSPACE;
+    },
 
-  isTabKey: function(){
-    return this.which == jQuery.Event.Keys.TAB;
-  },
+    /**
+     * @function {public boolean} ?
+     */
+    isDeleteKey: function() {
+      return this.which == $.Event.Keys.DELETE;
+    },
 
-  isEnterKey: function(){
-    return this.which == jQuery.Event.Keys.RETURN;
-  },
+    /**
+     * @function {public boolean} ?
+     */
+    isTabKey: function() {
+      return this.which == $.Event.Keys.TAB;
+    },
 
-  isEscKey: function(){
-    return this.which == jQuery.Event.Keys.ESC;
-  },
+    /**
+     * @function {public boolean} ?
+     */
+    isEnterKey: function() {
+      return this.which == $.Event.Keys.RETURN;
+    },
 
-  isUpKey: function(){
-    return this.which == jQuery.Event.Keys.UP;
-  },
+    /**
+     * @function {public boolean} ?
+     */
+    isEscKey: function() {
+      return this.which == $.Event.Keys.ESC;
+    },
 
-  isDownKey: function(){
-    return this.which == jQuery.Event.Keys.DOWN;
-  }
+    /**
+     * @function {public boolean} ?
+     */
+    isUpKey: function() {
+      return this.which == $.Event.Keys.UP;
+    },
 
-});
+    /**
+     * @function {public boolean} ?
+     */
+    isDownKey: function() {
+      return this.which == $.Event.Keys.DOWN;
+    }
+
+  });
+
+
+})(jQuery);

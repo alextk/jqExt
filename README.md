@@ -24,7 +24,6 @@ Windows users have two options:
    To install phyton, simply download it from link on the guide, and add it to PATH variable.
 
 How to build jqExt
-
 ------------------
 First, clone a copy of the main jqExt git repo by running `git clone git@github.com:alextk/jqExt.git`.
 
@@ -38,6 +37,10 @@ You can also create each individually using these commands:
 	make jqext		# Build non-minified jqExt source
 	make min 		# Build minified JS and CSS
 	make pack		# Build minified and packed jqExt JS (smallest filesize!)
+
+To generate documentation using jGrouseDoc-2.1 (will create docs folder inside dist folder) run:
+
+  make doc
 
 To build and test the source code against JSLint type this:
 

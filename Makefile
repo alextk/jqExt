@@ -6,7 +6,14 @@ DIST_DIR = ${PREFIX}/dist
 
 JS_FILES = license.txt\
 	${SRC_DIR}/base.js\
-	${SRC_DIR}/core/is.js
+	${SRC_DIR}/core/is.js \
+	${SRC_DIR}/core/function.js \
+	${SRC_DIR}/core/date.js \
+	${SRC_DIR}/core/string.js \
+	${SRC_DIR}/core/regexp.js \
+	${SRC_DIR}/core/event.js \
+	${SRC_DIR}/utils/system-info.js \
+	${SRC_DIR}/oop/observable.js
 
 JQEXT = ${DIST_DIR}/jquery.jqext.js
 JQEXT_MIN = ${DIST_DIR}/jquery.jqext.min.js
@@ -16,16 +23,21 @@ JS_ENGINE ?= `which node nodejs`
 COMPILER = ${JS_ENGINE} ${BUILD_DIR}/uglify.js --unsafe
 MINIFIER = java -Xmx96m -jar ${BUILD_DIR}/yuicompressor.jar
 PACKER = java -jar ${BUILD_DIR}/rhino.jar ${BUILD_DIR}/packer.js
+JSDOC = /c/devl/js/tools/jsdoc-toolkit-2.4.0
+ANT_HOME = /c/devl/java/tools/apache-ant-1.7.0/bin/ant
+JGROUSE_DOC = /c/devl/js/tools/jGrouseDoc-2.1
+
 
 VERSION = `cat version.txt`
 DATE = `git log --pretty=format:'%ad' -1`
 
-all: clean jqext lint min pack
+all: clean jqext lint min pack doc
 	@@echo "done"
 
-hru: 
-	@@echo ${DATE}
-	@@cat ${JS_FILES} | sed 's/@Date/'"${DATE}"'/' | sed s/@VERSION/${VERSION}/
+doc: 
+	@@echo "Creating documentation using jsdoc-toolkit...."
+#	java -Djsdoc=${JSDOC} -jar ${JSDOC}/jsrun.jar ${JSDOC}/app/run.js -t=${JSDOC}/templates/jsdoc -r -a -d=./dist/docs ./src/
+	${ANT_HOME} -Dbasedir=. -DjGrouseHome=${JGROUSE_DOC} -DoutputDir=${DIST_DIR}/docs -DinputDir=${SRC_DIR} -f ${JGROUSE_DOC}/build.xml
 	
 build/create_dist: 
 	@@mkdir -p ${DIST_DIR}
