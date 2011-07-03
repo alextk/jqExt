@@ -49,7 +49,7 @@ jQuery.extend(String.prototype, /** @scope String */{
    */
   endsWith: function(other) {
     var d = this.length - other.length;
-    return d >= 0 && this.indexOf(pattern, d) === d;
+    return d >= 0 && this.indexOf(other, d) === d;
   },
 
   /**
