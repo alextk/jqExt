@@ -5,6 +5,12 @@
    * Enumerable provides a large set of useful methods for enumerations — objects that act as collections of values.
    * Enumerable is a mixin: a set of methods intended not for standaone use, but for incorporation into other objects.
    * jqExt mixes Enumerable into Array class (making all methods of Enumerable available on array instances).
+   *
+   *  The Enumerable module basically makes only one requirement on your object: it must provide a method
+   *  named `_each` (note the leading underscore) that will accept a function as its unique argument,
+   *  and will contain the actual "raw iteration" algorithm, invoking its argument with each element in turn.
+   *  jqExt provides this method for array implementation (adds it to Array.prototype), but if you want to mix enumerable
+   *  into your own object, you have to implement _each method.
    */
   var Enumerable = {
 

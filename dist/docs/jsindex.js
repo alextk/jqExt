@@ -587,6 +587,15 @@
            elementType : "logical_container"
        } ,         
        {
+           localName : "_each",
+           fullName : "Array._each",
+           summary : "public function void _each(iterator, context)",
+           ref : "logical/Array.html#____each",
+           parent : "Array",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
            localName : "clear",
            fullName : "Array.clear",
            summary : "public function Array clear()",

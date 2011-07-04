@@ -18,7 +18,8 @@
      * @returns new string with all whiteshapce removed from the start and end of this string
      */
     clear: function() {
-      return this.replace(/^\s*/, "").replace(/\s*$/, "");
+      this.length = 0;
+      return this;
     },
 
     /**
@@ -26,7 +27,7 @@
      * Returns a duplicate of the array, leaving the original array intact.
      **/
     clone: function() {
-      return slice.call(this, 0);
+      return Array.prototype.slice.call(this, 0);
     },
 
     /**
@@ -112,12 +113,27 @@
       var index = this.indexOf(item);
       if (index >= 0) this.removeAt(index);
       return this;
+    },
+
+    /**
+     * @function {public void} ?
+     * This method is required for mixin in the enumerable module. Uses javascript 1.6 native implementation if present.
+     * @param iterator
+     * @param context
+     */
+    _each: function(iterator, context) {
+      for (var i = 0, length = this.length >>> 0; i < length; i++) {
+        if (i in this) iterator.call(context, this[i], i, this);
+      }
     }
 
   };
 
-  if (Array.prototype.indexOf) delete mixin.indexOf;
-  if (Array.prototype.lastIndexOf) delete mixin.lastIndexOf;
+  if (Array.prototype.indexOf) delete mixin.indexOf; // use native browser JS 1.6 implementation if available
+  if (Array.prototype.lastIndexOf) delete mixin.lastIndexOf; // use native browser JS 1.6 implementation if available
+  if (Array.prototype.forEach){ // use native browser JS 1.6 implementation if available
+    mixin._each = Array.prototype.forEach;
+  }
 
 
   $.extend(Array.prototype, mixin);

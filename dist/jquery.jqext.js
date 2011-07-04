@@ -8,7 +8,7 @@
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: Fri Jul 1 17:37:37 2011 +0300
+* Date: Sun Jul 3 19:11:48 2011 +0300
 */
 
 /**
@@ -127,6 +127,12 @@ jQuery.ext.extender.addUtilityMethods({
    * Enumerable provides a large set of useful methods for enumerations — objects that act as collections of values.
    * Enumerable is a mixin: a set of methods intended not for standaone use, but for incorporation into other objects.
    * jqExt mixes Enumerable into Array class (making all methods of Enumerable available on array instances).
+   *
+   *  The Enumerable module basically makes only one requirement on your object: it must provide a method
+   *  named `_each` (note the leading underscore) that will accept a function as its unique argument,
+   *  and will contain the actual "raw iteration" algorithm, invoking its argument with each element in turn.
+   *  jqExt provides this method for array implementation (adds it to Array.prototype), but if you want to mix enumerable
+   *  into your own object, you have to implement _each method.
    */
   var Enumerable = {
 
@@ -431,7 +437,8 @@ jQuery.ext.extender.addUtilityMethods({
      * @returns new string with all whiteshapce removed from the start and end of this string
      */
     clear: function() {
-      return this.replace(/^\s*/, "").replace(/\s*$/, "");
+      this.length = 0;
+      return this;
     },
 
     /**
@@ -439,7 +446,7 @@ jQuery.ext.extender.addUtilityMethods({
      * Returns a duplicate of the array, leaving the original array intact.
      **/
     clone: function() {
-      return slice.call(this, 0);
+      return Array.prototype.slice.call(this, 0);
     },
 
     /**
@@ -525,12 +532,27 @@ jQuery.ext.extender.addUtilityMethods({
       var index = this.indexOf(item);
       if (index >= 0) this.removeAt(index);
       return this;
+    },
+
+    /**
+     * @function {public void} ?
+     * This method is required for mixin in the enumerable module. Uses javascript 1.6 native implementation if present.
+     * @param iterator
+     * @param context
+     */
+    _each: function(iterator, context) {
+      for (var i = 0, length = this.length >>> 0; i < length; i++) {
+        if (i in this) iterator.call(context, this[i], i, this);
+      }
     }
 
   };
 
-  if (Array.prototype.indexOf) delete mixin.indexOf;
-  if (Array.prototype.lastIndexOf) delete mixin.lastIndexOf;
+  if (Array.prototype.indexOf) delete mixin.indexOf; // use native browser JS 1.6 implementation if available
+  if (Array.prototype.lastIndexOf) delete mixin.lastIndexOf; // use native browser JS 1.6 implementation if available
+  if (Array.prototype.forEach){ // use native browser JS 1.6 implementation if available
+    mixin._each = Array.prototype.forEach;
+  }
 
 
   $.extend(Array.prototype, mixin);
@@ -672,7 +694,7 @@ jQuery.extend(String.prototype, /** @scope String */{
    */
   endsWith: function(other) {
     var d = this.length - other.length;
-    return d >= 0 && this.indexOf(pattern, d) === d;
+    return d >= 0 && this.indexOf(other, d) === d;
   },
 
   /**
