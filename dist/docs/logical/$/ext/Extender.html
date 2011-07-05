@@ -1,0 +1,302 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <title>jqExt</title>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">        
+        <script>
+
+			(function()
+			{
+			    var loc = window.location.protocol + '//' + window.location.hostname + window.location.pathname;
+                loc = loc.split('\\');
+                loc = loc.join('/');					    
+			    loc = loc.split('/');
+			    loc.pop();
+			    loc = loc.join('/');
+			    loc += '/' + '../../../';
+			
+			    document.write("<base href='" + loc + "'></base>");
+			})();
+         
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="jgdoc.css">
+        <link rel="stylesheet" type="text/css" href="theme.css">
+        	    <script type="text/javascript" src="navTree.js"></script>
+	    <script type="text/javascript" src="jgdoc.js"></script>
+	</head>
+    <body>
+        <div class="startup" id="startup">
+            <div class="banner" id="banner">
+                <h1 class="projectName">
+	               <a href="./index.html">jqExt</a>   
+                </h1>
+                <div class="bar">
+	                 version 0.0.1
+	            </div>
+	         </div>
+             <div class="content" id="docContent">
+                  <div class="block">
+                        <div id="searchBlock">
+			                <div class="search" >
+			                    <div class="searchLabel">Search:</div>
+			                    <div class="searchBlock" style="height:100%">
+					                <input id="jgsSearchString" type="text" size="60" class="jgdSearchString"/>
+					                <div id="jgsSearchPanel" class="jgsSearchPanel" style="display:none">
+						                <div  class="jgdSearchRect" >
+						                    <div id="jgsSearchResults">
+						                        Loading....
+						                    </div>
+						                </div>
+					                   <div id="jgsInfo" class="jgsInfo" >No selection</div>
+                                    </div>
+                                 </div>
+			                </div>
+		                </div>
+		                <div id="docScroll" class="docScroll">
+		                    <div>
+			                    <hr/>
+						        <div>
+						        						        		<H2>
+        <span class="objType">Object</span> $.ext.Extender
+    </H2>
+    
+
+    <hr/>
+    <!-- description -->
+    <div>
+       <code>
+            <span class="modifiers">public</span>
+            <span class="objType">object</span> 
+            <b>$.ext.Extender</b>
+       </code>
+    </div>
+                <div class="comment">Extender is an object with two static utility functions that allow to easily extend jQuery: to add utility methods
+ on jQuery object and to create plugins (that will be available as wrapped set methods).
+
+ </div>
+                                            <span class="definedIn">Defined in </span>
+        <a href="physical/file-base.js.html">base.js</a>
+        <hr/> 
+    <p />
+    
+            	
+                                
+                    
+    
+                    
+            
+                <div class="summaryTable function">
+            <div class="summaryTableHeader">
+                <span class="objType">Function</span> Summary
+            </div>
+                    <div class="summaryItem">
+                                                                    <div class="summaryItemDef">
+                <span class="modifiers">public static</span>
+                <span class="type">void</span>
+                <a href="logical/$/ext/Extender.html#___addUtilityMethods"><span class="elementName">addUtilityMethods</span></a>
+                (<span class="type">Hash</span>
+ methods)
+            </div>          
+                <div class="summaryItemDesc">
+        Add methods that will be available on jQuery object instance    </div>  
+                            </div>
+                    <div class="summaryItem">
+                                                                    <div class="summaryItemDef">
+                <span class="modifiers">public static</span>
+                <span class="type">void</span>
+                <a href="logical/$/ext/Extender.html#___addWrapedSetMethods"><span class="elementName">addWrapedSetMethods</span></a>
+                (<span class="type">Hash</span>
+ methods, [<span class="type">boolean</span>
+ keepOriginal])
+            </div>          
+                <div class="summaryItemDesc">
+        Add methods that will be available on jQuery wrapped set instance    </div>  
+                            </div>
+                </div>
+        <p/>
+                
+                    <!-- ============== Details coming here =================== -->
+    	    	    	    	            <div class="details function">
+            <h2 class="sectionHeader">Function Details</h2>
+                                                                    <h3>
+        <a name="___addUtilityMethods">
+            <span class="objType">function</span>
+            <span class="objName">addUtilityMethods</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public static</span>
+                    <span class="type">void</span>
+                    addUtilityMethods(<span class="type">Hash</span>
+ methods)
+                </code> 
+            </div>          
+                <div class="comment">
+        Add methods that will be available on jQuery object instance
+
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"></div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            methods        </code>
+         - hash of methodName: function            </div>   
+                                        </div>
+                </div>
+                    </div>
+                                                    <hr/>       
+                                                                                    <h3>
+        <a name="___addWrapedSetMethods">
+            <span class="objType">function</span>
+            <span class="objName">addWrapedSetMethods</span>            
+        </a> 
+    </h3>
+                        <div>
+                <code>
+                    <span class="modifiers">public static</span>
+                    <span class="type">void</span>
+                    addWrapedSetMethods(<span class="type">Hash</span>
+ methods, [<span class="type">boolean</span>
+ keepOriginal])
+                </code> 
+            </div>          
+                <div class="comment">
+        Add methods that will be available on jQuery wrapped set instance
+
+     </div>
+        	<div class="parameters">
+        <span class="descSection">Parameters:</span><br/>
+                            <div>
+                    <div class="paramset"></div>
+                    <div>
+                                                <div class="param paddedDetails">
+        <code>
+            methods        </code>
+         - hash of methodName: function            </div>   
+                                                <div class="param paddedDetails">
+        <code>
+            [keepOriginal]        </code>
+         - if true, original method will be kept under jq_original_[methodName]            </div>   
+                                        </div>
+                </div>
+                    </div>
+                                                    <hr/>       
+                                    </div>
+    	    	                                    						        </div>
+        		          </div>			                    
+		                </div>
+        	       </div>
+             </div>
+             <div class="navigation" id="navigation">
+    <ul class="navContent">
+        <li>
+            <div class="navTree">
+                <h2 onclick="jgdoc.NavPanel.clicked(event)">
+                    <a href="javascript:jgdoc.NavPanel.dummy()">Navigation</a>
+                </h2>
+                <ul class="navContent2">
+                    <li>
+                        <div>
+                            <a class="openAll" href="javascript:jgdoc.NavTree.onOpenAll()">Open All</a>
+                            <a class="closeAll" href="javascript:jgdoc.NavTree.onCloseAll()">Close All</a>
+                        </div>
+                        <div>
+                            <ul id = "content" class="contents">
+                                Loading...
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <ul class="navContent closed">
+        <li>
+            <div class="fileTree">
+                <h2 onclick="jgdoc.NavPanel.clicked(event)">
+                    <a href="javascript:jgdoc.NavPanel.dummy()">Files</a>
+                </h2>
+                <ul class="navContent2">
+                    <li>
+                                                                                <div>
+                                <a href="physical/file-base.js.html">base.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/array.js.html">core/array.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/date.js.html">core/date.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/enumerable.js.html">core/enumerable.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/event.js.html">core/event.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/function.js.html">core/function.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/is.js.html">core/is.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/object.js.html">core/object.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/regexp.js.html">core/regexp.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-core/string.js.html">core/string.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-oop/inheritance.js.html">oop/inheritance.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-oop/observable.js.html">oop/observable.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-utils/sorting.js.html">utils/sorting.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-utils/system-info.js.html">utils/system-info.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-wrapped-set/dimensions.js.html">wrapped-set/dimensions.js</a>
+                            </div>                              
+                                                                                                            <div>
+                                <a href="physical/file-wrapped-set/event.js.html">wrapped-set/event.js</a>
+                            </div>                              
+                                                                        </li>
+                </ul>
+            </div>
+        </li>       
+    </ul>
+    <ul class="navContent closed">
+        <li>
+            <div class="moduleTree">
+                <h2 onclick="jgdoc.NavPanel.clicked(event)">
+                    <a href="javascript:jgdoc.NavPanel.dummy()">Modules</a>
+                </h2>
+                <ul class="navContent2">
+                    <li>
+                                            </li>
+                </ul>
+            </div>
+        </li>       
+    </ul>
+</div>  
+    
+		</div>	
+	</body>
+    <script type="text/javascript">
+        jgdoc.Searcher.start();
+        jgdoc.NavTree.initialize("$.ext.Extender");
+    </script>			
+	<script type="text/javascript" src="jsindex.js">
+    </script>
+</html>
