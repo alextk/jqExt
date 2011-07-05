@@ -1,6 +1,10 @@
 (function($) {
 
-  var mixin = /** @scope Array */ {
+  /**
+   * @namespace Array
+   * <p>@depends $.ext.mixins.Enumerable</p>
+   */
+  var mixin = {
 
     /**
      * <h6>Example:</h6>
@@ -129,11 +133,10 @@
 
   };
 
-  if (Array.prototype.indexOf) delete mixin.indexOf; // use native browser JS 1.6 implementation if available
-  if (Array.prototype.lastIndexOf) delete mixin.lastIndexOf; // use native browser JS 1.6 implementation if available
-  if (Array.prototype.forEach){ // use native browser JS 1.6 implementation if available
-    mixin._each = Array.prototype.forEach;
-  }
+  // use native browser JS 1.6 implementation if available
+  if (Array.prototype.indexOf){ delete mixin.indexOf; }
+  if (Array.prototype.lastIndexOf){ delete mixin.lastIndexOf; }
+  if (Array.prototype.forEach){ mixin._each = Array.prototype.forEach; }
 
 
   $.extend(Array.prototype, mixin);

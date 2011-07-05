@@ -27,11 +27,11 @@
   $.ext.mixins = {};
 
   /**
-   * @object {public} $.ext.extender
+   * @object {public} $.ext.Extender
    * Extender is an object with two static utility functions that allow to easily extend jQuery: to add utility methods
    * on jQuery object and to create plugins (that will be available as wrapped set methods).
    */
-  $.ext.extender = {
+  $.ext.Extender = {
 
     /**
      * @function {public static void} ?

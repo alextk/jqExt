@@ -6,7 +6,7 @@ test("Basic requirements", function() {
 	ok( $, "$" );
 
   ok( $.ext, "$.ext not present" );
-  ok( $.ext.extender, "$.ext.extender not present" );
+  ok( $.ext.Extender, "$.ext.Extender not present" );
 
 });
 

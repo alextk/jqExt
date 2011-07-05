@@ -1,4 +1,4 @@
-jQuery.ext.extender.addUtilityMethods({
+jQuery.ext.Extender.addUtilityMethods({
 
   /**
    * @namespace System information object parsed from browser navigator.userAgent property

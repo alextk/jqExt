@@ -3,9 +3,18 @@ module("Core - string.js");
 test("Basic requirements", function() {
 });
 
+test("capitalize()", function() {
+  equal("hello".capitalize(), "Hello");
+  equal("HELLO".capitalize(), "Hello");
+  equal("123ABC".capitalize(), "123abc");
+  equal("".capitalize(), "");
+  equal("A".capitalize(), "A");
+  equal("a".capitalize(), "A");
+});
+
 test("format()", function() {
-  equal("(11,12)", "({0},{1})".format(11, 12));
-  equal("(11,12): 11", "({0},{1}): {0}".format(11, 12));
+  equal("({0},{1})".format(11, 12), "(11,12)");
+  equal("({0},{1}): {0}".format(11, 12), "(11,12): 11");
 });
 
 test("startsWith()", function() {
@@ -17,13 +26,13 @@ test("startsWith()", function() {
   equal(false, "a sd sd".startsWith("sd"));
 });
 
-test("include()", function() {
-  equal(true, "  asdf  ".include("  "));
-  equal(true, "  asdf  ".include("  a"));
-  equal(true, "sdsd".include("ds"));
-  equal(true, "sdsd".include("sdsd"));
-  equal(true, "sdsd".include("sd"));
-  equal(false, "a sd sd".include("asd"));
+test("contains()", function() {
+  equal(true, "  asdf  ".contains("  "));
+  equal(true, "  asdf  ".contains("  a"));
+  equal(true, "sdsd".contains("ds"));
+  equal(true, "sdsd".contains("sdsd"));
+  equal(true, "sdsd".contains("sd"));
+  equal(false, "a sd sd".contains("asd"));
 });
 
 test("endsWith()", function() {
@@ -42,6 +51,14 @@ test("trim()", function() {
   equal("as df", "as df".trim());
   equal("", " ".trim());
   equal("", "".trim());
+});
+
+test("underscore()", function() {
+  equal("".underscore(), "");
+  equal("aasdf".underscore(), "aasdf");
+  equal("Aasdf".underscore(), "aasdf");
+  equal("MyCamelCaseWord".underscore(), "my_camel_case_word");
+  equal("yourCamelCaseWord".underscore(), "your_camel_case_word");
 });
 
 

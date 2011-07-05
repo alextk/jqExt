@@ -8,7 +8,7 @@
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: Sun Jul 3 19:11:48 2011 +0300
+* Date: Mon Jul 4 13:16:46 2011 +0300
 */
 
 /**
@@ -40,11 +40,11 @@
   $.ext.mixins = {};
 
   /**
-   * @object {public} $.ext.extender
+   * @object {public} $.ext.Extender
    * Extender is an object with two static utility functions that allow to easily extend jQuery: to add utility methods
    * on jQuery object and to create plugins (that will be available as wrapped set methods).
    */
-  $.ext.extender = {
+  $.ext.Extender = {
 
     /**
      * @function {public static void} ?
@@ -74,10 +74,35 @@
   };
 
 })(jQuery);
+(function($) {
+
+  /**
+   * @namespace Object
+   */
+  var mixin = {
+
+    keys: function() {
+      var results = [];
+      for (var property in obj) {
+        if (obj.hasOwnProperty(property)) {
+          results.push(property);
+        }
+      }
+      return results;
+    }
+
+  };
+
+  // use native browser JS 1.6 implementation if available
+  if (Object.keys) { delete mixin.keys; }
+
+  $.extend(Object, mixin);
+
+})(jQuery);
 /**
  * Add utility method to jQuery object to test for additional parameters types
  */
-jQuery.ext.extender.addUtilityMethods({
+jQuery.ext.Extender.addUtilityMethods({
 
   /**
    * @function {public static boolean} $.?
@@ -119,7 +144,7 @@ jQuery.ext.extender.addUtilityMethods({
     return jQuery.type(obj) === "undefined";
   }
 
-}, true);
+});
 (function($) {
 
   /**
@@ -128,11 +153,13 @@ jQuery.ext.extender.addUtilityMethods({
    * Enumerable is a mixin: a set of methods intended not for standaone use, but for incorporation into other objects.
    * jqExt mixes Enumerable into Array class (making all methods of Enumerable available on array instances).
    *
-   *  The Enumerable module basically makes only one requirement on your object: it must provide a method
-   *  named `_each` (note the leading underscore) that will accept a function as its unique argument,
-   *  and will contain the actual "raw iteration" algorithm, invoking its argument with each element in turn.
-   *  jqExt provides this method for array implementation (adds it to Array.prototype), but if you want to mix enumerable
-   *  into your own object, you have to implement _each method.
+   * The Enumerable module basically makes only one requirement on your object: it must provide a method
+   * named `_each` (note the leading underscore) that will accept a function as its unique argument,
+   * and will contain the actual "raw iteration" algorithm, invoking its argument with each element in turn.
+   * jqExt provides this method for array implementation (adds it to Array.prototype), but if you want to mix enumerable
+   * into your own object, you have to implement _each method.
+   *
+   * <p> @depends $.ext </p>
    */
   var Enumerable = {
 
@@ -419,7 +446,11 @@ jQuery.ext.extender.addUtilityMethods({
 
 })(jQuery);(function($) {
 
-  var mixin = /** @scope Array */ {
+  /**
+   * @namespace Array
+   * <p>@depends $.ext.mixins.Enumerable</p>
+   */
+  var mixin = {
 
     /**
      * <h6>Example:</h6>
@@ -548,11 +579,10 @@ jQuery.ext.extender.addUtilityMethods({
 
   };
 
-  if (Array.prototype.indexOf) delete mixin.indexOf; // use native browser JS 1.6 implementation if available
-  if (Array.prototype.lastIndexOf) delete mixin.lastIndexOf; // use native browser JS 1.6 implementation if available
-  if (Array.prototype.forEach){ // use native browser JS 1.6 implementation if available
-    mixin._each = Array.prototype.forEach;
-  }
+  // use native browser JS 1.6 implementation if available
+  if (Array.prototype.indexOf){ delete mixin.indexOf; }
+  if (Array.prototype.lastIndexOf){ delete mixin.lastIndexOf; }
+  if (Array.prototype.forEach){ mixin._each = Array.prototype.forEach; }
 
 
   $.extend(Array.prototype, mixin);
@@ -646,6 +676,15 @@ jQuery.ext.extender.addUtilityMethods({
 jQuery.extend(String.prototype, /** @scope String */{
 
   /**
+   * @function {public String} ?
+   * Returns copy of this string when first letter is uppercase and other letters downcased
+   * @returns copy of this string when first letter is uppercase and other letters downcased
+   */
+  capitalize: function() {
+    return this.charAt(0).toUpperCase() + this.substring(1).toLowerCase();
+  },
+
+  /**
    * <pre>
    * "This is a {0} string using the {1} method".format("formatted", "inline")
    * //will return: "This is a formatted string using the inline method"
@@ -682,7 +721,7 @@ jQuery.extend(String.prototype, /** @scope String */{
    * @param anotherString {String} - check if it is contained in this string instance
    * @returns true if given string is included in this string
    */
-  include: function(anotherString) {
+  contains: function(anotherString) {
     return this.indexOf(anotherString) != -1;
   },
 
@@ -704,6 +743,19 @@ jQuery.extend(String.prototype, /** @scope String */{
    */
   trim: function() {
     return this.replace(/^\s*/, "").replace(/\s*$/, "");
+  },
+
+  /**
+   * @function {public String} ?
+   * Converts a camelized string into a series of words separated by an underscore (_)
+   * @returns all camelized letters converted to undercase with _ between them
+   */
+  underscore: function() {
+    return this.replace(/::/g, '/')
+      .replace(/([A-Z]+)([A-Z][a-z])/g, '$1_$2')
+      .replace(/([a-z\d])([A-Z])/g, '$1_$2')
+      .replace(/-/g, '_')
+      .toLowerCase();
   }
 
 });
@@ -836,7 +888,7 @@ jQuery.extend(String.prototype, /** @scope String */{
   });
 
 
-})(jQuery);jQuery.ext.extender.addUtilityMethods({
+})(jQuery);jQuery.ext.Extender.addUtilityMethods({
 
   /**
    * @namespace System information object parsed from browser navigator.userAgent property
@@ -1389,3 +1441,95 @@ jQuery.extend(String.prototype, /** @scope String */{
 
 })(jQuery);
 
+jQuery.ext.Extender.addWrapedSetMethods({
+
+  bindLater: function(type, data, fn, when) {
+    var timeout = 200;
+    if (arguments.length == 4){
+      timeout = Array.prototype.pop.call(arguments); //full form: $().bind('click', {arg1: 2, arg2: 'asdf'}, function(){ //do stuff}, 4000);
+    }
+    else if (arguments.length == 3 && jQuery.isFunction(data) && jQuery.isNumber(fn)) {
+      timeout = Array.prototype.pop.call(arguments);
+    }
+    else if (arguments.length == 2 && typeof type === "object" && jQuery.isNumber(data)) {
+      timeout = Array.prototype.pop.call(arguments);
+    }
+
+    var self = this;
+    var args = arguments;
+    window.setTimeout(function() {
+      self.bind.apply(self, args);
+    }, timeout);
+    return this;
+  }
+
+}, true);jQuery.ext.Extender.addWrapedSetMethods(
+  /**
+   * @namespace $()
+   * jQuery wrapped set methods
+   */
+  {
+
+    /**
+     * Return object that contains this element top,left,bottom,right coordinates relative to the document
+     * @param outer (default true) - outerWidth/outerHeight (including padding and borders) coordinates are returned.
+     */
+    region: function(outer) {
+      var self = jQuery(this);
+      
+      var offset = self.offset();
+      var top = Math.ceil(offset.top);
+      var left = Math.ceil(offset.left);
+      var w, h;
+      if (outer === false) {
+        w = self.width();
+        h = self.height();
+      } else {
+        w = self.outerWidth();
+        h = self.outerHeight();
+      }
+      return {top: top, left: left, right: left + w, bottom: top + h};
+    },
+
+    outerHeight: function(outerOrHeight, includeMargins) {
+      if (!this[0]) return null;
+
+      if (jQuery.isNumber(outerOrHeight)) { //set outerHeight of component
+        var delta = this.jq_original_outerHeight(includeMargins) - this.height();
+        return this.height(outerOrHeight - delta);
+      } else { //invoke original jquery getter
+        return this.jq_original_outerHeight.apply(this, arguments);
+      }
+    },
+
+    outerWidth: function(outerOrWidth, includeMargins) {
+      if (!this[0]) return null;
+
+      if (jQuery.isNumber(outerOrWidth)) {
+        var delta = this.jq_original_outerWidth(includeMargins) - this.width();
+        return this.width(outerOrWidth - delta);
+      } else { //invoke original jquery getter
+        return this.jq_original_outerWidth.apply(this, arguments);
+      }
+    },
+
+    /**
+     * @function {public boolean} ?
+     * Return true if this element is contained inside one of the given parents.
+     * @param {Array} possibleParents - array of jQuery wrapped sets or plain elements which are the parents to search for containment of this element
+     * @returns true if first element of the wrapped set is contained in at least one of the given parents
+     */
+    containedIn: function(possibleParents) {
+      if (!this[0]) return null;
+      if (!jQuery.isArray(possibleParents)) possibleParents = [possibleParents];
+
+      var el = this[0];
+      for (var i = 0; i < possibleParents.length; i++) {
+        var p = possibleParents[i];
+        if (p instanceof jQuery) p = possibleParents[i].get(0);
+        if (jQuery.contains(p, el)) return true; //clicked element is inside this component, so no blur is needed
+      }
+      return false;
+    }
+
+  }, true);

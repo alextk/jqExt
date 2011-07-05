@@ -6,6 +6,7 @@ DIST_DIR = ${PREFIX}/dist
 
 JS_FILES = license.txt\
 	${SRC_DIR}/base.js\
+	${SRC_DIR}/core/object.js \
 	${SRC_DIR}/core/is.js \
 	${SRC_DIR}/core/enumerable.js \
 	${SRC_DIR}/core/array.js \
@@ -16,7 +17,9 @@ JS_FILES = license.txt\
 	${SRC_DIR}/core/event.js \
 	${SRC_DIR}/utils/system-info.js \
 	${SRC_DIR}/oop/observable.js \
-	${SRC_DIR}/oop/inheritance.js
+	${SRC_DIR}/oop/inheritance.js \
+	${SRC_DIR}/wrapped-set/event.js \
+	${SRC_DIR}/wrapped-set/dimensions.js
 
 JQEXT = ${DIST_DIR}/jquery.jqext.js
 JQEXT_MIN = ${DIST_DIR}/jquery.jqext.min.js

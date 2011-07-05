@@ -1,7 +1,7 @@
 /**
  * Add utility method to jQuery object to test for additional parameters types
  */
-jQuery.ext.extender.addUtilityMethods({
+jQuery.ext.Extender.addUtilityMethods({
 
   /**
    * @function {public static boolean} $.?
@@ -43,4 +43,4 @@ jQuery.ext.extender.addUtilityMethods({
     return jQuery.type(obj) === "undefined";
   }
 
-}, true);
+});

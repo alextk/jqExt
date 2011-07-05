@@ -1,6 +1,15 @@
 jQuery.extend(String.prototype, /** @scope String */{
 
   /**
+   * @function {public String} ?
+   * Returns copy of this string when first letter is uppercase and other letters downcased
+   * @returns copy of this string when first letter is uppercase and other letters downcased
+   */
+  capitalize: function() {
+    return this.charAt(0).toUpperCase() + this.substring(1).toLowerCase();
+  },
+
+  /**
    * <pre>
    * "This is a {0} string using the {1} method".format("formatted", "inline")
    * //will return: "This is a formatted string using the inline method"
@@ -37,7 +46,7 @@ jQuery.extend(String.prototype, /** @scope String */{
    * @param anotherString {String} - check if it is contained in this string instance
    * @returns true if given string is included in this string
    */
-  include: function(anotherString) {
+  contains: function(anotherString) {
     return this.indexOf(anotherString) != -1;
   },
 
@@ -59,6 +68,19 @@ jQuery.extend(String.prototype, /** @scope String */{
    */
   trim: function() {
     return this.replace(/^\s*/, "").replace(/\s*$/, "");
+  },
+
+  /**
+   * @function {public String} ?
+   * Converts a camelized string into a series of words separated by an underscore (_)
+   * @returns all camelized letters converted to undercase with _ between them
+   */
+  underscore: function() {
+    return this.replace(/::/g, '/')
+      .replace(/([A-Z]+)([A-Z][a-z])/g, '$1_$2')
+      .replace(/([a-z\d])([A-Z])/g, '$1_$2')
+      .replace(/-/g, '_')
+      .toLowerCase();
   }
 
 });

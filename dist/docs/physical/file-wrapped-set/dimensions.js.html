@@ -58,7 +58,7 @@
 			                    <hr/>
 						        <div>
 						        						        		<H2>
-        <span class="objType">File</span> core/is.js
+        <span class="objType">File</span> wrapped-set/dimensions.js
     </H2>
     
 
@@ -68,7 +68,7 @@
        <code>
             <span class="modifiers"></span>
             <span class="objType">file</span> 
-            <b>core/is.js</b>
+            <b>wrapped-set/dimensions.js</b>
        </code>
     </div>
                                             <hr/> 
@@ -86,63 +86,14 @@
             </div>
                     <div class="summaryItem">
                                                                     <div class="summaryItemDef">
-                <span class="modifiers">public static</span>
+                <span class="modifiers">public</span>
                 <span class="type">boolean</span>
-                <a href="logical/$.html#___isBoolean"><span class="elementName">isBoolean</span></a>
-                (<span class="type"></span>
- obj)
+                <a href="logical/$().html#___containedIn"><span class="elementName">containedIn</span></a>
+                (<span class="type"><a href="logical/Array.html">Array</a></span>
+ possibleParents)
             </div>          
                 <div class="summaryItemDesc">
-        
-     </div>  
-                            </div>
-                    <div class="summaryItem">
-                                                                    <div class="summaryItemDef">
-                <span class="modifiers">public static</span>
-                <span class="type">boolean</span>
-                <a href="logical/$.html#___isDate"><span class="elementName">isDate</span></a>
-                (<span class="type"></span>
- obj)
-            </div>          
-                <div class="summaryItemDesc">
-        
-     </div>  
-                            </div>
-                    <div class="summaryItem">
-                                                                    <div class="summaryItemDef">
-                <span class="modifiers">public static</span>
-                <span class="type">boolean</span>
-                <a href="logical/$.html#___isNumber"><span class="elementName">isNumber</span></a>
-                (<span class="type"></span>
- obj)
-            </div>          
-                <div class="summaryItemDesc">
-        
-     </div>  
-                            </div>
-                    <div class="summaryItem">
-                                                                    <div class="summaryItemDef">
-                <span class="modifiers">public static</span>
-                <span class="type">boolean</span>
-                <a href="logical/$.html#___isString"><span class="elementName">isString</span></a>
-                (<span class="type"></span>
- obj)
-            </div>          
-                <div class="summaryItemDesc">
-        
-     </div>  
-                            </div>
-                    <div class="summaryItem">
-                                                                    <div class="summaryItemDef">
-                <span class="modifiers">public static</span>
-                <span class="type">boolean</span>
-                <a href="logical/$.html#___isUndefined"><span class="elementName">isUndefined</span></a>
-                (<span class="type"></span>
- obj)
-            </div>          
-                <div class="summaryItemDesc">
-        
-     </div>  
+        Return true if this element is contained inside one of the given parents.    </div>  
                             </div>
                 </div>
         <p/>
@@ -151,21 +102,22 @@
     	    	    	    	            <div class="details function">
             <h2 class="sectionHeader">Function Details</h2>
                                                                     <h3>
-        <a name="___isBoolean">
+        <a name="___containedIn">
             <span class="objType">function</span>
-            <span class="objName">isBoolean</span>            
+            <span class="objName">containedIn</span>            
         </a> 
     </h3>
                         <div>
                 <code>
-                    <span class="modifiers">public static</span>
+                    <span class="modifiers">public</span>
                     <span class="type">boolean</span>
-                    isBoolean(<span class="type"></span>
- obj)
+                    containedIn(<span class="type"><a href="logical/Array.html">Array</a></span>
+ possibleParents)
                 </code> 
             </div>          
                 <div class="comment">
-        
+        Return true if this element is contained inside one of the given parents.
+
      </div>
         	<div class="parameters">
         <span class="descSection">Parameters:</span><br/>
@@ -174,132 +126,18 @@
                     <div>
                                                 <div class="param paddedDetails">
         <code>
-            obj        </code>
-                    </div>   
+            possibleParents        </code>
+         - array of jQuery wrapped sets or plain elements which are the parents to search for containment of this element            </div>   
                                         </div>
                 </div>
                     </div>
-                                                    <hr/>       
-                                                                                    <h3>
-        <a name="___isDate">
-            <span class="objType">function</span>
-            <span class="objName">isDate</span>            
-        </a> 
-    </h3>
-                        <div>
-                <code>
-                    <span class="modifiers">public static</span>
-                    <span class="type">boolean</span>
-                    isDate(<span class="type"></span>
- obj)
-                </code> 
-            </div>          
-                <div class="comment">
-        
-     </div>
-        	<div class="parameters">
-        <span class="descSection">Parameters:</span><br/>
-                            <div>
-                    <div class="paramset"></div>
-                    <div>
-                                                <div class="param paddedDetails">
-        <code>
-            obj        </code>
-                    </div>   
-                                        </div>
-                </div>
-                    </div>
-                                                    <hr/>       
-                                                                                    <h3>
-        <a name="___isNumber">
-            <span class="objType">function</span>
-            <span class="objName">isNumber</span>            
-        </a> 
-    </h3>
-                        <div>
-                <code>
-                    <span class="modifiers">public static</span>
-                    <span class="type">boolean</span>
-                    isNumber(<span class="type"></span>
- obj)
-                </code> 
-            </div>          
-                <div class="comment">
-        
-     </div>
-        	<div class="parameters">
-        <span class="descSection">Parameters:</span><br/>
-                            <div>
-                    <div class="paramset"></div>
-                    <div>
-                                                <div class="param paddedDetails">
-        <code>
-            obj        </code>
-                    </div>   
-                                        </div>
-                </div>
-                    </div>
-                                                    <hr/>       
-                                                                                    <h3>
-        <a name="___isString">
-            <span class="objType">function</span>
-            <span class="objName">isString</span>            
-        </a> 
-    </h3>
-                        <div>
-                <code>
-                    <span class="modifiers">public static</span>
-                    <span class="type">boolean</span>
-                    isString(<span class="type"></span>
- obj)
-                </code> 
-            </div>          
-                <div class="comment">
-        
-     </div>
-        	<div class="parameters">
-        <span class="descSection">Parameters:</span><br/>
-                            <div>
-                    <div class="paramset"></div>
-                    <div>
-                                                <div class="param paddedDetails">
-        <code>
-            obj        </code>
-                    </div>   
-                                        </div>
-                </div>
-                    </div>
-                                                    <hr/>       
-                                                                                    <h3>
-        <a name="___isUndefined">
-            <span class="objType">function</span>
-            <span class="objName">isUndefined</span>            
-        </a> 
-    </h3>
-                        <div>
-                <code>
-                    <span class="modifiers">public static</span>
-                    <span class="type">boolean</span>
-                    isUndefined(<span class="type"></span>
- obj)
-                </code> 
-            </div>          
-                <div class="comment">
-        
-     </div>
-        	<div class="parameters">
-        <span class="descSection">Parameters:</span><br/>
-                            <div>
-                    <div class="paramset"></div>
-                    <div>
-                                                <div class="param paddedDetails">
-        <code>
-            obj        </code>
-                    </div>   
-                                        </div>
-                </div>
-                    </div>
-                                                    <hr/>       
+            	<div class="returns">
+	        <span class="descSection">Returns:</span><br/>
+	        <div class="paddedDetails">
+	            	             true if first element of the wrapped set is contained in at least one of the given parents
+     	            	        </div>
+        </div>      
+                                                <hr/>       
                                     </div>
     	    	                                    						        </div>
         		          </div>			                    
@@ -409,7 +247,7 @@
 	</body>
     <script type="text/javascript">
         jgdoc.Searcher.start();
-        jgdoc.NavTree.initialize("file-core/is.js");
+        jgdoc.NavTree.initialize("file-wrapped-set/dimensions.js");
     </script>			
 	<script type="text/javascript" src="jsindex.js">
     </script>

@@ -20,6 +20,24 @@
            elementType : "logical_container"
        } ,         
        {
+           localName : "$()",
+           fullName : "$()",
+           summary : "namespace $()",
+           ref : "logical/$().html",
+           parent : "GLOBAL",
+           type : "namespace",
+           elementType : "logical_container"
+       } ,         
+       {
+           localName : "containedIn",
+           fullName : "$().containedIn",
+           summary : "public function boolean containedIn(Array possibleParents)",
+           ref : "logical/$().html#___containedIn",
+           parent : "$()",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
            localName : "Event",
            fullName : "$.Event",
            summary : "class Event",
@@ -308,29 +326,29 @@
            elementType : "function"
        } ,         
        {
-           localName : "extender",
-           fullName : "$.ext.extender",
-           summary : "public object extender",
-           ref : "logical/$/ext/extender.html",
+           localName : "Extender",
+           fullName : "$.ext.Extender",
+           summary : "public object Extender",
+           ref : "logical/$/ext/Extender.html",
            parent : "$.ext",
            type : "object",
            elementType : "logical_container"
        } ,         
        {
            localName : "addUtilityMethods",
-           fullName : "$.ext.extender.addUtilityMethods",
+           fullName : "$.ext.Extender.addUtilityMethods",
            summary : "public static function void addUtilityMethods(Hash methods)",
-           ref : "logical/$/ext/extender.html#___addUtilityMethods",
-           parent : "$.ext.extender",
+           ref : "logical/$/ext/Extender.html#___addUtilityMethods",
+           parent : "$.ext.Extender",
            type : "function",
            elementType : "function"
        } ,         
        {
            localName : "addWrapedSetMethods",
-           fullName : "$.ext.extender.addWrapedSetMethods",
+           fullName : "$.ext.Extender.addWrapedSetMethods",
            summary : "public static function void addWrapedSetMethods(Hash methods, [boolean keepOriginal])",
-           ref : "logical/$/ext/extender.html#___addWrapedSetMethods",
-           parent : "$.ext.extender",
+           ref : "logical/$/ext/Extender.html#___addWrapedSetMethods",
+           parent : "$.ext.Extender",
            type : "function",
            elementType : "function"
        } ,         
@@ -731,6 +749,15 @@
            elementType : "logical_container"
        } ,         
        {
+           localName : "Object",
+           fullName : "Object",
+           summary : "namespace Object",
+           ref : "logical/Object.html",
+           parent : "GLOBAL",
+           type : "namespace",
+           elementType : "logical_container"
+       } ,         
+       {
            localName : "RegExp",
            fullName : "RegExp",
            summary : "namespace RegExp",
@@ -758,6 +785,24 @@
            elementType : "logical_container"
        } ,         
        {
+           localName : "capitalize",
+           fullName : "String.capitalize",
+           summary : "public function String capitalize()",
+           ref : "logical/String.html#___capitalize",
+           parent : "String",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "contains",
+           fullName : "String.contains",
+           summary : "public function boolean contains(anotherString)",
+           ref : "logical/String.html#___contains",
+           parent : "String",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
            localName : "endsWith",
            fullName : "String.endsWith",
            summary : "public function boolean endsWith(String other)",
@@ -776,15 +821,6 @@
            elementType : "function"
        } ,         
        {
-           localName : "include",
-           fullName : "String.include",
-           summary : "public function boolean include(anotherString)",
-           ref : "logical/String.html#___include",
-           parent : "String",
-           type : "function",
-           elementType : "function"
-       } ,         
-       {
            localName : "startsWith",
            fullName : "String.startsWith",
            summary : "public function boolean startsWith(String other)",
@@ -798,6 +834,15 @@
            fullName : "String.trim",
            summary : "public function String trim()",
            ref : "logical/String.html#___trim",
+           parent : "String",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "underscore",
+           fullName : "String.underscore",
+           summary : "public function String underscore()",
+           ref : "logical/String.html#___underscore",
            parent : "String",
            type : "function",
            elementType : "function"
