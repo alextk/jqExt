@@ -99,3 +99,18 @@ test("remove()", function() {
   equal(23, arr[2]);
   equal(2, arr[arr.length-1]);
 });
+
+test("append()", function() {
+  var arr = [1,2,3];
+  ok($.isArray(arr.append(10, 11, 222)));
+  equal(arr.length, 6);
+  equal(arr.last(), 222);
+});
+
+test("prepend()", function() {
+  var arr = [1,2,3];
+  ok($.isArray(arr.prepend(10, 11, 222)));
+  equal(arr.length, 6);
+  equal(arr.first(), 10);
+  equal(arr.last(), 3);
+});

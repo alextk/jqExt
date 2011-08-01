@@ -120,6 +120,56 @@
     },
 
     /**
+     * <h6>Examples:</h6>
+     * <pre>
+     *  [1, 3, 4].append(10, 20, 30)
+     *  // -> [1, 3, 4, 10, 20 ,30]
+     *
+     *  a = ['hello', 'world']
+     *  a.append('!', '!!!']
+     *  a
+     *  // -> ['hello', 'world', '!', '!!!']
+     *
+     * </pre>
+     *
+     * @function {public Array} ?
+     * Add items to the end of this array and returns the array (for chaining)
+     * @param {...} - variable list of items to append to the end of array
+     * @returns this array instance modified to include passed items. Note that no new array instance is created
+     **/
+    append: function(){
+      for(var i=0; i<arguments.length; i++){
+        this.push(arguments[i]);
+      }
+      return this;
+    },
+
+    /**
+     * <h6>Examples:</h6>
+     * <pre>
+     *  [1, 3, 4].prepend(10, 20, 30)
+     *  // -> [10, 20 ,30, 1, 3, 4]
+     *
+     *  a = ['hello', 'world']
+     *  a.append('!', '!!!']
+     *  a
+     *  // -> ['!', '!!!', 'hello', 'world']
+     *
+     * </pre>
+     *
+     * @function {public Array} ?
+     * Add items to the start of this array and returns the array (for chaining)
+     * @param {...} - variable list of items to add to the start of array
+     * @returns this array instance modified to include passed items. Note that no new array instance is created
+     **/
+    prepend: function(){
+      for(var i=arguments.length-1; i>=0; i--){
+        this.unshift(arguments[i]);
+      }
+      return this;
+    },
+
+    /**
      * @function {public void} ?
      * This method is required for mixin in the enumerable module. Uses javascript 1.6 native implementation if present.
      * @param iterator

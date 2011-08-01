@@ -614,6 +614,15 @@
            elementType : "function"
        } ,         
        {
+           localName : "append",
+           fullName : "Array.append",
+           summary : "public function Array append(... -)",
+           ref : "logical/Array.html#___append",
+           parent : "Array",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
            localName : "clear",
            fullName : "Array.clear",
            summary : "public function Array clear()",
@@ -663,6 +672,15 @@
            fullName : "Array.lastIndexOf",
            summary : "public function int lastIndexOf(? item, [int offset])",
            ref : "logical/Array.html#___lastIndexOf",
+           parent : "Array",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
+           localName : "prepend",
+           fullName : "Array.prepend",
+           summary : "public function Array prepend(... -)",
+           ref : "logical/Array.html#___prepend",
            parent : "Array",
            type : "function",
            elementType : "function"
