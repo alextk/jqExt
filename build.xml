@@ -37,6 +37,7 @@
       <fileset dir="${srcDir}" includes="core/object.js"/>
       <fileset dir="${srcDir}" includes="core/is.js"/>
       <fileset dir="${srcDir}" includes="core/enumerable.js"/>
+      <fileset dir="${srcDir}" includes="core/array.js"/>
       <fileset dir="${srcDir}" includes="core/date.js"/>
       <fileset dir="${srcDir}" includes="core/function.js"/>
       <fileset dir="${srcDir}" includes="core/regexp.js"/>
