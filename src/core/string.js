@@ -10,6 +10,21 @@ jQuery.extend(String.prototype, /** @scope String */{
   },
 
   /**
+   * @function {public String} ?
+   * Returns copy of this string with all dashes removed and words converted to uppercase => UpperCamelCase. If passed argument is true, returns lowerCamelCase
+   * @params {Boolean} lowerCamelCase - if true, will return string in lowerCamelCase (first letter is lowercased)
+   * @returns copy of this in UpperCamelCase. If passed argument is true, returns lowerCamelCase
+   */
+  camelize: function(lowerCamelCase) {
+    if(this.length == 0) return this;
+    var result = this.split('_').collect(function(s){ return s.capitalize(); }).join('');
+    if(lowerCamelCase === true){
+      result = result.charAt(0).toLowerCase() + result.substring(1);
+    }
+    return result;
+  },
+
+  /**
    * <pre>
    * "This is a {0} string using the {1} method".format("formatted", "inline")
    * //will return: "This is a formatted string using the inline method"

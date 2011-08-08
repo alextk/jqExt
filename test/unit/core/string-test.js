@@ -12,6 +12,20 @@ test("capitalize()", function() {
   equal("a".capitalize(), "A");
 });
 
+test("camelize()", function() {
+  equal("hello".camelize(), "Hello");
+  equal("HELLO".camelize(), "Hello");
+  equal("123ABC".camelize(), "123abc");
+  equal("".camelize(), "");
+  equal("A".camelize(), "A");
+  equal("a".camelize(), "A");
+  equal("a".camelize(true), "a");
+
+  equal("my_underscored_string".camelize(), "MyUnderscoredString");
+  equal("my_underscored_string".camelize(true), "myUnderscoredString");
+  equal("MyUnderscoredString".camelize(), "Myunderscoredstring");
+});
+
 test("format()", function() {
   equal("({0},{1})".format(11, 12), "(11,12)");
   equal("({0},{1}): {0}".format(11, 12), "(11,12): 11");

@@ -803,6 +803,15 @@
            elementType : "logical_container"
        } ,         
        {
+           localName : "camelize",
+           fullName : "String.camelize",
+           summary : "public function String camelize()",
+           ref : "logical/String.html#___camelize",
+           parent : "String",
+           type : "function",
+           elementType : "function"
+       } ,         
+       {
            localName : "capitalize",
            fullName : "String.capitalize",
            summary : "public function String capitalize()",

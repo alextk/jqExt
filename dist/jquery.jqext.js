@@ -2,14 +2,14 @@
 * jqExt - jQuery extensions and native javascript extensions
 *
 * Version: 0.0.1
-* Build: 2
+* Build: 3
 * Copyright 2011 Alex Tkachev
 *
 * Dual licensed under MIT or GPLv2 licenses
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: 01/08/2011 15:35:38
+* Date: 08/08/2011 09:42:00
 */
 
 /**
@@ -733,6 +733,21 @@ jQuery.extend(String.prototype, /** @scope String */{
    */
   capitalize: function() {
     return this.charAt(0).toUpperCase() + this.substring(1).toLowerCase();
+  },
+
+  /**
+   * @function {public String} ?
+   * Returns copy of this string with all dashes removed and words converted to uppercase => UpperCamelCase. If passed argument is true, returns lowerCamelCase
+   * @params {Boolean} lowerCamelCase - if true, will return string in lowerCamelCase (first letter is lowercased)
+   * @returns copy of this in UpperCamelCase. If passed argument is true, returns lowerCamelCase
+   */
+  camelize: function(lowerCamelCase) {
+    if(this.length == 0) return this;
+    var result = this.split('_').collect(function(s){ return s.capitalize(); }).join('');
+    if(lowerCamelCase === true){
+      result = result.charAt(0).toLowerCase() + result.substring(1);
+    }
+    return result;
   },
 
   /**
