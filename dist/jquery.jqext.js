@@ -2,14 +2,14 @@
 * jqExt - jQuery extensions and native javascript extensions
 *
 * Version: 0.0.1
-* Build: 3
+* Build: 5
 * Copyright 2011 Alex Tkachev
 *
 * Dual licensed under MIT or GPLv2 licenses
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: 08/08/2011 09:42:00
+* Date: 13 Dec 2011 21:19:28
 */
 
 /**
@@ -445,7 +445,8 @@ jQuery.ext.Extender.addUtilityMethods({
   $.ext.mixins.Enumerable = Enumerable;
 
 
-})(jQuery);(function($) {
+})(jQuery);
+(function($) {
 
   /**
    * @namespace Array
@@ -640,7 +641,8 @@ jQuery.ext.Extender.addUtilityMethods({
   $.extend(Array.prototype, $.ext.mixins.Enumerable);
 
 
-})(jQuery);jQuery.extend(Date.prototype, /** @scope Date */{
+})(jQuery);
+jQuery.extend(Date.prototype, /** @scope Date */{
 
   /**
    * @function {public long} ?
@@ -652,7 +654,8 @@ jQuery.ext.Extender.addUtilityMethods({
     return Math.abs((from || new Date()).getTime()-this.getTime());
   }
 
-});(function($) {
+});
+(function($) {
 
   $.extend(Function, {
     /**
@@ -711,7 +714,8 @@ jQuery.ext.Extender.addUtilityMethods({
 
   });
 
-})(jQuery);jQuery.extend(RegExp, {
+})(jQuery);
+jQuery.extend(RegExp, {
 
     /**
      * @function {public String} RegExp.?
@@ -954,7 +958,8 @@ jQuery.extend(String.prototype, /** @scope String */{
   });
 
 
-})(jQuery);jQuery.ext.Extender.addUtilityMethods({
+})(jQuery);
+jQuery.ext.Extender.addUtilityMethods({
 
   /**
    * @namespace System information object parsed from browser navigator.userAgent property
@@ -1003,7 +1008,8 @@ jQuery.extend(String.prototype, /** @scope String */{
 
   }()
 
-}, true);(function($) {
+}, true);
+(function($) {
 
   /**
    * @namespace $.ext.mixins.Observable
@@ -1529,7 +1535,8 @@ jQuery.ext.Extender.addWrapedSetMethods({
     return this;
   }
 
-}, true);jQuery.ext.Extender.addWrapedSetMethods(
+}, true);
+jQuery.ext.Extender.addWrapedSetMethods(
   /**
    * @namespace $()
    * jQuery wrapped set methods
