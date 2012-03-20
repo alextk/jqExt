@@ -6,7 +6,9 @@ jQuery.ext.Extender.addWrapedSetMethods({
     objectData = {};
 
     $.each(arrayData, function() {
-      var value;
+      var value, name;
+
+      name = this.name.replace('[]', '');
 
       if (this.value != null) {
         value = this.value;
@@ -14,14 +16,14 @@ jQuery.ext.Extender.addWrapedSetMethods({
         value = '';
       }
 
-      if (objectData[this.name] != null) {
-        if (!objectData[this.name].push) {
-          objectData[this.name] = [objectData[this.name]];
+      if (objectData[name] != null) {
+        if (!objectData[name].push) {
+          objectData[name] = [objectData[name]];
         }
 
-        objectData[this.name].push(value);
+        objectData[name].push(value);
       } else {
-        objectData[this.name] = value;
+        objectData[name] = value;
       }
     });
 

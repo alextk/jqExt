@@ -2,14 +2,14 @@
 * jqExt - jQuery extensions and native javascript extensions
 *
 * Version: 0.0.1
-* Build: 7
+* Build: 8
 * Copyright 2011 Alex Tkachev
 *
 * Dual licensed under MIT or GPLv2 licenses
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: 19 Dec 2011 16:37:39
+* Date: 20 Mar 2012 19:13:19
 */
 
 /**
@@ -1614,7 +1614,9 @@ jQuery.ext.Extender.addWrapedSetMethods({
     objectData = {};
 
     $.each(arrayData, function() {
-      var value;
+      var value, name;
+
+      name = this.name.replace('[]', '');
 
       if (this.value != null) {
         value = this.value;
@@ -1622,14 +1624,14 @@ jQuery.ext.Extender.addWrapedSetMethods({
         value = '';
       }
 
-      if (objectData[this.name] != null) {
-        if (!objectData[this.name].push) {
-          objectData[this.name] = [objectData[this.name]];
+      if (objectData[name] != null) {
+        if (!objectData[name].push) {
+          objectData[name] = [objectData[name]];
         }
 
-        objectData[this.name].push(value);
+        objectData[name].push(value);
       } else {
-        objectData[this.name] = value;
+        objectData[name] = value;
       }
     });
 
