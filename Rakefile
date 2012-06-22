@@ -14,7 +14,7 @@ project = JsProjectBuilder.new(
                    core/object.js  core/is.js  core/enumerable.js  core/array.js  core/date.js  core/function.js  core/regexp.js  core/string.js core/event.js
                    utils/system-info.js
                    oop/observable.js  oop/inheritance.js
-                   wrapped-set/event.js  wrapped-set/dimensions.js  wrapped-set/serialize.js
+                   wrapped-set/event.js  wrapped-set/dimensions.js
                  }
 )
 JsProjectBuilder::Tasks.new(project)
