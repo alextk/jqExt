@@ -2,14 +2,14 @@
 * jqExt - jQuery extensions and native javascript extensions
 *
 * Version: 0.0.2
-* Build: 12
+* Build: 13
 * Copyright 2011 Alex Tkachev
 *
 * Dual licensed under MIT or GPLv2 licenses
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: 07 Nov 2012 13:21:28
+* Date: 07 Nov 2012 20:16:45
 */
 
 /**
@@ -768,6 +768,18 @@ Date.strftime_helper.locales.en = {
 	A: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
 	b: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 	B: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+	c: '%a %d %b %Y %T %Z',
+	p: ['AM', 'PM'],
+	P: ['am', 'pm'],
+	x: '%d/%m/%y',
+	X: '%T'
+};
+
+Date.strftime_helper.locales['he-IL'] = {
+	a: ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש'],
+	A: ['יום ראשון', 'יום שני', 'יום שלישי', 'יום רביעי', 'יום חמישי', 'יום שישי', 'יום שבת'],
+	b: ['ינ', 'פבר', 'מרץ', 'אפר', 'מאי', 'יוני', 'יולי', 'אוג', 'ספט', 'אוק', 'נוב', 'דצמ'],
+	B: ['ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני', 'יולי', 'אוגוסט', 'ספטמבר', 'אוקטובר', 'נובמבר', 'דצמבר'],
 	c: '%a %d %b %Y %T %Z',
 	p: ['AM', 'PM'],
 	P: ['am', 'pm'],

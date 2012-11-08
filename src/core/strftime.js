@@ -131,6 +131,18 @@ Date.strftime_helper.locales.en = {
 	X: '%T'
 };
 
+Date.strftime_helper.locales['he-IL'] = {
+	a: ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש'],
+	A: ['יום ראשון', 'יום שני', 'יום שלישי', 'יום רביעי', 'יום חמישי', 'יום שישי', 'יום שבת'],
+	b: ['ינ', 'פבר', 'מרץ', 'אפר', 'מאי', 'יוני', 'יולי', 'אוג', 'ספט', 'אוק', 'נוב', 'דצמ'],
+	B: ['ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני', 'יולי', 'אוגוסט', 'ספטמבר', 'אוקטובר', 'נובמבר', 'דצמבר'],
+	c: '%a %d %b %Y %T %Z',
+	p: ['AM', 'PM'],
+	P: ['am', 'pm'],
+	x: '%d/%m/%y',
+	X: '%T'
+};
+
 //! \cond FALSE
 // Localised strings for US English
 Date.strftime_helper.locales['en-US'] = Date.strftime_helper.locales.en;
