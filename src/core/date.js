@@ -17,7 +17,7 @@ jQuery.extend(Date.prototype, /** @scope Date */{
    */
   nextMonth: function(){
     if(this.getMonth() == 11){
-      return new Date(this.getFullYear() + 1, 1, 1);
+      return new Date(this.getFullYear() + 1, 0, 1);
     }else{
       return new Date(this.getFullYear(), this.getMonth() + 1, 1);
     }

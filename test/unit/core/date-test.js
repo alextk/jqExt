@@ -13,7 +13,12 @@ test("nextMonth()", function() {
 
   nextMonth = new Date(2012, 11, 12).nextMonth();
   equal(nextMonth.getFullYear(), 2013);
-  equal(nextMonth.getMonth(), 1);
+  equal(nextMonth.getMonth(), 0);
+  equal(nextMonth.getDate(), 1);
+
+  nextMonth = new Date(2012, 11, 1).nextMonth();
+  equal(nextMonth.getFullYear(), 2013);
+  equal(nextMonth.getMonth(), 0);
   equal(nextMonth.getDate(), 1);
 });
 

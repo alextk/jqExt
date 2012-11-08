@@ -2,14 +2,14 @@
 * jqExt - jQuery extensions and native javascript extensions
 *
 * Version: 0.0.2
-* Build: 13
+* Build: 14
 * Copyright 2011 Alex Tkachev
 *
 * Dual licensed under MIT or GPLv2 licenses
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: 07 Nov 2012 20:16:45
+* Date: 08 Nov 2012 19:04:09
 */
 
 /**
@@ -1335,7 +1335,7 @@ jQuery.extend(Date.prototype, /** @scope Date */{
    */
   nextMonth: function(){
     if(this.getMonth() == 11){
-      return new Date(this.getFullYear() + 1, 1, 1);
+      return new Date(this.getFullYear() + 1, 0, 1);
     }else{
       return new Date(this.getFullYear(), this.getMonth() + 1, 1);
     }
