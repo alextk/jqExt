@@ -13,6 +13,40 @@ jQuery.extend(Date.prototype, /** @scope Date */{
 
   /**
    * @function {public Date} ?
+   * Returns date of this day with hours, minutes, seconds and miliseconds set to 0
+   */
+  beginningOfDay: function(){
+    return new Date(this.getFullYear(), this.getMonth(), this.getDate(), 0, 0, 0, 0);
+  },
+
+  /**
+   * @function {public Date} ?
+   * Returns date of this day with hours, minutes, seconds and miliseconds set to 23:59:59:999
+   */
+  endOfDay: function(){
+    return new Date(this.getFullYear(), this.getMonth(), this.getDate(), 23, 59, 59, 999);
+  },
+
+  /**
+   * @function {public Date} ?
+   * Returns next day date beginning of day (for example if this date is 23/09/2012 11:33 -> 24/09/2012 00:00
+   */
+  nextDay: function(){
+    var tmp = new Date(this.endOfDay().getTime() + 100);
+    return tmp.beginningOfDay();
+  },
+
+  /**
+   * @function {public Date} ?
+   * Returns previous day date at beginning of day (for example if this date is 23/09/2012 11:33 -> 22/09/2012 00:00
+   */
+  prevDay: function(){
+    var tmp = new Date(this.beginningOfDay().getTime() - 100);
+    return tmp.beginningOfDay();
+  },
+
+  /**
+   * @function {public Date} ?
    * Returns date of the next month (if today is 25/12/2012 --> 01/01/2013)
    */
   nextMonth: function(){
@@ -33,6 +67,23 @@ jQuery.extend(Date.prototype, /** @scope Date */{
     }else{
       return new Date(this.getFullYear(), this.getMonth() - 1, 1);
     }
+  },
+
+  /**
+   * @function {public Date} ?
+   * Returns date of the first day of this date's month (if today is 25/01/2012 --> 01/01/2012)
+   */
+  beginningOfMonth: function(){
+    return new Date(this.getFullYear(), this.getMonth(), 1);
+  },
+
+  /**
+   * @function {public Date} ?
+   * Returns date of the last day of this date's month (if today is 25/01/2012 --> 31/01/2012)
+   */
+  endOfMonth: function(){
+    var tmp = new Date(this.nextMonth() - 1);
+    return new Date(tmp.getFullYear(), tmp.getMonth(), tmp.getDate());
   },
 
   /**
