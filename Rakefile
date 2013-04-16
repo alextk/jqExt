@@ -11,7 +11,7 @@ project = JsProjectBuilder.new(
   :description => 'jQuery extensions and native javascript extensions',
   :file_name => 'jquery.jqext.js',
   :js_files => %w{ base.js
-                   core/object.js  core/is.js  core/enumerable.js  core/array.js  core/strftime.js  core/date.js  core/function.js  core/regexp.js  core/string.js core/event.js
+                   core/object.js  core/is.js  core/enumerable.js  core/array.js  core/strftime.js  core/date.js  core/function.js  core/math.js  core/regexp.js  core/string.js core/event.js
                    utils/system-info.js
                    oop/observable.js  oop/inheritance.js
                    wrapped-set/event.js  wrapped-set/dimensions.js

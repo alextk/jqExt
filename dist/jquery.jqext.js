@@ -2,14 +2,14 @@
 * jqExt - jQuery extensions and native javascript extensions
 *
 * Version: 0.0.2
-* Build: 16
+* Build: 17
 * Copyright 2011 Alex Tkachev
 *
 * Dual licensed under MIT or GPLv2 licenses
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: 12 Nov 2012 16:45:03
+* Date: 16 Apr 2013 13:48:17
 */
 
 /**
@@ -1502,6 +1502,24 @@ jQuery.extend(Date.prototype, /** @scope Date */{
     }
 
   });
+
+})(jQuery);
+(function($) {
+
+  $.extend(Math, {
+    /**
+     * @property {public static Function} Math.?
+     * return uuid compliant with rfc4122 version 4
+     */
+    uuid: function() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+        return v.toString(16);
+      });
+    }
+
+  });
+
 
 })(jQuery);
 jQuery.extend(RegExp, {
