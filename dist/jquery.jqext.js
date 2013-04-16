@@ -2,14 +2,14 @@
 * jqExt - jQuery extensions and native javascript extensions
 *
 * Version: 0.0.2
-* Build: 17
+* Build: 18
 * Copyright 2011 Alex Tkachev
 *
 * Dual licensed under MIT or GPLv2 licenses
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: 16 Apr 2013 13:48:17
+* Date: 17 Apr 2013 00:40:06
 */
 
 /**
@@ -1633,6 +1633,30 @@ jQuery.extend(String.prototype, /** @scope String */{
       .replace(/([a-z\d])([A-Z])/g, '$1_$2')
       .replace(/-/g, '_')
       .toLowerCase();
+  },
+
+  /**
+   * @function {public boolean} ?
+   * This method prepends this string to the given length with given pad character
+   * @param {Integer} len - length of the padded string (including added character, if length is less than string length this string will not be modified)
+   * @param {String} pad - character to prepend
+   * @returns true if this string ends with given string
+   */
+  padLeft: function(len, pad){
+    if(this.length > len) return this;
+    return Array(len + 1 - this.length).join(pad) + this;
+  },
+
+  /**
+   * @function {public boolean} ?
+   * This method appends this string to the given length with given pad character
+   * @param {Integer} len - length of the padded string (including added character, if length is less than string length this string will not be modified)
+   * @param {String} pad - character to prepend
+   * @returns true if this string ends with given string
+   */
+  padRight: function(len, pad){
+    if(this.length > len) return this;
+    return this + Array(len + 1 - this.length).join(pad);
   }
 
 });

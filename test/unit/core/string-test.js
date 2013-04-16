@@ -67,6 +67,20 @@ test("trim()", function() {
   equal("", "".trim());
 });
 
+test("padLeft()", function() {
+  equal("asdf", "asdf".padLeft(1, ' '));
+  equal("asdf", "asdf".padLeft(4, ' '));
+  equal("  asdf", "asdf".padLeft(6, ' '));
+  equal("@@@asdf", "asdf".padLeft(7, '@'));
+});
+
+test("padRight()", function() {
+  equal("asdf", "asdf".padRight(1, ' '));
+  equal("asdf", "asdf".padRight(4, ' '));
+  equal("asdf  ", "asdf".padRight(6, ' '));
+  equal("asdf@@@", "asdf".padRight(7, '@'));
+});
+
 test("underscore()", function() {
   equal("".underscore(), "");
   equal("aasdf".underscore(), "aasdf");
