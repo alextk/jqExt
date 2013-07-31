@@ -271,6 +271,30 @@
     },
 
     /**
+     * <h6>Example:</h6>
+     * <pre>
+     *  [1, 'two', 3, 'four', 5].detect($.isString);
+     *  // -> 'two'
+     * </pre>
+
+     * @function {public Array} ?
+     * Returns first element for which the iterator returned a truthy value. If no element is found, undefined is returned
+     * @param {Function} iterator - An iterator function to use to test the elements.
+     * @param {optional Object} context - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.
+     * @returns array of elements for which iterater returned true
+     **/
+    detect: function(iterator, context) {
+      var result = undefined;
+      this.each(function(value, index) {
+        if (iterator.call(context, value, index)){
+          result = value;
+          throw $.ext.$break;
+        }
+      });
+      return result;
+    },
+
+    /**
      * @function {public int} ?
      * Returns sum of all collection items (or element-based `iterator` result), or `0` if the enumeration is empty.
      * @param {optional Function} iterator - An optional function to use to evaluate each element in the enumeration; the function should return the value to add to sum. If this is not provided, the element itself is added.

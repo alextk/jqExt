@@ -2,14 +2,14 @@
 * jqExt - jQuery extensions and native javascript extensions
 *
 * Version: 0.0.2
-* Build: 18
+* Build: 19
 * Copyright 2011 Alex Tkachev
 *
 * Dual licensed under MIT or GPLv2 licenses
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: 17 Apr 2013 00:40:06
+* Date: 31 Jul 2013 17:24:02
 */
 
 /**
@@ -416,6 +416,30 @@ jQuery.ext.Extender.addUtilityMethods({
           results.push(value);
       });
       return results;
+    },
+
+    /**
+     * <h6>Example:</h6>
+     * <pre>
+     *  [1, 'two', 3, 'four', 5].detect($.isString);
+     *  // -> 'two'
+     * </pre>
+
+     * @function {public Array} ?
+     * Returns first element for which the iterator returned a truthy value. If no element is found, undefined is returned
+     * @param {Function} iterator - An iterator function to use to test the elements.
+     * @param {optional Object} context - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.
+     * @returns array of elements for which iterater returned true
+     **/
+    detect: function(iterator, context) {
+      var result = undefined;
+      this.each(function(value, index) {
+        if (iterator.call(context, value, index)){
+          result = value;
+          throw $.ext.$break;
+        }
+      });
+      return result;
     },
 
     /**
