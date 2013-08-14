@@ -10,6 +10,16 @@
         var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
         return v.toString(16);
       });
+    },
+
+    // Converts from degrees to radians.
+    degreesToRadians: function(degrees) {
+      return degrees * Math.PI / 180;
+    },
+
+    // Converts from radians to degrees.
+    radiansToDegrees: function(radians) {
+      return radians * 180 / Math.PI;
     }
 
   });

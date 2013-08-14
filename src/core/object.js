@@ -5,7 +5,7 @@
    */
   var mixin = {
 
-    keys: function() {
+    keys: function(obj) {
       var results = [];
       for (var property in obj) {
         if (obj.hasOwnProperty(property)) {
@@ -13,6 +13,30 @@
         }
       }
       return results;
+    },
+
+    //return new object that contains only given attributes as parameter
+    slice: function(obj, attributes){
+      var result = {};
+      for(var property in obj){
+        if (obj.hasOwnProperty(property) && attributes.include(property)) {
+          result[property] = obj[property];
+        }
+      }
+      return result;
+    },
+
+    each: function(obj, iterator, context){
+      try {
+        for(var property in obj){
+          if (obj.hasOwnProperty(property)) {
+            iterator.call(context, property, obj[property]);
+          }
+        }
+      } catch (e) {
+        if (e != $.ext.$break) throw e;
+      }
+      return this;
     }
 
   };

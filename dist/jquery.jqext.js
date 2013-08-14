@@ -2,14 +2,14 @@
 * jqExt - jQuery extensions and native javascript extensions
 *
 * Version: 0.0.2
-* Build: 19
+* Build: 22
 * Copyright 2011 Alex Tkachev
 *
 * Dual licensed under MIT or GPLv2 licenses
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: 31 Jul 2013 17:24:02
+* Date: 12 Aug 2013 16:50:04
 */
 
 /**
@@ -82,7 +82,7 @@
    */
   var mixin = {
 
-    keys: function() {
+    keys: function(obj) {
       var results = [];
       for (var property in obj) {
         if (obj.hasOwnProperty(property)) {
@@ -90,6 +90,30 @@
         }
       }
       return results;
+    },
+
+    //return new object that contains only given attributes as parameter
+    slice: function(obj, attributes){
+      var result = {};
+      for(var property in obj){
+        if (obj.hasOwnProperty(property) && attributes.include(property)) {
+          result[property] = obj[property];
+        }
+      }
+      return result;
+    },
+
+    each: function(obj, iterator, context){
+      try {
+        for(var property in obj){
+          if (obj.hasOwnProperty(property)) {
+            iterator.call(context, property, obj[property]);
+          }
+        }
+      } catch (e) {
+        if (e != $.ext.$break) throw e;
+      }
+      return this;
     }
 
   };
@@ -1540,6 +1564,16 @@ jQuery.extend(Date.prototype, /** @scope Date */{
         var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
         return v.toString(16);
       });
+    },
+
+    // Converts from degrees to radians.
+    degreesToRadians: function(degrees) {
+      return degrees * Math.PI / 180;
+    },
+
+    // Converts from radians to degrees.
+    radiansToDegrees: function(radians) {
+      return radians * 180 / Math.PI;
     }
 
   });
