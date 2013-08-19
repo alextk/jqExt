@@ -100,23 +100,46 @@
      * @return this array instance
      */
     removeAt: function(index) {
-      if (index < 0) throw 'index cant be negative';
-      var rest = this.slice(index + 1);
-      this.length = index;
-      this.push.apply(this, rest);
+      if (index >= 0 && index < this.length){
+        var rest = this.slice(index + 1);
+        this.length = index;
+        this.push.apply(this, rest);
+      }
       return this;
     },
 
     /**
      * @function {public Array} ?
-     * Remove given item from this array instance. Note if multiple occurences of this item are present, only the first one is removed.
+     * Remove given item from this array instance. Note if multiple occurences of this item are present, all of them are removed.
      * @param {?} item - remove this item from array
      * @returns this array instance
      */
     remove: function(item) {
-      var index = this.indexOf(item);
-      if (index >= 0) this.removeAt(index);
+      do{
+        var index = this.indexOf(item);
+        this.removeAt(index);
+      }while(index >= 0);
       return this;
+    },
+
+    /**
+     * @function {public Array} ?
+     * Returns the index of the first object in self such that is == to obj. If a block is given instead of an argument, returns first object for which block is true. Returns -1 if no match is found.
+     * @param {?} item_or_block - remove this item from array
+     * @returns index or -1 if no match found
+     */
+    index: function(item_or_block, context){
+      if(!$.isFunction(item_or_block)) return this.indexOf(item_or_block);
+      if(arguments.length == 1) context = this;
+
+      var result = -1;
+      this.each(function(value, index) {
+        if (item_or_block.call(context, value, index)) {
+          result = index;
+          throw $.ext.$break;
+        }
+      });
+      return result;
     },
 
     /**
@@ -138,9 +161,7 @@
      * @returns this array instance modified to include passed items. Note that no new array instance is created
      **/
     append: function(){
-      for(var i=0; i<arguments.length; i++){
-        this.push(arguments[i]);
-      }
+      if(arguments.length > 0) this.push.apply(this, arguments);
       return this;
     },
 
@@ -171,7 +192,7 @@
 
     /**
      * @function {public void} ?
-     * This method is required for mixin in the enumerable module. Uses javascript 1.6 native implementation if present.
+     * This method is required for mixin in the enumerable module. Uses javascript 1.6 Array.prototype.forEach native implementation if present.
      * @param iterator
      * @param context
      */
@@ -188,6 +209,9 @@
   if (Array.prototype.lastIndexOf){ delete mixin.lastIndexOf; }
   if (Array.prototype.forEach){ mixin._each = Array.prototype.forEach; }
 
+  //define aliases
+  mixin.delete = mixin.remove;
+  mixin.deleteAt = mixin.removeAt;
 
   $.extend(Array.prototype, mixin);
   $.extend(Array.prototype, $.ext.mixins.Enumerable);

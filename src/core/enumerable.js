@@ -31,6 +31,7 @@
      **/
     each: function(iterator, context) {
       var index = 0;
+      if(arguments.length == 1) context = this;
       try {
         this._each(function(value) {
           iterator.call(context, value, index++);
@@ -63,6 +64,7 @@
      *
      **/
     collect: function(iterator, context) {
+      if(arguments.length == 1) context = this;
       var results = [];
       this.each(function(value, index) {
         results.push(iterator.call(context, value, index));
@@ -71,17 +73,46 @@
     },
 
     /**
-     * @function {public int} ?
-     * Finds index of the first element for which iterator return truthy value.
-     * @param {Function} iterator - The iterator function to apply to each element in the enumeration
+     * <h6>Example:</h6>
+     * <pre>
+     *  [1, 'two', 3, 'four', 5].select($.isString);
+     *  // -> ['two', 'four']
+     * </pre>
+
+     * @function {public Array} ?
+     * Returns all the elements for which the iterator returned a truthy value.
+     * @param {Function} iterator - An iterator function to use to test the elements.
      * @param {optional Object} context - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.
-     * @returns index of the first element for which iterator returns true or -1
-     */
-    findIndex: function(iterator, context) {
-      var result = -1;
+     * @returns array of elements for which iterater returned true
+     **/
+    select: function(iterator, context) {
+      if(arguments.length == 1) context = this;
+      var results = [];
       this.each(function(value, index) {
-        if (iterator.call(context, value, index)) {
-          result = index;
+        if (iterator.call(context, value, index)) results.push(value);
+      });
+      return results;
+    },
+
+    /**
+     * <h6>Example:</h6>
+     * <pre>
+     *  [1, 'two', 3, 'four', 5].detect($.isString);
+     *  // -> 'two'
+     * </pre>
+
+     * @function {public Array} ?
+     * Returns first element for which the iterator returned a truthy value. If no element is found, undefined is returned
+     * @param {Function} iterator - An iterator function to use to test the elements.
+     * @param {optional Object} context - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.
+     * @returns array of elements for which iterater returned true
+     **/
+    detect: function(block, context) {
+      if(arguments.length == 1) context = this;
+      var result = undefined;
+      this.each(function(value, index) {
+        if (block.call(context, value, index)){
+          result = value;
           throw $.ext.$break;
         }
       });
@@ -89,61 +120,25 @@
     },
 
     /**
-     * <h6>Examples:</h6>
+     * <h6>Example:</h6>
      * <pre>
-     *  [1,4,10,2,22].include(10);
-     *  // -> true
-     *
-     *  ['hello', 'world'].include('HELLO');
-     *  // -> false ('hello' != 'HELLO')
-     *
-     *  [1, 2, '3', '4', '5'].include(3);
-     *  // -> true ('3' == 3)
+     *  [1, 'two', 3, 'four', 5].select($.isString);
+     *  // -> ['two', 'four']
      * </pre>
-     * 
-     * @function {public boolean} ?
-     * Checks if given object included in this collection. Comparison is based on `==` comparison
-     * operator (equality with implicit type conversion)
-     * @param {Object} item - the object to check for inclusion in this collection
-     * @returns true if given object is included
-     **/
-    include: function(item) {
-      if ($.isFunction(this.indexOf)) return this.indexOf(item) != -1;
 
-      var found = false;
-      this.each(function(value) {
-        if (value == item) {
-          found = true;
-          throw $.ext.$break;
-        }
-      });
-      return found;
-    },
-
-    /**
-     * <h6>Examples:</h6>
-     * <pre>
-     *  ['hello', 'world'].invoke('toUpperCase');
-     *  // -> ['HELLO', 'WORLD']
-     *
-     *  ['hello', 'world'].invoke('substring', 0, 3);
-     *  // -> ['hel', 'wor']
-     *
-     *  [1, 2, '3', '4', '5'].include(3);
-     *  // -> true ('3' == 3)
-     * </pre>
-     * 
      * @function {public Array} ?
-     * Invokes the same method, with the same arguments, for all items in a collection. Returns an array of the results of the method calls.
-     * @param {String} method - name of the method to invoke.
-     * @param {optional ...} args - optional arguments to pass to the method.
-     * @returns array of the results of the method calls.
+     * Returns all the elements for which the iterator returned a false value.
+     * @param {Function} iterator - An iterator function to use to test the elements.
+     * @param {optional Object} context - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.
+     * @returns array of elements for which iterater returned false
      **/
-    invoke: function(method) {
-      var args = $.makeArray(arguments).slice(1);
-      return this.map(function(value) {
-        return value[method].apply(value, args);
+    reject: function(iterator, context) {
+      if(arguments.length == 1) context = this;
+      var results = [];
+      this.each(function(value, index) {
+        if (!iterator.call(context, value, index)) results.push(value);
       });
+      return results;
     },
 
     /**
@@ -174,11 +169,12 @@
      * @returns maxiumum element of the enumeration
      **/
     max: function(iterator, context) {
-      iterator = iterator || Function.identityFn;
-      var result;
+      if(arguments.length == 1) context = this;
+      iterator = $.isFunction(iterator) ? iterator : null;
+      var result = undefined;
       this.each(function(value, index) {
-        value = iterator.call(context, value, index);
-        if (result == null || value >= result)
+        if(iterator) value = iterator.call(context, value, index);
+        if (result == undefined || value > result)
           result = value;
       });
       return result;
@@ -212,14 +208,84 @@
      * @returns minimum element of the enumeration
      **/
     min: function(iterator, context) {
-      iterator = iterator || Function.identityFn;
-      var result;
+      if(arguments.length == 1) context = this;
+      iterator = $.isFunction(iterator) ? iterator : null;
+      var result = undefined;
       this.each(function(value, index) {
-        value = iterator.call(context, value, index);
-        if (result == null || value < result)
+        if(iterator) value = iterator.call(context, value, index);
+        if (result == undefined || value < result)
           result = value;
       });
       return result;
+    },
+
+    /**
+     * @function {public int} ?
+     * Returns sum of all collection items (or element-based `iterator` result), or `0` if the enumeration is empty.
+     * @param {optional Function} iterator - An optional function to use to evaluate each element in the enumeration; the function should return the value to add to sum. If this is not provided, the element itself is added.
+     * @param {optional Object} context - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.
+     * @returns sum of all collection items
+     */
+    sum: function(iterator, context) {
+      if(arguments.length == 1) context = this;
+      iterator = $.isFunction(iterator) ? iterator : null;
+      var result = 0;
+      this.each(function(value, index) {
+        if(iterator) value = iterator.call(context, value, index);
+        result += value;
+      });
+      return result;
+    },
+
+    /**
+     * <h6>Examples:</h6>
+     * <pre>
+     *  [1,4,10,2,22].include(10);
+     *  // -> true
+     *
+     *  ['hello', 'world'].include('HELLO');
+     *  // -> false ('hello' != 'HELLO')
+     *
+     *  [1, 2, '3', '4', '5'].include(3);
+     *  // -> true ('3' == 3)
+     * </pre>
+     *
+     * @function {public boolean} ?
+     * Checks if given object included in this collection. Comparison is based on `==` comparison
+     * operator (equality with implicit type conversion)
+     * @param {Object} item - the object to check for inclusion in this collection
+     * @returns true if given object is included
+     **/
+    include: function(item) {
+      if ($.isFunction(this.indexOf)) return this.indexOf(item) != -1;
+
+      return this.detect(function(value) { return value == item }) != undefined;
+    },
+
+    /**
+     * <h6>Examples:</h6>
+     * <pre>
+     *  ['hello', 'world'].invoke('toUpperCase');
+     *  // -> ['HELLO', 'WORLD']
+     *
+     *  ['hello', 'world'].invoke('substring', 0, 3);
+     *  // -> ['hel', 'wor']
+     *
+     *  [1, 2, '3', '4', '5'].include(3);
+     *  // -> true ('3' == 3)
+     * </pre>
+     *
+     * @function {public Array} ?
+     * Invokes the same method, with the same arguments, for all items in a collection. Returns an array of the results of the method calls.
+     * @param {String} method - name of the method to invoke.
+     * @param {optional ...} args - optional arguments to pass to the method.
+     * @returns array of the results of the method calls.
+     **/
+    invoke: function(method) {
+      var args = $.makeArray(arguments).slice(1);
+      return this.map(function(value) {
+        return value[method].apply(value, args);
+      });
     },
 
     /**
@@ -246,69 +312,6 @@
         results.push(value[property]);
       });
       return results;
-    },
-
-    /**
-     * <h6>Example:</h6>
-     * <pre>
-     *  [1, 'two', 3, 'four', 5].select($.isString);
-     *  // -> ['two', 'four']
-     * </pre>
-
-     * @function {public Array} ?
-     * Returns all the elements for which the iterator returned a truthy value.
-     * @param {Function} iterator - An iterator function to use to test the elements.
-     * @param {optional Object} context - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.
-     * @returns array of elements for which iterater returned true
-     **/
-    select: function(iterator, context) {
-      var results = [];
-      this.each(function(value, index) {
-        if (iterator.call(context, value, index))
-          results.push(value);
-      });
-      return results;
-    },
-
-    /**
-     * <h6>Example:</h6>
-     * <pre>
-     *  [1, 'two', 3, 'four', 5].detect($.isString);
-     *  // -> 'two'
-     * </pre>
-
-     * @function {public Array} ?
-     * Returns first element for which the iterator returned a truthy value. If no element is found, undefined is returned
-     * @param {Function} iterator - An iterator function to use to test the elements.
-     * @param {optional Object} context - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.
-     * @returns array of elements for which iterater returned true
-     **/
-    detect: function(iterator, context) {
-      var result = undefined;
-      this.each(function(value, index) {
-        if (iterator.call(context, value, index)){
-          result = value;
-          throw $.ext.$break;
-        }
-      });
-      return result;
-    },
-
-    /**
-     * @function {public int} ?
-     * Returns sum of all collection items (or element-based `iterator` result), or `0` if the enumeration is empty.
-     * @param {optional Function} iterator - An optional function to use to evaluate each element in the enumeration; the function should return the value to add to sum. If this is not provided, the element itself is added.
-     * @param {optional Object} context - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.
-     * @returns sum of all collection items
-     */
-    sum: function(iterator, context) {
-      iterator = iterator || Function.identityFn;
-      var result = 0;
-      this.each(function(value, index) {
-        value = iterator.call(context, value, index);
-        result += value;
-      });
-      return result;
     }
 
   };

@@ -74,30 +74,25 @@ test("lastIndexOf()", function() {
 
 test("removeAt()", function() {
   var arr = [1,2,3];
-  equal(1, arr.first());
-  equal(3, arr.length);
+  arr.removeAt(-1);
+  equal('1,2,3', arr.join(','));
   arr.removeAt(0);
   equal(2, arr.first());
-  equal(2, arr.length);
+  equal('2,3', arr.join(','));
   arr.removeAt(arr.length - 1);
-  equal(1, arr.length);
-  equal(2, arr.first());
+  equal('2', arr.join(','));
+  arr.removeAt(5);
+  equal('2', arr.join(','));
 });
 
 test("remove()", function() {
-  var arr = [1,2,3];
-  equal(1, arr.first());
-  equal(3, arr.length);
+  var arr = [1,2,3,2,4,3];
   arr.remove(2);
-  equal(1, arr.first());
-  equal(2, arr.length);
-  equal(3, arr[1]);
-
-  arr.push(2, 23, 2);
-  equal(5, arr.length);
-  arr.remove(2);
-  equal(23, arr[2]);
-  equal(2, arr[arr.length-1]);
+  equal('1,3,4,3', arr.join(','));
+  arr.remove(3);
+  equal('1,4', arr.join(','));
+  arr.remove(33);
+  equal('1,4', arr.join(','));
 });
 
 test("append()", function() {
@@ -113,4 +108,12 @@ test("prepend()", function() {
   equal(arr.length, 6);
   equal(arr.first(), 10);
   equal(arr.last(), 3);
+});
+
+test("index()", function() {
+  var arr = [1,2,3];
+  equal(-1, arr.index(33));
+  equal(0, arr.index(1));
+  equal(2, arr.index(3));
+  equal(1, arr.index(function(i){ return i%2==0; }));
 });

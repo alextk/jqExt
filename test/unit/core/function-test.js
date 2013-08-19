@@ -1,14 +1,7 @@
 module("Core - function.js");
 
 test("Basic requirements", function() {
-  ok( Function.emptyFn, "Function.emptyFn not present" );
-  ok( Function.identityFn, "Function.identityFn not present" );
-});
 
-test("Global functions", function() {
-  equal(undefined, Function.emptyFn());
-  equal(3, Function.identityFn(3));
-  equal("kuku", Function.identityFn('kuku'));
 });
 
 test("bind", function() {

@@ -1,20 +1,6 @@
 (function($) {
 
   $.extend(Function, {
-    /**
-     * @property {public static Function} Function.?
-     * Empty function that does nothing (can be reused in default options when callback is being expected)
-     */
-    emptyFn: function() {
-    },
-
-    /**
-     * @property {public static Function} Function.?
-     * Identity function that returns the first passed argument or undefined
-     */
-    identityFn: function(value) {
-      return value;
-    }
 
   });
 

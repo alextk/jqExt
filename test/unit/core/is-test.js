@@ -20,6 +20,10 @@ test("Extender: addUtilityMethods", function() {
   equal(false, $.isNumber({}));
   equal(true, $.isNumber(a));
   equal(true, $.isString("asdf"));
+  equal(true, $.isBoolean(true));
+  equal(true, $.isBoolean(false));
+  equal(false, $.isBoolean('false'));
+  equal(false, $.isBoolean('true'));
 });
 
 

@@ -1,23 +1,16 @@
 /*
 * jqExt - jQuery extensions and native javascript extensions
 *
-* Version: 0.0.2
-* Build: 22
+* Version: 0.0.3
+* Build: 29
 * Copyright 2011 Alex Tkachev
 *
 * Dual licensed under MIT or GPLv2 licenses
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: 12 Aug 2013 16:50:04
+* Date: 19 Aug 2013 17:28:26
 */
-
-/**
- * jQuery extensions
- * @project jqExt
- * @description jQuery extensions and javascript native classes extensions
- * @version 0.0.1
- */
 
 /**
  * Define jQuery.ext namespace and extender utility methods
@@ -105,6 +98,7 @@
 
     each: function(obj, iterator, context){
       try {
+        if(arguments.length == 2) context = obj;
         for(var property in obj){
           if (obj.hasOwnProperty(property)) {
             iterator.call(context, property, obj[property]);
@@ -113,7 +107,6 @@
       } catch (e) {
         if (e != $.ext.$break) throw e;
       }
-      return this;
     }
 
   };
@@ -203,6 +196,7 @@ jQuery.ext.Extender.addUtilityMethods({
      **/
     each: function(iterator, context) {
       var index = 0;
+      if(arguments.length == 1) context = this;
       try {
         this._each(function(value) {
           iterator.call(context, value, index++);
@@ -235,6 +229,7 @@ jQuery.ext.Extender.addUtilityMethods({
      *
      **/
     collect: function(iterator, context) {
+      if(arguments.length == 1) context = this;
       var results = [];
       this.each(function(value, index) {
         results.push(iterator.call(context, value, index));
@@ -243,17 +238,46 @@ jQuery.ext.Extender.addUtilityMethods({
     },
 
     /**
-     * @function {public int} ?
-     * Finds index of the first element for which iterator return truthy value.
-     * @param {Function} iterator - The iterator function to apply to each element in the enumeration
+     * <h6>Example:</h6>
+     * <pre>
+     *  [1, 'two', 3, 'four', 5].select($.isString);
+     *  // -> ['two', 'four']
+     * </pre>
+
+     * @function {public Array} ?
+     * Returns all the elements for which the iterator returned a truthy value.
+     * @param {Function} iterator - An iterator function to use to test the elements.
      * @param {optional Object} context - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.
-     * @returns index of the first element for which iterator returns true or -1
-     */
-    findIndex: function(iterator, context) {
-      var result = -1;
+     * @returns array of elements for which iterater returned true
+     **/
+    select: function(iterator, context) {
+      if(arguments.length == 1) context = this;
+      var results = [];
       this.each(function(value, index) {
-        if (iterator.call(context, value, index)) {
-          result = index;
+        if (iterator.call(context, value, index)) results.push(value);
+      });
+      return results;
+    },
+
+    /**
+     * <h6>Example:</h6>
+     * <pre>
+     *  [1, 'two', 3, 'four', 5].detect($.isString);
+     *  // -> 'two'
+     * </pre>
+
+     * @function {public Array} ?
+     * Returns first element for which the iterator returned a truthy value. If no element is found, undefined is returned
+     * @param {Function} iterator - An iterator function to use to test the elements.
+     * @param {optional Object} context - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.
+     * @returns array of elements for which iterater returned true
+     **/
+    detect: function(block, context) {
+      if(arguments.length == 1) context = this;
+      var result = undefined;
+      this.each(function(value, index) {
+        if (block.call(context, value, index)){
+          result = value;
           throw $.ext.$break;
         }
       });
@@ -261,61 +285,25 @@ jQuery.ext.Extender.addUtilityMethods({
     },
 
     /**
-     * <h6>Examples:</h6>
+     * <h6>Example:</h6>
      * <pre>
-     *  [1,4,10,2,22].include(10);
-     *  // -> true
-     *
-     *  ['hello', 'world'].include('HELLO');
-     *  // -> false ('hello' != 'HELLO')
-     *
-     *  [1, 2, '3', '4', '5'].include(3);
-     *  // -> true ('3' == 3)
+     *  [1, 'two', 3, 'four', 5].select($.isString);
+     *  // -> ['two', 'four']
      * </pre>
-     * 
-     * @function {public boolean} ?
-     * Checks if given object included in this collection. Comparison is based on `==` comparison
-     * operator (equality with implicit type conversion)
-     * @param {Object} item - the object to check for inclusion in this collection
-     * @returns true if given object is included
-     **/
-    include: function(item) {
-      if ($.isFunction(this.indexOf)) return this.indexOf(item) != -1;
 
-      var found = false;
-      this.each(function(value) {
-        if (value == item) {
-          found = true;
-          throw $.ext.$break;
-        }
-      });
-      return found;
-    },
-
-    /**
-     * <h6>Examples:</h6>
-     * <pre>
-     *  ['hello', 'world'].invoke('toUpperCase');
-     *  // -> ['HELLO', 'WORLD']
-     *
-     *  ['hello', 'world'].invoke('substring', 0, 3);
-     *  // -> ['hel', 'wor']
-     *
-     *  [1, 2, '3', '4', '5'].include(3);
-     *  // -> true ('3' == 3)
-     * </pre>
-     * 
      * @function {public Array} ?
-     * Invokes the same method, with the same arguments, for all items in a collection. Returns an array of the results of the method calls.
-     * @param {String} method - name of the method to invoke.
-     * @param {optional ...} args - optional arguments to pass to the method.
-     * @returns array of the results of the method calls.
+     * Returns all the elements for which the iterator returned a false value.
+     * @param {Function} iterator - An iterator function to use to test the elements.
+     * @param {optional Object} context - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.
+     * @returns array of elements for which iterater returned false
      **/
-    invoke: function(method) {
-      var args = $.makeArray(arguments).slice(1);
-      return this.map(function(value) {
-        return value[method].apply(value, args);
+    reject: function(iterator, context) {
+      if(arguments.length == 1) context = this;
+      var results = [];
+      this.each(function(value, index) {
+        if (!iterator.call(context, value, index)) results.push(value);
       });
+      return results;
     },
 
     /**
@@ -346,11 +334,12 @@ jQuery.ext.Extender.addUtilityMethods({
      * @returns maxiumum element of the enumeration
      **/
     max: function(iterator, context) {
-      iterator = iterator || Function.identityFn;
-      var result;
+      if(arguments.length == 1) context = this;
+      iterator = $.isFunction(iterator) ? iterator : null;
+      var result = undefined;
       this.each(function(value, index) {
-        value = iterator.call(context, value, index);
-        if (result == null || value >= result)
+        if(iterator) value = iterator.call(context, value, index);
+        if (result == undefined || value > result)
           result = value;
       });
       return result;
@@ -384,14 +373,84 @@ jQuery.ext.Extender.addUtilityMethods({
      * @returns minimum element of the enumeration
      **/
     min: function(iterator, context) {
-      iterator = iterator || Function.identityFn;
-      var result;
+      if(arguments.length == 1) context = this;
+      iterator = $.isFunction(iterator) ? iterator : null;
+      var result = undefined;
       this.each(function(value, index) {
-        value = iterator.call(context, value, index);
-        if (result == null || value < result)
+        if(iterator) value = iterator.call(context, value, index);
+        if (result == undefined || value < result)
           result = value;
       });
       return result;
+    },
+
+    /**
+     * @function {public int} ?
+     * Returns sum of all collection items (or element-based `iterator` result), or `0` if the enumeration is empty.
+     * @param {optional Function} iterator - An optional function to use to evaluate each element in the enumeration; the function should return the value to add to sum. If this is not provided, the element itself is added.
+     * @param {optional Object} context - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.
+     * @returns sum of all collection items
+     */
+    sum: function(iterator, context) {
+      if(arguments.length == 1) context = this;
+      iterator = $.isFunction(iterator) ? iterator : null;
+      var result = 0;
+      this.each(function(value, index) {
+        if(iterator) value = iterator.call(context, value, index);
+        result += value;
+      });
+      return result;
+    },
+
+    /**
+     * <h6>Examples:</h6>
+     * <pre>
+     *  [1,4,10,2,22].include(10);
+     *  // -> true
+     *
+     *  ['hello', 'world'].include('HELLO');
+     *  // -> false ('hello' != 'HELLO')
+     *
+     *  [1, 2, '3', '4', '5'].include(3);
+     *  // -> true ('3' == 3)
+     * </pre>
+     *
+     * @function {public boolean} ?
+     * Checks if given object included in this collection. Comparison is based on `==` comparison
+     * operator (equality with implicit type conversion)
+     * @param {Object} item - the object to check for inclusion in this collection
+     * @returns true if given object is included
+     **/
+    include: function(item) {
+      if ($.isFunction(this.indexOf)) return this.indexOf(item) != -1;
+
+      return this.detect(function(value) { return value == item }) != undefined;
+    },
+
+    /**
+     * <h6>Examples:</h6>
+     * <pre>
+     *  ['hello', 'world'].invoke('toUpperCase');
+     *  // -> ['HELLO', 'WORLD']
+     *
+     *  ['hello', 'world'].invoke('substring', 0, 3);
+     *  // -> ['hel', 'wor']
+     *
+     *  [1, 2, '3', '4', '5'].include(3);
+     *  // -> true ('3' == 3)
+     * </pre>
+     *
+     * @function {public Array} ?
+     * Invokes the same method, with the same arguments, for all items in a collection. Returns an array of the results of the method calls.
+     * @param {String} method - name of the method to invoke.
+     * @param {optional ...} args - optional arguments to pass to the method.
+     * @returns array of the results of the method calls.
+     **/
+    invoke: function(method) {
+      var args = $.makeArray(arguments).slice(1);
+      return this.map(function(value) {
+        return value[method].apply(value, args);
+      });
     },
 
     /**
@@ -418,69 +477,6 @@ jQuery.ext.Extender.addUtilityMethods({
         results.push(value[property]);
       });
       return results;
-    },
-
-    /**
-     * <h6>Example:</h6>
-     * <pre>
-     *  [1, 'two', 3, 'four', 5].select($.isString);
-     *  // -> ['two', 'four']
-     * </pre>
-
-     * @function {public Array} ?
-     * Returns all the elements for which the iterator returned a truthy value.
-     * @param {Function} iterator - An iterator function to use to test the elements.
-     * @param {optional Object} context - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.
-     * @returns array of elements for which iterater returned true
-     **/
-    select: function(iterator, context) {
-      var results = [];
-      this.each(function(value, index) {
-        if (iterator.call(context, value, index))
-          results.push(value);
-      });
-      return results;
-    },
-
-    /**
-     * <h6>Example:</h6>
-     * <pre>
-     *  [1, 'two', 3, 'four', 5].detect($.isString);
-     *  // -> 'two'
-     * </pre>
-
-     * @function {public Array} ?
-     * Returns first element for which the iterator returned a truthy value. If no element is found, undefined is returned
-     * @param {Function} iterator - An iterator function to use to test the elements.
-     * @param {optional Object} context - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.
-     * @returns array of elements for which iterater returned true
-     **/
-    detect: function(iterator, context) {
-      var result = undefined;
-      this.each(function(value, index) {
-        if (iterator.call(context, value, index)){
-          result = value;
-          throw $.ext.$break;
-        }
-      });
-      return result;
-    },
-
-    /**
-     * @function {public int} ?
-     * Returns sum of all collection items (or element-based `iterator` result), or `0` if the enumeration is empty.
-     * @param {optional Function} iterator - An optional function to use to evaluate each element in the enumeration; the function should return the value to add to sum. If this is not provided, the element itself is added.
-     * @param {optional Object} context - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.
-     * @returns sum of all collection items
-     */
-    sum: function(iterator, context) {
-      iterator = iterator || Function.identityFn;
-      var result = 0;
-      this.each(function(value, index) {
-        value = iterator.call(context, value, index);
-        result += value;
-      });
-      return result;
     }
 
   };
@@ -596,23 +592,46 @@ jQuery.ext.Extender.addUtilityMethods({
      * @return this array instance
      */
     removeAt: function(index) {
-      if (index < 0) throw 'index cant be negative';
-      var rest = this.slice(index + 1);
-      this.length = index;
-      this.push.apply(this, rest);
+      if (index >= 0 && index < this.length){
+        var rest = this.slice(index + 1);
+        this.length = index;
+        this.push.apply(this, rest);
+      }
       return this;
     },
 
     /**
      * @function {public Array} ?
-     * Remove given item from this array instance. Note if multiple occurences of this item are present, only the first one is removed.
+     * Remove given item from this array instance. Note if multiple occurences of this item are present, all of them are removed.
      * @param {?} item - remove this item from array
      * @returns this array instance
      */
     remove: function(item) {
-      var index = this.indexOf(item);
-      if (index >= 0) this.removeAt(index);
+      do{
+        var index = this.indexOf(item);
+        this.removeAt(index);
+      }while(index >= 0);
       return this;
+    },
+
+    /**
+     * @function {public Array} ?
+     * Returns the index of the first object in self such that is == to obj. If a block is given instead of an argument, returns first object for which block is true. Returns -1 if no match is found.
+     * @param {?} item_or_block - remove this item from array
+     * @returns index or -1 if no match found
+     */
+    index: function(item_or_block, context){
+      if(!$.isFunction(item_or_block)) return this.indexOf(item_or_block);
+      if(arguments.length == 1) context = this;
+
+      var result = -1;
+      this.each(function(value, index) {
+        if (item_or_block.call(context, value, index)) {
+          result = index;
+          throw $.ext.$break;
+        }
+      });
+      return result;
     },
 
     /**
@@ -634,9 +653,7 @@ jQuery.ext.Extender.addUtilityMethods({
      * @returns this array instance modified to include passed items. Note that no new array instance is created
      **/
     append: function(){
-      for(var i=0; i<arguments.length; i++){
-        this.push(arguments[i]);
-      }
+      if(arguments.length > 0) this.push.apply(this, arguments);
       return this;
     },
 
@@ -667,7 +684,7 @@ jQuery.ext.Extender.addUtilityMethods({
 
     /**
      * @function {public void} ?
-     * This method is required for mixin in the enumerable module. Uses javascript 1.6 native implementation if present.
+     * This method is required for mixin in the enumerable module. Uses javascript 1.6 Array.prototype.forEach native implementation if present.
      * @param iterator
      * @param context
      */
@@ -684,6 +701,9 @@ jQuery.ext.Extender.addUtilityMethods({
   if (Array.prototype.lastIndexOf){ delete mixin.lastIndexOf; }
   if (Array.prototype.forEach){ mixin._each = Array.prototype.forEach; }
 
+  //define aliases
+  mixin.delete = mixin.remove;
+  mixin.deleteAt = mixin.removeAt;
 
   $.extend(Array.prototype, mixin);
   $.extend(Array.prototype, $.ext.mixins.Enumerable);
@@ -1495,20 +1515,6 @@ jQuery.extend(Date.prototype, /** @scope Date */{
 (function($) {
 
   $.extend(Function, {
-    /**
-     * @property {public static Function} Function.?
-     * Empty function that does nothing (can be reused in default options when callback is being expected)
-     */
-    emptyFn: function() {
-    },
-
-    /**
-     * @property {public static Function} Function.?
-     * Identity function that returns the first passed argument or undefined
-     */
-    identityFn: function(value) {
-      return value;
-    }
 
   });
 
@@ -1593,131 +1599,161 @@ jQuery.extend(RegExp, {
     }
 
   });
-jQuery.extend(String.prototype, /** @scope String */{
+(function($) {
 
-  /**
-   * @function {public String} ?
-   * Returns copy of this string when first letter is uppercase and other letters downcased
-   * @returns copy of this string when first letter is uppercase and other letters downcased
-   */
-  capitalize: function() {
-    return this.charAt(0).toUpperCase() + this.substring(1).toLowerCase();
-  },
-
-  /**
-   * @function {public String} ?
-   * Returns copy of this string with all dashes removed and words converted to uppercase => UpperCamelCase. If passed argument is true, returns lowerCamelCase
-   * @params {Boolean} lowerCamelCase - if true, will return string in lowerCamelCase (first letter is lowercased)
-   * @returns copy of this in UpperCamelCase. If passed argument is true, returns lowerCamelCase
-   */
-  camelize: function(lowerCamelCase) {
-    if(this.length == 0) return this;
-    var result = this.split('_').collect(function(s){ return s.capitalize(); }).join('');
-    if(lowerCamelCase === true){
-      result = result.charAt(0).toLowerCase() + result.substring(1);
+  var strRepeat = function(str, qty){
+    if (qty < 1) return '';
+    var result = '';
+    while (qty > 0) {
+      if (qty & 1) result += str;
+      qty >>= 1, str += str;
     }
     return result;
-  },
+  };
 
-  /**
-   * <pre>
-   * "This is a {0} string using the {1} method".format("formatted", "inline")
-   * //will return: "This is a formatted string using the inline method"
-   * </pre>
-   *
-   * @function {public String} ?
-   * Replace this string {0},{1},{2}... tokens (variables) with passed arguments.
-   * {0} corresponds to first argument, {1} to second, etc.
-   * @param  {String...} args - variable number of arguments to act as variables into the string format
-   * @returns formatted string as described above
-   */
-  format: function() {
-    var txt = this;
-    for (var i = 0; i < arguments.length; i++) {
-      var exp = new RegExp('\\{' + (i) + '\\}', 'gm');
-      txt = txt.replace(exp, arguments[i]);
+  /** @scope String */
+  var mixin = {
+
+    /**
+     * @function {public String} ?
+     * Returns copy of this string when first letter is uppercase and other letters downcased
+     * @returns copy of this string when first letter is uppercase and other letters downcased
+     */
+    capitalize: function() {
+      return this.charAt(0).toUpperCase() + this.substring(1).toLowerCase();
+    },
+
+    /**
+     * @function {public String} ?
+     * Converts underscored or dasherized string to a camelized one
+     * @return copy of this string when its words are camelized
+     */
+    camelize: function(){
+      var result = this.trim().replace(/[-_\s]+(.)?/g, function(match, ch){ return ch.toUpperCase(); });
+      result = result.charAt(0).toUpperCase() + result.substring(1);
+      return result;
+    },
+
+    /**
+     * @function {public String} ?
+     * Converts a camelized or dasherized string into an underscored one
+     * @return copy of this string when its words are separated by underscore
+     */
+    underscore: function(){
+      return this.trim().replace(/([a-z\d])([A-Z]+)/g, '$1_$2').replace(/[-\s]+/g, '_').toLowerCase();
+    },
+
+    /**
+     * @function {public String} ?
+     * Converts a underscored or camelized string into an dasherized one
+     * @return copy of this string when its words are separated by dash
+     */
+    dasherize: function(){
+      return this.trim().replace(/([A-Z])/g, '-$1').replace(/[-_\s]+/g, '-').toLowerCase();
+    },
+
+    /**
+     * <pre>
+     * "This is a {0} string using the {1} method".format("formatted", "inline")
+     * //will return: "This is a formatted string using the inline method"
+     * </pre>
+     *
+     * @function {public String} ?
+     * Replace this string {0},{1},{2}... tokens (variables) with passed arguments.
+     * {0} corresponds to first argument, {1} to second, etc.
+     * @param  {String...} args - variable number of arguments to act as variables into the string format
+     * @returns formatted string as described above
+     */
+    format: function() {
+      var txt = this;
+      for (var i = 0; i < arguments.length; i++) {
+        var exp = new RegExp('\\{' + (i) + '\\}', 'gm');
+        txt = txt.replace(exp, arguments[i]);
+      }
+      return txt;
+    },
+
+    /**
+     * @function {public boolean} ?
+     * This method checks if this string starts with given string as parameter
+     * @param {String} other - string to check if this string starts with
+     * @returns true if this string starts with given string
+     */
+    startsWith: function(other) {
+      return this.lastIndexOf(other, 0) === 0;
+    },
+
+    /**
+     * @function {public boolean} ?
+     * This method checks if given string is included in this string
+     * @param anotherString {String} - check if it is contained in this string instance
+     * @returns true if given string is included in this string
+     */
+    include: function(anotherString) {
+      return this.indexOf(anotherString) != -1;
+    },
+
+    /**
+     * @function {public boolean} ?
+     * This method checks if this string ends with given string as parameter
+     * @param {String} other - string to check if this string ends with
+     * @returns true if this string ends with given string
+     */
+    endsWith: function(other) {
+      var d = this.length - other.length;
+      return d >= 0 && this.indexOf(other, d) === d;
+    },
+
+    /**
+     * @function {public String} ?
+     * Removes all whitespace from start and end of this string
+     * @returns new string with all whiteshapce removed from the start and end of this string
+     */
+    trim: function() {
+      return this.replace(/^\s+|\s+$/, '');
+    },
+
+    ltrim: function(){
+      return this.replace(/^\s+/, '');
+    },
+
+    rtrim: function(){
+      return this.replace(/\s+$/, '');
+    },
+
+    lpad: function(length, padStr) {
+      var padlen = length - this.length;
+      return strRepeat(padStr||' ', padlen) + this;
+    },
+
+    rpad: function(length, padStr) {
+      var padlen = length - this.length;
+      return this + strRepeat(padStr||' ', padlen);
+    },
+
+    lrpad: function(length, padStr) {
+      var padlen = length - this.length;
+      return strRepeat(padStr||' ', Math.ceil(padlen/2)) + this
+        + strRepeat(padStr||' ', Math.floor(padlen/2));
     }
-    return txt;
-  },
 
-  /**
-   * @function {public boolean} ?
-   * This method checks if this string starts with given string as parameter
-   * @param {String} other - string to check if this string starts with
-   * @returns true if this string starts with given string
-   */
-  startsWith: function(other) {
-    return this.lastIndexOf(other, 0) === 0;
-  },
+  };
 
-  /**
-   * @function {public boolean} ?
-   * This method checks if given string is included in this string
-   * @param anotherString {String} - check if it is contained in this string instance
-   * @returns true if given string is included in this string
-   */
-  contains: function(anotherString) {
-    return this.indexOf(anotherString) != -1;
-  },
+  // use native browser JS 1.6 implementation if available
+  if (String.prototype.trim){ delete mixin.trim; }
+  if (String.prototype.trimLeft){ mixin.ltrim = String.prototype.trimLeft; }
+  if (String.prototype.trimRight){ mixin.rtrim = String.prototype.trimRight; }
 
-  /**
-   * @function {public boolean} ?
-   * This method checks if this string ends with given string as parameter
-   * @param {String} other - string to check if this string ends with
-   * @returns true if this string ends with given string
-   */
-  endsWith: function(other) {
-    var d = this.length - other.length;
-    return d >= 0 && this.indexOf(other, d) === d;
-  },
+  //define aliases
+  mixin.contains = mixin.include;
+  mixin.strip = mixin.trim;
+  mixin.lstrip = mixin.ltrim;
+  mixin.rstrip = mixin.rtrim;
 
-  /**
-   * @function {public String} ?
-   * Removes all whitespace from start and end of this string
-   * @returns new string with all whiteshapce removed from the start and end of this string
-   */
-  trim: function() {
-    return this.replace(/^\s*/, "").replace(/\s*$/, "");
-  },
+  $.extend(String.prototype, mixin);
 
-  /**
-   * @function {public String} ?
-   * Converts a camelized string into a series of words separated by an underscore (_)
-   * @returns all camelized letters converted to undercase with _ between them
-   */
-  underscore: function() {
-    return this.replace(/::/g, '/')
-      .replace(/([A-Z]+)([A-Z][a-z])/g, '$1_$2')
-      .replace(/([a-z\d])([A-Z])/g, '$1_$2')
-      .replace(/-/g, '_')
-      .toLowerCase();
-  },
+})(jQuery);
 
-  /**
-   * @function {public boolean} ?
-   * This method prepends this string to the given length with given pad character
-   * @param {Integer} len - length of the padded string (including added character, if length is less than string length this string will not be modified)
-   * @param {String} pad - character to prepend
-   * @returns true if this string ends with given string
-   */
-  padLeft: function(len, pad){
-    if(this.length > len) return this;
-    return Array(len + 1 - this.length).join(pad) + this;
-  },
-
-  /**
-   * @function {public boolean} ?
-   * This method appends this string to the given length with given pad character
-   * @param {Integer} len - length of the padded string (including added character, if length is less than string length this string will not be modified)
-   * @param {String} pad - character to prepend
-   * @returns true if this string ends with given string
-   */
-  padRight: function(len, pad){
-    if(this.length > len) return this;
-    return this + Array(len + 1 - this.length).join(pad);
-  }
-
-});
 (function($) {
 
   /**

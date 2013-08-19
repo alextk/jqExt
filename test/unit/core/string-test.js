@@ -14,16 +14,15 @@ test("capitalize()", function() {
 
 test("camelize()", function() {
   equal("hello".camelize(), "Hello");
-  equal("HELLO".camelize(), "Hello");
-  equal("123ABC".camelize(), "123abc");
+  equal("HELLO".camelize(), "HELLO");
+  equal("123ABC".camelize(), "123ABC");
   equal("".camelize(), "");
   equal("A".camelize(), "A");
   equal("a".camelize(), "A");
-  equal("a".camelize(true), "a");
 
   equal("my_underscored_string".camelize(), "MyUnderscoredString");
-  equal("my_underscored_string".camelize(true), "myUnderscoredString");
-  equal("MyUnderscoredString".camelize(), "Myunderscoredstring");
+  equal("MyUnderscoredString".camelize(), "MyUnderscoredString");
+  equal("myUnderscoredString".camelize(), "MyUnderscoredString");
 });
 
 test("format()", function() {
@@ -67,18 +66,18 @@ test("trim()", function() {
   equal("", "".trim());
 });
 
-test("padLeft()", function() {
-  equal("asdf", "asdf".padLeft(1, ' '));
-  equal("asdf", "asdf".padLeft(4, ' '));
-  equal("  asdf", "asdf".padLeft(6, ' '));
-  equal("@@@asdf", "asdf".padLeft(7, '@'));
+test("lpad()", function() {
+  equal("asdf", "asdf".lpad(1, ' '));
+  equal("asdf", "asdf".lpad(4, ' '));
+  equal("  asdf", "asdf".lpad(6, ' '));
+  equal("@@@asdf", "asdf".lpad(7, '@'));
 });
 
-test("padRight()", function() {
-  equal("asdf", "asdf".padRight(1, ' '));
-  equal("asdf", "asdf".padRight(4, ' '));
-  equal("asdf  ", "asdf".padRight(6, ' '));
-  equal("asdf@@@", "asdf".padRight(7, '@'));
+test("rpad()", function() {
+  equal("asdf", "asdf".rpad(1, ' '));
+  equal("asdf", "asdf".rpad(4, ' '));
+  equal("asdf  ", "asdf".rpad(6, ' '));
+  equal("asdf@@@", "asdf".rpad(7, '@'));
 });
 
 test("underscore()", function() {

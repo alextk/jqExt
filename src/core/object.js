@@ -28,6 +28,7 @@
 
     each: function(obj, iterator, context){
       try {
+        if(arguments.length == 2) context = obj;
         for(var property in obj){
           if (obj.hasOwnProperty(property)) {
             iterator.call(context, property, obj[property]);
@@ -36,7 +37,6 @@
       } catch (e) {
         if (e != $.ext.$break) throw e;
       }
-      return this;
     }
 
   };

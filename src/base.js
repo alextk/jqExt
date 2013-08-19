@@ -1,11 +1,4 @@
 /**
- * jQuery extensions
- * @project jqExt
- * @description jQuery extensions and javascript native classes extensions
- * @version 0.0.1
- */
-
-/**
  * Define jQuery.ext namespace and extender utility methods
  */
 (function($) {
