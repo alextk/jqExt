@@ -2,14 +2,14 @@
 * jqExt - jQuery extensions and native javascript extensions
 *
 * Version: 0.0.3
-* Build: 29
+* Build: 31
 * Copyright 2011 Alex Tkachev
 *
 * Dual licensed under MIT or GPLv2 licenses
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: 19 Aug 2013 17:28:26
+* Date: 27 Aug 2013 20:14:51
 */
 
 /**
@@ -702,7 +702,7 @@ jQuery.ext.Extender.addUtilityMethods({
   if (Array.prototype.forEach){ mixin._each = Array.prototype.forEach; }
 
   //define aliases
-  mixin.delete = mixin.remove;
+  //mixin.delete = mixin.remove; // NOTE!! delete is a reservred keyword, generates syntax error in some browsers to use it as method/attribute name
   mixin.deleteAt = mixin.removeAt;
 
   $.extend(Array.prototype, mixin);
@@ -1740,7 +1740,7 @@ jQuery.extend(RegExp, {
   };
 
   // use native browser JS 1.6 implementation if available
-  if (String.prototype.trim){ delete mixin.trim; }
+  if (String.prototype.trim){ mixin.trim = String.prototype.trim; }
   if (String.prototype.trimLeft){ mixin.ltrim = String.prototype.trimLeft; }
   if (String.prototype.trimRight){ mixin.rtrim = String.prototype.trimRight; }
 

@@ -59,6 +59,7 @@ test("endsWith()", function() {
 
 test("trim()", function() {
   equal("asdf", "  asdf  ".trim());
+  equal("asdf", "  asdf  ".strip());
   equal("as df", "  as df  ".trim());
   equal("as df", "  as df".trim());
   equal("as df", "as df".trim());

@@ -210,7 +210,7 @@
   if (Array.prototype.forEach){ mixin._each = Array.prototype.forEach; }
 
   //define aliases
-  mixin.delete = mixin.remove;
+  //mixin.delete = mixin.remove; // NOTE!! delete is a reservred keyword, generates syntax error in some browsers to use it as method/attribute name
   mixin.deleteAt = mixin.removeAt;
 
   $.extend(Array.prototype, mixin);

@@ -139,7 +139,7 @@
   };
 
   // use native browser JS 1.6 implementation if available
-  if (String.prototype.trim){ delete mixin.trim; }
+  if (String.prototype.trim){ mixin.trim = String.prototype.trim; }
   if (String.prototype.trimLeft){ mixin.ltrim = String.prototype.trimLeft; }
   if (String.prototype.trimRight){ mixin.rtrim = String.prototype.trimRight; }
 
