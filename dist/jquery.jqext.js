@@ -1,15 +1,15 @@
 /*
 * jqExt - jQuery extensions and native javascript extensions
 *
-* Version: 0.0.3
-* Build: 32
+* Version: 0.0.4
+* Build: 33
 * Copyright 2011 Alex Tkachev
 *
 * Dual licensed under MIT or GPLv2 licenses
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: 16 Oct 2013 16:02:39
+* Date: 16 Oct 2013 16:03:36
 */
 
 /**
