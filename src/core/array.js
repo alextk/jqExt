@@ -191,6 +191,26 @@
     },
 
     /**
+     * <h6>Examples:</h6>
+     * <pre>
+     *  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].n_groups_of(3)
+     *  // -> [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
+     *
+     * </pre>
+     *
+     * @function {public Array} ?
+     * Split this array to equal sized groups of given size. Last group might be smaller than size.
+     * @param {Integer} size - number of items in
+     * @returns array of arrays (each item is an array of given size)
+     **/
+    in_groups_of: function(size){
+      var result = [];
+      var a = this.clone();
+      while (a.length > 0) result.push(a.splice(0, size));
+      return result;
+    },
+
+    /**
      * @function {public void} ?
      * This method is required for mixin in the enumerable module. Uses javascript 1.6 Array.prototype.forEach native implementation if present.
      * @param iterator

@@ -110,6 +110,23 @@ test("prepend()", function() {
   equal(arr.last(), 3);
 });
 
+test("in_groups_of()", function() {
+  var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] ;
+  var groups = arr.in_groups_of(3);
+  equal(arr.length, 10);
+  equal(groups.length, 4);
+  equal(groups[0].join(','), '1,2,3');
+  equal(groups[1].join(','), '4,5,6');
+  equal(groups[2].join(','), '7,8,9');
+  equal(groups[3].join(','), '10');
+  equal([].in_groups_of(3).length, 0);
+
+  arr = [11];
+  groups = arr.in_groups_of(4);
+  equal(groups.length, 1);
+  equal(groups[0].join(','), '11');
+});
+
 test("index()", function() {
   var arr = [1,2,3];
   equal(-1, arr.index(33));

@@ -2,14 +2,14 @@
 * jqExt - jQuery extensions and native javascript extensions
 *
 * Version: 0.0.3
-* Build: 31
+* Build: 32
 * Copyright 2011 Alex Tkachev
 *
 * Dual licensed under MIT or GPLv2 licenses
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: 27 Aug 2013 20:14:51
+* Date: 16 Oct 2013 16:02:39
 */
 
 /**
@@ -680,6 +680,26 @@ jQuery.ext.Extender.addUtilityMethods({
         this.unshift(arguments[i]);
       }
       return this;
+    },
+
+    /**
+     * <h6>Examples:</h6>
+     * <pre>
+     *  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].n_groups_of(3)
+     *  // -> [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
+     *
+     * </pre>
+     *
+     * @function {public Array} ?
+     * Split this array to equal sized groups of given size. Last group might be smaller than size.
+     * @param {Integer} size - number of items in
+     * @returns array of arrays (each item is an array of given size)
+     **/
+    in_groups_of: function(size){
+      var result = [];
+      var a = this.clone();
+      while (a.length > 0) result.push(a.splice(0, size));
+      return result;
     },
 
     /**
