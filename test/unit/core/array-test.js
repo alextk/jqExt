@@ -95,6 +95,21 @@ test("remove()", function() {
   equal('1,4', arr.join(','));
 });
 
+test("unique()", function() {
+  var arr = [1,2,3,2,4,3];
+  equal('1,2,3,4', arr.unique().join(','));
+  equal('1,2', arr.unique(function(i){ return i%2==0; }).join(','));
+  arr = [
+    {id: 2, name: 'yo1'},
+    {id: 1, name: 'yo2'},
+    {id: 2, name: 'yo3'},
+    {id: 3, name: 'yo4'},
+    {id: 1, name: 'yo5'},
+    {id: 3, name: 'yo6'}
+  ];
+  equal('2,1,3', arr.unique(function(i){ return i.id; }).map(function(o){ return o.id; }).join(','));
+});
+
 test("append()", function() {
   var arr = [1,2,3];
   ok($.isArray(arr.append(10, 11, 222)));

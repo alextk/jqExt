@@ -1,15 +1,15 @@
 /*
 * jqExt - jQuery extensions and native javascript extensions
 *
-* Version: 0.0.4
-* Build: 33
+* Version: 0.0.5
+* Build: 36
 * Copyright 2011 Alex Tkachev
 *
 * Dual licensed under MIT or GPLv2 licenses
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: 16 Oct 2013 16:03:36
+* Date: 15 Feb 2015 14:23:15
 */
 
 /**
@@ -403,6 +403,36 @@ jQuery.ext.Extender.addUtilityMethods({
     },
 
     /**
+     * <h6>Example:</h6>
+     * <pre>
+     *  [1, 1, 3, 5, 8, 3].uniq();
+     *  // -> [1,3,5,8]
+     * </pre>
+
+     * @function {public Array} ?
+     * Returns all the elements that are different from one another
+     * @param {Function} computee - An computee function to use to return specific value to compare by (by default uses ==)
+     * @param {optional Object} context - the scope in which to call <tt>iterator</tt>. Affects what the keyword <tt>this</tt> means inside <tt>iterator</tt>.
+     * @returns array of elements for which iterater returned false
+     **/
+    unique: function(computee, context) {
+      if(arguments.length == 1) context = this;
+      computee = $.isFunction(computee) ? computee : null;
+
+      var result = [];
+      var seen = [];
+      for (var i = 0, length = this.length; i < length; i++) {
+        var value = this[i];
+        var computedValue = computee ? computee.call(context, value, i, this) : value;
+        if (!seen.include(computedValue)) {
+          seen.push(computedValue);
+          result.push(value);
+        }
+      }
+      return result;
+    },
+
+    /**
      * <h6>Examples:</h6>
      * <pre>
      *  [1,4,10,2,22].include(10);
@@ -484,6 +514,9 @@ jQuery.ext.Extender.addUtilityMethods({
   //define some aliases
   /** @function {public Array} ? alias for {@link collect} */
   Enumerable.map = Enumerable.collect;
+
+  /** @function {public Array} ? alias for {@link unique} */
+  Enumerable.uniq = Enumerable.unique;
 
   //add module to jquery ext modules collection
   $.ext.mixins.Enumerable = Enumerable;
