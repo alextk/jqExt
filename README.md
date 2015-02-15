@@ -1,6 +1,14 @@
 # [jqExt]() - jQuery extensions
 ================================
 
+jqExt extends core javascript classes with utility methods. The guidelines are to be similar to ruby api yet leave Object prototype unchanged. 
+Also there are minor extensions to jQuery framework. 
+
+* [API documentation](https://github.com/alextk/jqExt/wiki/) can be found in project wiki.
+* Also there are [Release notes](https://github.com/alextk/jqExt/wiki/Release-notes)
+
+
+
 Pre-compiled scripts
 --------------------
 If you're not interested in compiling your own version of jqExt, you can grab the pre-compiled scripts from the
