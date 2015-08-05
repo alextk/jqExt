@@ -2,14 +2,14 @@
 * jqExt - jQuery extensions and native javascript extensions
 *
 * Version: 0.0.5
-* Build: 36
+* Build: 39
 * Copyright 2011 Alex Tkachev
 *
 * Dual licensed under MIT or GPLv2 licenses
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: 15 Feb 2015 14:23:15
+* Date: 03 Aug 2015 15:15:29
 */
 
 /**
@@ -83,6 +83,10 @@
         }
       }
       return results;
+    },
+
+    values: function(obj) {
+      return Object.keys(obj).map(function(key){ return obj[key] });
     },
 
     //return new object that contains only given attributes as parameter

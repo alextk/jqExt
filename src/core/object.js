@@ -15,6 +15,10 @@
       return results;
     },
 
+    values: function(obj) {
+      return Object.keys(obj).map(function(key){ return obj[key] });
+    },
+
     //return new object that contains only given attributes as parameter
     slice: function(obj, attributes){
       var result = {};
