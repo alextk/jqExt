@@ -148,8 +148,8 @@
           delete classDefinition.include; // clean syntax sugar
         }
         if (classDefinition) Inheritance.inherit(func.prototype, classDefinition);
-        for (var i = 0; (mixin = mixins[i]); i++) {
-          Inheritance.mixin(func.prototype, mixin);
+        for (var i = 0; mixins[i]; i++) {
+          Inheritance.mixin(func.prototype, mixin[i]);
         }
 
         //set namespace
@@ -215,10 +215,10 @@
           }
         }
 
-        return (function(args) {
+        return (function f(args) {
           // store instance and class in private variables
           var instance = false;
-          var klass = Inheritance.create.apply(args.callee, args);
+          var klass = Inheritance.create.apply(f, args);
           return {
             getInstance: function () {
               if (arguments[0] == __extending) return klass;

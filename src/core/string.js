@@ -134,14 +134,23 @@
       var padlen = length - this.length;
       return strRepeat(padStr||' ', Math.ceil(padlen/2)) + this
         + strRepeat(padStr||' ', Math.floor(padlen/2));
-    }
+    },
 
+    replaceAll: function(str, newStr){
+      // If a regex pattern
+      if (Object.prototype.toString.call(str).toLowerCase() === '[object regexp]') {
+        return this.replace(str, newStr);
+      }
+      // If a string
+      return this.replace(new RegExp(str, 'g'), newStr);
+    }
   };
 
   // use native browser JS 1.6 implementation if available
   if (String.prototype.trim){ mixin.trim = String.prototype.trim; }
   if (String.prototype.trimLeft){ mixin.ltrim = String.prototype.trimLeft; }
   if (String.prototype.trimRight){ mixin.rtrim = String.prototype.trimRight; }
+  if (String.prototype.replaceAll){ mixin.replaceAll = String.prototype.replaceAll; }
 
   //define aliases
   mixin.contains = mixin.include;

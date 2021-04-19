@@ -348,7 +348,7 @@
 
   //define some aliases
   /** @function {public Array} ? alias for {@link collect} */
-  Enumerable.map = Enumerable.collect;
+  if (!Array.prototype.map) Enumerable.map = Enumerable.collect;
 
   /** @function {public Array} ? alias for {@link unique} */
   Enumerable.uniq = Enumerable.unique;

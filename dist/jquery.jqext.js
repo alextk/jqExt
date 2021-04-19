@@ -1,15 +1,15 @@
 /*
 * jqExt - jQuery extensions and native javascript extensions
 *
-* Version: 0.0.5
-* Build: 39
+* Version: 0.0.6
+* Build: 42
 * Copyright 2011 Alex Tkachev
 *
 * Dual licensed under MIT or GPLv2 licenses
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: 03 Aug 2015 15:15:29
+* Date: 19 Apr 2021 17:25:56
 */
 
 /**
@@ -517,7 +517,7 @@ jQuery.ext.Extender.addUtilityMethods({
 
   //define some aliases
   /** @function {public Array} ? alias for {@link collect} */
-  Enumerable.map = Enumerable.collect;
+  if (!Array.prototype.map) Enumerable.map = Enumerable.collect;
 
   /** @function {public Array} ? alias for {@link unique} */
   Enumerable.uniq = Enumerable.unique;
@@ -1571,52 +1571,6 @@ jQuery.extend(Date.prototype, /** @scope Date */{
 });
 (function($) {
 
-  $.extend(Function, {
-
-  });
-
-  $.extend(Function.prototype, {
-
-    /**
-     * Whenever the resulting "bound" function is called, it will call the original ensuring that this is set to context.
-     * Also optionally curries arguments for the function (meaning you can burn arguments in when binding and they will be passed to the function)
-     * @function {public Function} Function.?
-     * Binds this function to the given context by wrapping it in another function and returning the wrapper.
-     * @param {Object} context - the object in which context this function will be invoked (this variable will be context)
-     * @returns wrapped function with context and bind arguments burnt in.
-     */
-    bind: function(context) {
-      if (arguments.length < 2 && $.isUndefined(arguments[0])) {
-        return this;
-      }
-
-      var self = this;
-      var bindArgs = null; //remove context argument
-      if (arguments.length > 1) {
-        bindArgs = Array.prototype.slice.call(arguments, 1);
-      }
-
-      return function() {
-        //append method arguments to bind arguments and call the original function in context
-        var a = arguments;
-        if (bindArgs) {
-          a = bindArgs;
-          if (arguments.length > 0) {
-            var aLength = a.length, argsLength = arguments.length;
-            while (argsLength--) {
-              a[aLength + argsLength] = arguments[argsLength]; //this is the fastest was of appending elements to array
-            }
-          }
-        }
-        return self.apply(context, a);
-      };
-    }
-
-  });
-
-})(jQuery);
-(function($) {
-
   $.extend(Math, {
     /**
      * @property {public static Function} Math.?
@@ -1792,14 +1746,23 @@ jQuery.extend(RegExp, {
       var padlen = length - this.length;
       return strRepeat(padStr||' ', Math.ceil(padlen/2)) + this
         + strRepeat(padStr||' ', Math.floor(padlen/2));
-    }
+    },
 
+    replaceAll: function(str, newStr){
+      // If a regex pattern
+      if (Object.prototype.toString.call(str).toLowerCase() === '[object regexp]') {
+        return this.replace(str, newStr);
+      }
+      // If a string
+      return this.replace(new RegExp(str, 'g'), newStr);
+    }
   };
 
   // use native browser JS 1.6 implementation if available
   if (String.prototype.trim){ mixin.trim = String.prototype.trim; }
   if (String.prototype.trimLeft){ mixin.ltrim = String.prototype.trimLeft; }
   if (String.prototype.trimRight){ mixin.rtrim = String.prototype.trimRight; }
+  if (String.prototype.replaceAll){ mixin.replaceAll = String.prototype.replaceAll; }
 
   //define aliases
   mixin.contains = mixin.include;
@@ -2381,8 +2344,8 @@ jQuery.ext.Extender.addUtilityMethods({
           delete classDefinition.include; // clean syntax sugar
         }
         if (classDefinition) Inheritance.inherit(func.prototype, classDefinition);
-        for (var i = 0; (mixin = mixins[i]); i++) {
-          Inheritance.mixin(func.prototype, mixin);
+        for (var i = 0; mixins[i]; i++) {
+          Inheritance.mixin(func.prototype, mixin[i]);
         }
 
         //set namespace
@@ -2448,10 +2411,10 @@ jQuery.ext.Extender.addUtilityMethods({
           }
         }
 
-        return (function(args) {
+        return (function f(args) {
           // store instance and class in private variables
           var instance = false;
-          var klass = Inheritance.create.apply(args.callee, args);
+          var klass = Inheritance.create.apply(f, args);
           return {
             getInstance: function () {
               if (arguments[0] == __extending) return klass;
