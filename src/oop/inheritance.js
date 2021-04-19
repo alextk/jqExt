@@ -149,7 +149,7 @@
         }
         if (classDefinition) Inheritance.inherit(func.prototype, classDefinition);
         for (var i = 0; mixins[i]; i++) {
-          Inheritance.mixin(func.prototype, mixin[i]);
+          Inheritance.mixin(func.prototype, mixins[i]);
         }
 
         //set namespace
